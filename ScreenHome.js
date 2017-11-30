@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
+  Image,
   StyleSheet,
   TouchableHighlight
 } from 'react-native';
+
 
 class ScreenHome extends Component {
   static navigationOptions = {
@@ -15,19 +17,41 @@ class ScreenHome extends Component {
     console.log(this.props, "props is here");
     return (
       <View style={styles.container}>
+        <Image
+          source={require('./img/app-nav.png')}
+          style={styles.nav}
+        />
         <TouchableHighlight
           onPress={() => navigate("ScreenSplash", {screen: "Screen Splash"})}
-          style={styles.button}>
-          <Text
-            style={styles.buttonText}>Screen One </Text>
+          style={styles.magic}>
+          <Image
+          source={require('./img/magic-promo.png')}
+          style={styles.magic}
+        />
         </TouchableHighlight>
-        
+        <Image
+          source={require('./img/promo-ad.png')}
+          style={styles.promo}
+        />
+
       </View>
     );
   }
 };
 
 const styles = StyleSheet.create({
+  nav: {
+    width: 405,
+    height: 200,
+  },
+  magic: {
+    width: 405,
+    height: 100,
+  },
+  promo: {
+    width: 405,
+    height: 300,
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
