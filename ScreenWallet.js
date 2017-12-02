@@ -19,15 +19,15 @@ class ScreenWallet extends Component {
     const { params } = this.props.navigation.state;
     return (
       <Container>
-                <View >
-                    {Platform.OS === 'ios' && <View style={styles.statusBar} />}
-                    <View style={styles.toolbarContainer} >
-                        <TouchableOpacity onPress={() => this.props.navigator.pop()} >
-                            <Image style={styles.backImg} source={require('./images/back_arrow_black.png')} />
-                        </TouchableOpacity>
-                        <Text style={styles.titleTxt} >My Offers</Text>
-                    </View>
-                </View>
+        <View >
+            {Platform.OS === 'ios' && <View style={styles.statusBar} />}
+            <View style={styles.toolbarContainer} >
+                <TouchableOpacity onPress={() => this.props.navigator.pop()} >
+                    <Image style={styles.backImg} source={require('./images/back_arrow_black.png')} />
+                </TouchableOpacity>
+                <Text style={styles.titleTxt} >My Offers</Text>
+            </View>
+        </View>
         <Tabs initialPage={2} tabBarUnderlineStyle={{height: 3, backgroundColor: '#CC0000'}}>
           <Tab heading="RECENTLY ADDED" tabStyle={{backgroundColor:"#FFFFFF"}} 
                textStyle={{fontSize: 14, color: 'gray'}}
