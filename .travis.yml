@@ -7,5 +7,4 @@ before_install:
 install: 
   - npm install
 script: 
-  - npm start
   - jest --coverage
