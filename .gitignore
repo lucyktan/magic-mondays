@@ -2,3 +2,4 @@ node_modules/
 .expo/
 npm-debug.*
 coverage
+.DS_Store
