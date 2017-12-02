@@ -3,60 +3,46 @@ import {
   View,
   Text,
   Image,
+  ImageBackground,
   StyleSheet,
   TouchableHighlight
 } from 'react-native';
+import { Container, Content, Header, Title, Button, Left, Right, Body, Icon } from 'native-base';
 
 
 class ScreenHome extends Component {
   static navigationOptions = {
-    title: "Welcome"
-  }
+    header: null,
+  };
+
   render() {
     const { navigate } = this.props.navigation;
+
     console.log(this.props, "props is here");
     return (
-      <View style={styles.container}>
-        <Image
-          source={require('./img/app-nav.png')}
-          style={styles.nav}
-        />
+      <Container style={styles.backgroundImage}>
         <TouchableHighlight
-          onPress={() => navigate("ScreenSplash", {screen: "Screen Splash"})}
+          onPress={() => navigate("ScreenSplash", { screen: "Screen Splash" })}
           style={styles.magic}>
           <Image
-          source={require('./img/magic-promo.png')}
-          style={styles.magic}
-        />
+            source={require('./img/app-background.png')}
+            style={styles.backgroundImage}
+          />
         </TouchableHighlight>
-        <Image
-          source={require('./img/promo-ad.png')}
-          style={styles.promo}
-        />
-
-      </View>
+      </Container>
     );
   }
 };
 
 const styles = StyleSheet.create({
-  nav: {
-    width: 405,
-    height: 200,
+  backgroundImage: {
+    width: 414,
+    height: 715,
+    paddingTop: 12,
   },
   magic: {
-    width: 405,
-    height: 100,
-  },
-  promo: {
-    width: 405,
+    width: 600,
     height: 300,
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'red',
   },
   button: {
     alignSelf: 'stretch',
