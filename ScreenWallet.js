@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import { Container, Header, Content, Tab, Tabs } from 'native-base';
 import {
+  Image,
+  Platform,
   StyleSheet,
   View,
   Text,
-  TouchableHighlight
+  TouchableHighlight,
+  TouchableOpacity
 } from 'react-native';
 
 class ScreenWallet extends Component {
@@ -14,14 +18,29 @@ class ScreenWallet extends Component {
   render() {
     const { params } = this.props.navigation.state;
     return (
-      <View style={styles.container}>
-        <Text style={styles.titleText}>{params.screen}</Text>
-        <TouchableHighlight
-          style={styles.button}
-          onPress={() => this.props.navigation.goBack()}>
-          <Text style={styles.buttonText}>Go Back</Text>
-        </TouchableHighlight>
-      </View>
+      <Container>
+                <View >
+                    {Platform.OS === 'ios' && <View style={styles.statusBar} />}
+                    <View style={styles.toolbarContainer} >
+                        <TouchableOpacity onPress={() => this.props.navigator.pop()} >
+                            <Image style={styles.backImg} source={require('./images/back_arrow_black.png')} />
+                        </TouchableOpacity>
+                        <Text style={styles.titleTxt} >My Offers</Text>
+                    </View>
+                </View>
+        <Tabs initialPage={2} tabBarUnderlineStyle={{height: 3, backgroundColor: '#CC0000'}}>
+          <Tab heading="RECENTLY ADDED" tabStyle={{backgroundColor:"#FFFFFF"}} 
+               textStyle={{fontSize: 14, color: 'gray'}}
+               activeTextStyle={{fontSize: 14, color: 'black'}}>
+            <Text>"asdf"</Text>
+          </Tab>
+          <Tab heading="EXPIRING SOON"  tabStyle={{backgroundColor:"#FFFFFF"}}
+               textStyle={{fontSize: 14, color: 'gray'}}
+               activeTextStyle={{fontSize: 14, color: 'black'}}>
+            <Text>"asdf"</Text>
+          </Tab>
+        </Tabs>
+      </Container>
     );
   }
 }
@@ -49,6 +68,32 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     alignSelf: 'center'
+  },
+  indicatorContainer: {
+      backgroundColor: 'white',
+      height: 48,
+  },
+  statusBar: {
+      height: 24,
+      backgroundColor: 0x00000044
+  },
+  toolbarContainer: {
+      height: 56,
+      backgroundColor: 'white',
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingHorizontal: 16,
+      borderBottomColor: '#D3D3D3',
+    borderBottomWidth: 1
+  },
+  backImg: {
+      width: 16,
+      height: 17,
+  },
+  titleTxt: {
+      marginLeft: 36,
+      color: 'black',
+      fontSize: 20
   }
 })
 
