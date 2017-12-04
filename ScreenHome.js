@@ -7,7 +7,7 @@ import {
   StyleSheet,
   TouchableHighlight
 } from 'react-native';
-import { Container, Content, Header, Title, Button, Left, Right, Body, Icon } from 'native-base';
+import { Container, Button} from 'native-base';
 
 class ScreenHome extends Component {
   static navigationOptions = {
