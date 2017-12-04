@@ -16,6 +16,12 @@ class ScreenGame extends Component {
     const { state, navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
+
+
+
+
+
+        
         <Text style={styles.titleText}>{state.params.screen}</Text>
 
         <View style={styles.buttonContainer}>
