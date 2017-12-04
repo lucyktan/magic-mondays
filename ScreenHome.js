@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
+<<<<<<< HEAD
   Image,
   ImageBackground,
+=======
+>>>>>>> ff2466142e38977105efa709460330b032565ffd
   StyleSheet,
   TouchableHighlight
 } from 'react-native';
 import { Container, Content, Header, Title, Button, Left, Right, Body, Icon } from 'native-base';
-
 
 class ScreenHome extends Component {
   static navigationOptions = {
@@ -43,6 +45,10 @@ const styles = StyleSheet.create({
   magic: {
     width: 600,
     height: 300,
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   button: {
     alignSelf: 'stretch',
