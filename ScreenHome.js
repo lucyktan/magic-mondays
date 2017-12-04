@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
-<<<<<<< HEAD
   Image,
   ImageBackground,
-=======
->>>>>>> ff2466142e38977105efa709460330b032565ffd
   StyleSheet,
   TouchableHighlight
 } from 'react-native';
