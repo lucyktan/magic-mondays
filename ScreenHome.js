@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
   magic: {
     width: 600,
     height: 300,
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
