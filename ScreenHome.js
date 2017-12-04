@@ -60,5 +60,5 @@ const styles = StyleSheet.create({
     fontSize: 22,
     alignSelf: 'center'
   }
-});
+};
 export default ScreenHome;
