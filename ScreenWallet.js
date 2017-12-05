@@ -22,34 +22,19 @@ const dataBlob = {
 
 class ScreenWallet extends Component {
 
-  constructor(props) {
-    super(props)
-
-    this.dataSource = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2,
-    })
-
-    this.state = {
-      dataSource: this.dataSource.cloneWithRows([
-        { nom: 'a' },
-        { nom: 'b' },
-      ]),
-    }
-  }
-
   render() {
     const listData = dataSource.cloneWithRowsAndSections(
         dataBlob,
         Object.keys(dataBlob)
     );
-
-    const { state, navigate, goBack } = this.props.navigation;
+    const state = this.props.navigation.state;
+    const navigation = this.props.navigation;
     return (
       <Container>
         <View >
             {Platform.OS === 'ios' && <View style={styles.statusBar} />}
             <View style={styles.toolbarContainer} >
-                <TouchableOpacity onPress={() => goBack()} >
+                <TouchableOpacity>
                     <Image style={styles.backImg} source={require('./images/back_arrow_black.png')} />
                 </TouchableOpacity>
                 <Text style={styles.titleText} >My Offers</Text>
@@ -76,9 +61,9 @@ class ScreenWallet extends Component {
 
                 renderRow={(record) => 
                         <View>
-                          <ListItem onPress={() => navigate("ScreenPrize", { screen: "Screen Prize" })}>
+                          <ListItem onPress={() => navigation.navigate("ScreenPrize", { screen: "Screen Prize" })}>
                             <View>
-                              <Text>{this.props.navigation.state.params.user}{record.id}</Text>
+                              <Text>{state.params.user}{record.id}</Text>
                             </View>
                           </ListItem>
                         </View>
@@ -89,7 +74,7 @@ class ScreenWallet extends Component {
             </View>
             <View>
             <TouchableHighlight style={{height: 30, width: 125, marginLeft: 125, marginTop: 15, backgroundColor: 'gray', justifyContent: 'center', alignItems: 'center'}}
-              onPress={() => navigate("ScreenPrize", { screen: "Screen Prize" })}>
+              onPress={() => navigation.navigate("ScreenPrize", { screen: "Screen Prize" })}>
               <Text style={{fontWeight: 'normal', fontSize: 12, color: 'white'}}>ADD AN OFFER</Text>
             </TouchableHighlight>
             </View>
