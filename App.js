@@ -14,5 +14,11 @@ const App = StackNavigator({
   ScreenGame: {screen: ScreenGame},
   ScreenPrize: {screen: ScreenPrize},
   ScreenWallet: {screen: ScreenWallet},
+},
+{
+  headerMode: 'none',
+  navigationOptions: {
+    headerVisible: false,
+  }
 });
 export default App;
