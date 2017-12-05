@@ -2,31 +2,47 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
+  Image,
+  ImageBackground,
   StyleSheet,
   TouchableHighlight
 } from 'react-native';
+import { Container, Button} from 'native-base';
 
 class ScreenHome extends Component {
   static navigationOptions = {
-    title: "Welcome"
-  }
+    header: null,
+  };
+
   render() {
     const { navigate } = this.props.navigation;
-    console.log(this.props, "props is here");
+
+    console.log(this.props.navigation.state.routeName, "props is here");
     return (
-      <View style={styles.container}>
+      <Container style={styles.backgroundImage}>
         <TouchableHighlight
-          onPress={() => navigate("ScreenSplash", {screen: "Screen Splash"})}
-          style={styles.button}>
-          <Text
-            style={styles.buttonText}>Screen One </Text>
+          onPress={() => navigate("ScreenSplash", { screen: "Screen Splash" })}
+          style={styles.magic}>
+          <Image
+            source={require('./img/app-home-with-promo.jpg')}
+            style={styles.backgroundImage}
+          />
         </TouchableHighlight>
-      </View>
+      </Container>
     );
   }
 };
 
 const styles = StyleSheet.create({
+  backgroundImage: {
+    width: 414,
+    height: 715,
+    paddingTop: 5,
+  },
+  magic: {
+    width: 600,
+    height: 300,
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
