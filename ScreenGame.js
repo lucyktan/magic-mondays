@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Animated,Easing,TouchableHighlight,Button,Image,StyleSheet, Text, View } from 'react-native';
-import Wheel from './Wheel';
-import * as circle from './macys.gif';
+import Wheel from './components/Wheel';
+import * as circle from './img/macys.gif';
 class ScreenGame extends Component {
 
   constructor(props) {

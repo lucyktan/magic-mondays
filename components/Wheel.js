@@ -3,7 +3,7 @@ import React , {Component} from 'react';
 import {PanResponder, TouchableOpacity, Easing, Animated, Image, StyleSheet, Text, View} from 'react-native';
 import PropTypes from 'prop-types';
 
-import * as circle from './macys.gif';
+import * as circle from '../img/macys.gif';
 
 export default class Wheel extends Component {
   constructor(props){
