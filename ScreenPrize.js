@@ -6,8 +6,6 @@ import {
   TouchableHighlight,
   Image
 } from 'react-native';
-import ResponsiveImage from 'react-native-responsive-image';
-
 
 class ScreenPrize extends Component {
   constructor(props) {
