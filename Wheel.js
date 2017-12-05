@@ -30,24 +30,40 @@ export default class Wheel extends Component {
         onMoveShouldSetPanResponder: (evt, gestureState) => true,
         onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
         onPanResponderGrant: (e, gestureState) => {
-          console.log(gestureState,'2');
           this.state.spinValue.setOffset(this._value);
-         this.state.spinValue.setValue(0);
-
         },
         onPanResponderMove: 
             Animated.event([null, {dy: this.state.spinValue}])
+
         ,
         onPanResponderRelease: (evt,gestureState) => {
-          animateSpin(this.state.spinValue,gestureState.dy* (Math.random() *50),true)
+          Animated.timing(
+              this.state.spinValue,
+            {
+              toValue: gestureState.dy* (Math.random() *50),
+              duration: 8000,
+              easing: Easing.bezier(.12,.91,.18,.99),
+              useNativeDriver: true
+            }
+          ).start();
         }
+
       });
   }
 
   render() {
     if(this.state.buttonClicked){
-      animateSpin(this.state.spinValue,100*(Math.random()* 50),false);
-      
+      Animated.timing(
+              this.state.spinValue,
+            {
+              toValue: 100* (Math.random() *50),
+              duration: 3000,
+              easing: Easing.bezier(.12,.91,.18,.93),
+              useNativeDriver: false
+            }
+          ).start(
+            // this.props.onDone
+            );      
     }
     return (
       
@@ -70,16 +86,3 @@ const styles = StyleSheet.create({
     borderRadius: 150
   }
 });
-
-function animateSpin(initial, final,useNativeDrivers){
-  var animation = Animated.timing(
-              initial,
-            {
-              toValue: final,
-              duration: 8000,
-              easing: Easing.bezier(.12,.91,.18,.93),
-              useNativeDriver: useNativeDrivers
-            }
-          ).start();
-  return animation;
-}

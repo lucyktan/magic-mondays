@@ -1,46 +1,47 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  TouchableHighlight
-} from 'react-native';
-
+import {Animated,Easing,TouchableHighlight,Button,Image,StyleSheet, Text, View } from 'react-native';
+import Wheel from './Wheel';
+import * as circle from './macys.gif';
 class ScreenGame extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      click: false,
+      val: false
+    };
+    // this.done = this.done.bind(this);
+    
+  }
+  // done = () =>{
+    
+  //   this.setState({click: false,val : true});
+  // }
   static navigationOptions = ({ navigation }) => {
     return {
       title: `Welcome ${navigation.state.params.screen}`,
     }
   };
   render() {
+    
     const { state, navigate } = this.props.navigation;
+    if(this.state.val){
+      console.log('asd');
+      navigate("ScreenPrize", {screen: "Screen Prize"})
+    }
     return (
-      <View style={styles.container}>
-
-
-
-
-
+      <View style={styles.container}>    
+        <Wheel 
+          /*onDone={this.done}*/ navigate = {navigate} buttonClick={this.state.click} />
         
-        <Text style={styles.titleText}>{state.params.screen}</Text>
-
-        <View style={styles.buttonContainer}>
-          <TouchableHighlight
-            onPress={() => this.props.navigation.goBack()}
-            style={[styles.button, {backgroundColor: '#C56EE0'}]}>
-            <Text style={styles.buttonText}>Go Back</Text>
-          </TouchableHighlight>
-
-          <TouchableHighlight
-            onPress={() => navigate("ScreenPrize", { screen: "Screen Prize" })}
-            style={[styles.button, {backgroundColor: '#8E84FB'}]}>
-            <Text style={styles.buttonText}>Next</Text>
-          </TouchableHighlight>
+        { (this.state.click) ? <Button title={'Next Page'} onPress={() =>navigate("ScreenPrize", {screen: "Screen Prize"})} /> : <Button style={styles.button} title={'SPIN'}  onPress={() => this.setState({click: true})}/>
+        }
         </View>
-      </View>
     );
   }
 };
+
+
 
 const styles = StyleSheet.create({
   container: {
