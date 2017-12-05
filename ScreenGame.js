@@ -26,13 +26,13 @@ class ScreenGame extends Component {
     
     const { state, navigate } = this.props.navigation;
     if(this.state.val){
-      console.log('asd');
       navigate("ScreenPrize", {screen: "Screen Prize"})
     }
     return (
       <View style={styles.container}>    
         <Wheel 
-          /*onDone={this.done}*/ navigate = {navigate} buttonClick={this.state.click} />
+          /*onDone={this.done} */
+          navigate = {navigate} buttonClick={this.state.click} />
         
         { (this.state.click) ? <Button title={'Next Page'} onPress={() =>navigate("ScreenPrize", {screen: "Screen Prize"})} /> : <Button style={styles.button} title={'SPIN'}  onPress={() => this.setState({click: true})}/>
         }

@@ -43,7 +43,7 @@ export default class Wheel extends Component {
               toValue: gestureState.dy* (Math.random() *50),
               duration: 8000,
               easing: Easing.bezier(.12,.91,.18,.99),
-              useNativeDriver: true
+              useNativeDriver: false
             }
           ).start();
         }
@@ -57,7 +57,7 @@ export default class Wheel extends Component {
               this.state.spinValue,
             {
               toValue: 100* (Math.random() *50),
-              duration: 3000,
+              duration: 6000,
               easing: Easing.bezier(.12,.91,.18,.93),
               useNativeDriver: false
             }
