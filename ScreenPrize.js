@@ -22,12 +22,12 @@ class ScreenPrize extends Component {
       <View style={styles.container}>
 
 
-          <ResponsiveImage
+          <Image
             source={require('./img/congratulations.gif')}
             style={{flex: 1, width: 300, height: 100, position: 'absolute', top: 20}}
           />
 
-          <ResponsiveImage
+          <Image
             source={require('./img/prize_beautybox.png')}
             style={{flex: 2, width: 300, height: 340, position: 'absolute'}}
           />
