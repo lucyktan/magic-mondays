@@ -8,11 +8,7 @@ import {
 } from 'react-native';
 
 class ScreenPrize extends Component {
-  // static navigationOptions = ({ navigation }) => {
-  //   return {
-  //     title: `You Won!`,
-  //   }
-  // };
+
   render() {
     const { state, navigate } = this.props.navigation;
     return (

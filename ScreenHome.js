@@ -7,9 +7,7 @@ import {
 } from 'react-native';
 
 class ScreenHome extends Component {
-  static navigationOptions = {
-    title: "Welcome"
-  }
+
   render() {
     const { navigate } = this.props.navigation;
     console.log(this.props, "props is here");

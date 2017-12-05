@@ -11,7 +11,6 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-
 const dataSource = new ListView.DataSource({
     rowHasChanged: (r1, r2) => r1 !== r2,
     sectionHeaderHasChanged : (s1, s2) => s1 !== s2
@@ -22,9 +21,21 @@ const dataBlob = {
 };
 
 class ScreenWallet extends Component {
-  static navigationOptions = ({ navigation }) => ({
-    title: `Welcome ${navigation.state.params.screen}`
-  });
+
+  constructor(props) {
+    super(props)
+
+    this.dataSource = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2,
+    })
+
+    this.state = {
+      dataSource: this.dataSource.cloneWithRows([
+        { nom: 'a' },
+        { nom: 'b' },
+      ]),
+    }
+  }
 
   render() {
     const listData = dataSource.cloneWithRowsAndSections(
