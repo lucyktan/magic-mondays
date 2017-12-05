@@ -10,12 +10,10 @@ import {
 class ScreenPrize extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
   }
 
   render() {
     const navigation = this.props.navigation;
-    console.log(navigation);
     return (
       <View style={styles.container}>
 

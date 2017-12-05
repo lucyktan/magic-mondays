@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "flex": 2,
+      "height": 300,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Image
+    source={1}
+    style={
+      Object {
+        "flex": 1,
+        "height": 100,
+        "position": "absolute",
+        "top": 20,
+        "width": 300,
+      }
+    }
+  />
+  <Image
+    source={1}
+    style={
+      Object {
+        "flex": 2,
+        "height": 340,
+        "position": "absolute",
+        "width": 300,
+      }
+    }
+  />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    disabled={false}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "bottom": 90,
+        "color": "gray",
+        "fontSize": 13,
+        "marginLeft": 20,
+        "marginRight": 20,
+        "position": "absolute",
+      }
+    }
+  >
+    A chic pouch of 5 deluxe beauty samples + 1 bonus and $5 off your next beauty purchase
+  </Text>
+  <View
+    style={
+      Object {
+        "bottom": 20,
+        "flexDirection": "row",
+        "marginLeft": 20,
+        "marginRight": 20,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "flex": 2,
+              "height": 50,
+              "justifyContent": "center",
+            },
+            Object {
+              "backgroundColor": "#E22130",
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "white",
+            "fontSize": 18,
+          }
+        }
+      >
+        Save Prize to Wallet
+      </Text>
+    </View>
+  </View>
+</View>
+`;
