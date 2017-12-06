@@ -3,7 +3,6 @@ import {Animated,Easing,TouchableHighlight,Button,Image,StyleSheet, Text, View }
 import Wheel from './components/Wheel';
 import * as circle from './img/macys.gif';
 class ScreenGame extends Component {
-
   constructor(props) {
     super(props);
     this.state = {

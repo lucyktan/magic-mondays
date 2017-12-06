@@ -3,33 +3,55 @@ import {
   StyleSheet,
   View,
   Text,
-  TouchableHighlight
+  Image,
+  TouchableHighlight,
 } from 'react-native';
+import CheckBox from 'react-native-checkbox';
 
 class ScreenSplash extends Component {
+
   static navigationOptions = ({ navigation }) => {
     return {
       title: `Welcome ${navigation.state.params.screen}`,
     }
   };
+  constructor (prop, context) {
+    super(prop, context);
+    this.state = {
+      isChecked: false
+    };
+  }
+
   render() {
     const { state, navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <Text style={styles.titleText}>{state.params.screen}</Text>
-
+        <Text style={styles.titleText}>Happy Macy's Monday!</Text>
+        <Text style={styles.basicText}>Play now to unlock your prize!</Text>
+        <Image style={styles.image} source={require('./coupon.png')}/>
+        <CheckBox
+          label='I agree to the Terms & Conditions'
+          labelStyle={styles.checkTerms}
+          containerStyle={styles.checkboxContainerStyle}
+          checked={this.state.isChecked}
+          onChange={(checked) => this.setState({ isChecked: !checked })}
+          {...console.log('Terms box checked', this.state.isChecked)}/>
+          
         <View style={styles.buttonContainer}>
-          <TouchableHighlight
-            onPress={() => this.props.navigation.goBack()}
-            style={[styles.button, {backgroundColor: '#C56EE0'}]}>
-            <Text style={styles.buttonText}>Go Back</Text>
-          </TouchableHighlight>
 
-          <TouchableHighlight
-            onPress={() => navigate("ScreenGame", { screen: "Screen Game" })}
-            style={[styles.button, {backgroundColor: '#8E84FB'}]}>
-            <Text style={styles.buttonText}>Next</Text>
+        { (this.state.isChecked) ? 
+            <TouchableHighlight
+            onPress={() => navigate("ScreenGame", {screen: "Screen Game"})} 
+            style={[styles.button, {backgroundColor: '#CC0000'}]}>
+            <Text style={styles.buttonText}>Play Now!</Text>
           </TouchableHighlight>
+          : 
+          <TouchableHighlight
+            style={[styles.button, {backgroundColor: '#EB9999'}]}>
+            <Text style={styles.buttonText}>Play Now!</Text>
+          </TouchableHighlight>
+        }
+
         </View>
       </View>
     );
@@ -43,20 +65,46 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   titleText: {
-    fontSize: 22
+    color: '#CC0000',
+    fontFamily: 'Roboto',
+    fontSize: 30,
+    paddingTop: 50,
+    paddingBottom: 20,
+    textAlign: 'center'
+  },
+  checkTerms: {
+    // flexDirection: 'column',
+    flexWrap: 'wrap'
+  },
+  checkboxContainerStyle: {
+    padding: '5%',
+    //width:'80%'
+  },
+  basicText: {
+    paddingTop: 15,
+    paddingBottom: 15,
+    color: '#666666',
+    fontSize: 20,
+    textAlign: 'center'
+  },
+  image: {
+    flex: 1,
+    resizeMode: 'contain',
+    paddingLeft: 20,
+    paddingRight: 20
   },
   buttonContainer: {
-    flexDirection: 'row',
+    flex: 1,
     marginLeft: 20,
     marginRight: 20,
-    marginTop: 20
+    marginTop: 20,
+    height: 100,
+    width: 100
   },
   button: {
-    borderRadius: 20,
-    height: 50,
-    flex: 2,
     margin: 10,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    width: 100
   },
   buttonText: {
     color: 'white',
