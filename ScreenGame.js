@@ -3,10 +3,30 @@ import {Animated,Easing,TouchableHighlight,Button,Image,StyleSheet, Text, View }
 import Wheel from './components/Wheel';
 import * as circle from './img/macys.gif';
 class ScreenGame extends Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      click: false,
+      val: false
+    };
+    // this.done = this.done.bind(this);
+    
+  }
+  // done = () =>{
+    
+  //   this.setState({click: false,val : true});
+  // }
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: `Welcome ${navigation.state.params.screen}`,
+    }
+  };
   render() {
     
     const { state, navigate } = this.props.navigation;
+    if(this.state.val){
+      navigate("ScreenPrize", {screen: "Screen Prize"})
+    }
     return (
       <View style={styles.container}>    
         <Wheel 
