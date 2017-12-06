@@ -21,5 +21,4 @@ const App = StackNavigator({
     headerVisible: false,
   }
 });
-
 export default App;
