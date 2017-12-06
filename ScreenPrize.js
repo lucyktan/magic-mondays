@@ -16,8 +16,6 @@ class ScreenPrize extends Component {
     const navigation = this.props.navigation;
     return (
       <View style={styles.container}>
-
-
           <Image
             source={require('./img/congratulations.gif')}
             style={{flex: 1, width: 300, height: 100, position: 'absolute', top: 20}}

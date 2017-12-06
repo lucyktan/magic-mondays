@@ -8,6 +8,7 @@ import ScreenGame from './ScreenGame';
 import ScreenPrize from './ScreenPrize';
 import ScreenWallet from './ScreenWallet';
 
+
 const App = StackNavigator({
   ScreenHome: {screen: ScreenHome},
   ScreenSplash: {screen: ScreenSplash},
@@ -21,5 +22,4 @@ const App = StackNavigator({
     headerVisible: false,
   }
 });
-
 export default App;
