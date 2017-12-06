@@ -9,6 +9,7 @@ import {
 import CheckBox from 'react-native-checkbox';
 
 class ScreenSplash extends Component {
+
   static navigationOptions = ({ navigation }) => {
     return {
       title: `Welcome ${navigation.state.params.screen}`,
@@ -20,7 +21,7 @@ class ScreenSplash extends Component {
       isChecked: false
     };
   }
-  
+
   render() {
     const { state, navigate } = this.props.navigation;
     return (

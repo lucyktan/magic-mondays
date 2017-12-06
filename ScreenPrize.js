@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 class ScreenPrize extends Component {
+
   constructor(props) {
     super(props);
   }
@@ -16,7 +17,6 @@ class ScreenPrize extends Component {
     const navigation = this.props.navigation;
     return (
       <View style={styles.container}>
-
 
           <Image
             source={require('./img/congratulations.gif')}

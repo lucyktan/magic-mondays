@@ -10,9 +10,6 @@ import {
 import { Container, Button} from 'native-base';
 
 class ScreenHome extends Component {
-  static navigationOptions = {
-    header: null,
-  };
 
   render() {
     const { navigate } = this.props.navigation;
