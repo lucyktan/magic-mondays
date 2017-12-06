@@ -7,9 +7,6 @@ class ScreenGame extends Component {
   render() {
     
     const { state, navigate } = this.props.navigation;
-    if(this.state.val){
-      navigate("ScreenPrize", {screen: "Screen Prize"})
-    }
     return (
       <View style={styles.container}>    
         <Wheel 
