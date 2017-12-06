@@ -1,36 +1,29 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  TouchableHighlight
-} from 'react-native';
-
+import {Animated,Easing,TouchableHighlight,Button,Image,StyleSheet, Text, View } from 'react-native';
+import Wheel from './components/Wheel';
+import * as circle from './img/macys.gif';
 class ScreenGame extends Component {
 
   render() {
+    
     const { state, navigate } = this.props.navigation;
+    if(this.state.val){
+      navigate("ScreenPrize", {screen: "Screen Prize"})
+    }
     return (
-      <View style={styles.container}>
-        <Text style={styles.titleText}>{state.params.screen}</Text>
-
-        <View style={styles.buttonContainer}>
-          <TouchableHighlight
-            onPress={() => this.props.navigation.goBack()}
-            style={[styles.button, {backgroundColor: '#C56EE0'}]}>
-            <Text style={styles.buttonText}>Go Back</Text>
-          </TouchableHighlight>
-
-          <TouchableHighlight
-            onPress={() => navigate("ScreenPrize", { screen: "Screen Prize" })}
-            style={[styles.button, {backgroundColor: '#8E84FB'}]}>
-            <Text style={styles.buttonText}>Next</Text>
-          </TouchableHighlight>
+      <View style={styles.container}>    
+        <Wheel 
+          /*onDone={this.done} */
+          navigate = {navigate} buttonClick={this.state.click} />
+        
+        { (this.state.click) ? <Button title={'Next Page'} onPress={() =>navigate("ScreenPrize", {screen: "Screen Prize"})} /> : <Button style={styles.button} title={'SPIN'}  onPress={() => this.setState({click: true})}/>
+        }
         </View>
-      </View>
     );
   }
 };
+
+
 
 const styles = StyleSheet.create({
   container: {

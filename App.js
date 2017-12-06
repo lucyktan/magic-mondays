@@ -17,11 +17,9 @@ const App = StackNavigator({
   ScreenWallet: {screen: ScreenWallet},
 },
 {
-	headerMode: 'none',
-	navigationOptions: {
-		headerVisible:false
-	}
+  headerMode: 'none',
+  navigationOptions: {
+    headerVisible: false,
+  }
 });
-
-
 export default App;
