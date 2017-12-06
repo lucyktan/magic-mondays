@@ -7,11 +7,7 @@ import {
 } from 'react-native';
 
 class ScreenGame extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      title: `Welcome ${navigation.state.params.screen}`,
-    }
-  };
+
   render() {
     const { state, navigate } = this.props.navigation;
     return (

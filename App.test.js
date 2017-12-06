@@ -1,5 +1,6 @@
 import React from 'react';
 import App from './App';
+import ReactTestUtils from 'react-test-utils';
 
 import renderer from 'react-test-renderer';
 
