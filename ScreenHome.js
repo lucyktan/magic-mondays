@@ -7,7 +7,7 @@ import {
   StyleSheet,
   TouchableHighlight
 } from 'react-native';
-import { Container, Button} from 'native-base';
+import { Container} from 'native-base';
 
 class ScreenHome extends Component {
 
@@ -16,10 +16,9 @@ class ScreenHome extends Component {
 
     console.log(this.props.navigation.state.routeName, "props is here");
     return (
-      <Container style={styles.backgroundImage}>
+      <Container style={styles.container}>
         <TouchableHighlight
-          onPress={() => navigate("ScreenSplash", { screen: "Screen Splash" })}
-          style={styles.magic}>
+          onPress={() => navigate("ScreenSplash", { screen: "Screen Splash" })}>
           <Image
             source={require('./img/app-home-with-promo.jpg')}
             style={styles.backgroundImage}
@@ -31,32 +30,16 @@ class ScreenHome extends Component {
 };
 
 const styles = StyleSheet.create({
-  backgroundImage: {
-    width: 414,
-    height: 715,
-    paddingTop: 5,
-  },
-  magic: {
-    width: 600,
-    height: 300,
-  },
   container: {
     flex: 1,
+    flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    padding: '15%'
   },
-  button: {
-    alignSelf: 'stretch',
-    marginLeft: 10,
-    marginRight: 10,
-    borderRadius: 5,
-    height: 40,
-    justifyContent: 'center'
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 22,
-    alignSelf: 'center'
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'contain'
   }
 });
 export default ScreenHome;
