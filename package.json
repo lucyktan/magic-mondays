@@ -11,11 +11,12 @@
     "jest-expo": "^22.0.0",
     "jest-serializer-enzyme": "^1.0.0",
     "jsdom": "^11.5.1",
+    "react": "^16.2.0",
     "react-native-animatable": "^1.2.4",
     "react-native-mock": "^0.3.1",
     "react-native-mock-render": "0.0.19",
     "react-native-scripts": "1.7.0",
-    "react-test-renderer": "16.0.0-beta.5"
+    "react-test-renderer": "^16.2.0"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
