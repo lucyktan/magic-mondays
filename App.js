@@ -7,7 +7,7 @@ import ScreenSplash from './ScreenSplash';
 import ScreenGame from './ScreenGame';
 import ScreenPrize from './ScreenPrize';
 import ScreenWallet from './ScreenWallet';
-
+import ScreenDescription from './ScreenDescription';
 
 const App = StackNavigator({
   ScreenHome: {screen: ScreenHome},
@@ -15,6 +15,7 @@ const App = StackNavigator({
   ScreenGame: {screen: ScreenGame},
   ScreenPrize: {screen: ScreenPrize},
   ScreenWallet: {screen: ScreenWallet},
+  ScreenDescription: {screen: ScreenDescription},
 },
 {
   headerMode: 'none',
