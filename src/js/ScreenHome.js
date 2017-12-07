@@ -8,6 +8,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 import { Container, Button} from 'native-base';
+import promoImage from '../../img/app-home-with-promo.jpg';
 
 class ScreenHome extends Component {
 
@@ -21,7 +22,7 @@ class ScreenHome extends Component {
           onPress={() => navigate("ScreenSplash", { screen: "Screen Splash" })}
           style={styles.magic}>
           <Image
-            source={require('./img/app-home-with-promo.jpg')}
+            source={promoImage}
             style={styles.backgroundImage}
           />
         </TouchableHighlight>

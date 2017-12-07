@@ -5,8 +5,10 @@ import {
   Text,
   Image,
   TouchableHighlight,
+  Platform
 } from 'react-native';
 import CheckBox from 'react-native-checkbox';
+import couponImage from '../../img/coupon.png';
 
 class ScreenSplash extends Component {
 
@@ -28,7 +30,7 @@ class ScreenSplash extends Component {
       <View style={styles.container}>
         <Text style={styles.titleText}>Happy Macy's Monday!</Text>
         <Text style={styles.basicText}>Play now to unlock your prize!</Text>
-        <Image style={styles.image} source={require('./coupon.png')}/>
+        <Image style={styles.image} source={ couponImage }/>
         <CheckBox
           label='I agree to the Terms & Conditions'
           labelStyle={styles.checkTerms}
@@ -66,7 +68,7 @@ const styles = StyleSheet.create({
   },
   titleText: {
     color: '#CC0000',
-    fontFamily: 'Roboto',
+    fontFamily: (Platform.OS === 'ios')? 'Helvetica Neue' : 'Roboto',
     fontSize: 30,
     paddingTop: 50,
     paddingBottom: 20,

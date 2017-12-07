@@ -6,6 +6,8 @@ import {
   TouchableHighlight,
   Image
 } from 'react-native';
+import congratulationImage from '../../img/congratulations.gif';
+import prizeImage from '../../img/prize_beautybox.png';
 
 class ScreenPrize extends Component {
 
@@ -19,12 +21,12 @@ class ScreenPrize extends Component {
       <View style={styles.container}>
 
           <Image
-            source={require('./img/congratulations.gif')}
+            source={congratulationImage}
             style={{flex: 1, width: 300, height: 100, position: 'absolute', top: 20}}
           />
 
           <Image
-            source={require('./img/prize_beautybox.png')}
+            source={prizeImage}
             style={{flex: 2, width: 300, height: 340, position: 'absolute'}}
           />
 
