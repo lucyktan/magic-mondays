@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   },
   titleText: {
     color: '#CC0000',
-    fontFamily: 'Roboto',
+    fontFamily: 'Helvetica Neue',
     fontSize: 30,
     paddingTop: 50,
     paddingBottom: 20,
