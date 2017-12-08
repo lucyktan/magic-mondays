@@ -55,8 +55,8 @@ class ScreenWallet extends Component {
                textStyle={{fontSize: 12, color: 'gray'}}
                activeTextStyle={{fontSize: 12, color: 'black'}}>
             <View style={{height: 200}}>
-              <List>
-              <ListItem>
+            <List>
+              <ListItem onPress={() => navigation.navigate("ScreenDescription", { screen: "Screen Description" })}>
                 <Text style={{fontWeight: 'bold'}}>NEW! 
                   <Text style={{fontWeight: 'normal'}}> FRIENDS & FAMILY EVENT!{"\n"}
                       <Text style={{fontWeight: 'bold', color: '#CC0000'}}>EXTRA 30%, 25%, 15% OR 10% OFF!{"\n"}
@@ -65,15 +65,19 @@ class ScreenWallet extends Component {
                   </Text>
                 </Text>
               </ListItem>
+              <ListItem onPress={() => navigation.navigate("ScreenDescription", { screen: "Screen Description" })}>
+                <Text style={{fontWeight: 'bold'}}>{this.props.navigation.state.params.user}
+                </Text>
+              </ListItem>
             </List>
             <ListView  style={{height: 100}}
               dataSource={listData}
 
                 renderRow={(record) => 
                         <View>
-                          <ListItem onPress={() => navigation.navigate("ScreenPrize", { screen: "Screen Prize" })}>
+                          <ListItem onPress={() => navigation.navigate("ScreenDescription", { screen: "Screen Screen  Description" })}>
                             <View>
-                              <Text>{state.params.user}{record.id}</Text>
+                              <Text>{this.props.navigation.state.params.user}{record.id}</Text>
                             </View>
                           </ListItem>
                         </View>
@@ -94,7 +98,19 @@ class ScreenWallet extends Component {
           <Tab heading="EXPIRING SOON"  tabStyle={{backgroundColor:"#FFFFFF"}}
                textStyle={{fontSize: 12, color: 'gray'}}
                activeTextStyle={{fontSize: 12, color: 'black'}}>
-            <Text>"asdf"</Text>
+            <View style={{height: 200}}>
+            <List>
+              <ListItem onPress={() => navigation.navigate("ScreenPrize", { screen: "Screen Prize" })}>
+                <Text style={{fontWeight: 'bold'}}>NEW! 
+                  <Text style={{fontWeight: 'normal'}}> FRIENDS & FAMILY EVENT!{"\n"}
+                      <Text style={{fontWeight: 'bold', color: '#CC0000'}}>EXTRA 30%, 25%, 15% OR 10% OFF!{"\n"}
+                        <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black'}}>valid 11/30/2017 - 12/12/2017</Text>
+                      </Text>
+                  </Text>
+                </Text>
+              </ListItem>
+            </List>
+            </View>
           </Tab>
         </Tabs>
       </Container>
