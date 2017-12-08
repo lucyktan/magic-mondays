@@ -1,7 +1,7 @@
 import {View} from 'react-native';
 import React from 'react';
 import { configure, shallow } from 'enzyme';
-import ScreenWallet from './ScreenWallet';
+import ScreenWallet from '../src/js/ScreenWallet';
 import Adapter from 'enzyme-adapter-react-16';
 
 import renderer from 'react-test-renderer';
@@ -24,8 +24,8 @@ configure({ adapter: new Adapter() });
 describe('<ScreenWallet />', () => {
   it('Page rendered', () => {
     const rendered = shallow(
-     <View/>
+     <ScreenWallet/>
     );
-    expect(rendered).toMatchSnapshot();
+    expect(rendered).toBeTruthy();
   });
 });

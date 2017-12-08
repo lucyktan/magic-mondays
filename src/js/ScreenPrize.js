@@ -7,6 +7,9 @@ import {
   Image,
   Dimensions
 } from 'react-native';
+import congratulationImage from '../img/congratulations.gif';
+import prizeImage from '../img/prize_beautybox.png';
+import floatingStars from '../assets/floatingstars.mov';
 import { Video } from 'expo';
 
 class ScreenPrize extends Component {
@@ -20,7 +23,7 @@ class ScreenPrize extends Component {
     return (
       <View style={styles.container}>
           <Video
-            source={require('./assets/floatingstars.mov')}
+            source={require('../assets/floatingstars.mov')}
             rate={1.0}
             volume={0.0}
             muted={true}
@@ -31,12 +34,12 @@ class ScreenPrize extends Component {
           />
 
           <Image
-            source={require('./img/congratulations.jpg')}
+            source={congratulationImage}
             style={styles.congratsImage}
           />
 
           <Image resizeMode = 'cover'
-            source={require('./img/prize_beautybox.png')}
+            source={prizeImage}
             style={styles.prizeImage}
           />
 
@@ -44,7 +47,7 @@ class ScreenPrize extends Component {
 
         <View style={styles.buttonContainer}>
           <TouchableHighlight
-            onPress={() => navigation.navigate("ScreenWallet", { screen: "Screen Wallet" })}
+            onPress={() => navigation.navigate("ScreenWallet", { screen: "Screen Wallet", user: "Prize"})}
             style={[styles.button, {backgroundColor: '#E22130'}]}>
             <Text style={styles.buttonText}>Save Prize to Wallet</Text>
           </TouchableHighlight>
