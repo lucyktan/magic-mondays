@@ -8,7 +8,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 import { Container} from 'native-base';
-import promoImage from '../../img/app-home-with-promo.jpg';
+import promoImage from '../img/app-home-with-promo.jpg';
 
 class ScreenHome extends Component {
 

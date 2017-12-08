@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 
 //Our Stuff
-import arrowImage from '../../img/back_arrow_black.png';
+import arrowImage from '../img/back_arrow_black.png';
 
 
 const dataSource = new ListView.DataSource({

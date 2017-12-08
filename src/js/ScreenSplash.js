@@ -8,7 +8,7 @@ import {
   Platform
 } from 'react-native';
 import CheckBox from 'react-native-checkbox';
-import couponImage from '../../img/coupon.png';
+import couponImage from '../img/coupon.png';
 
 class ScreenSplash extends Component {
 

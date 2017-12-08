@@ -7,8 +7,9 @@ import {
   Image,
   Dimensions
 } from 'react-native';
-import congratulationImage from '../../img/congratulations.gif';
-import prizeImage from '../../img/prize_beautybox.png';
+import congratulationImage from '../img/congratulations.gif';
+import prizeImage from '../img/prize_beautybox.png';
+import floatingStars from '../assets/floatingstars.mov';
 import { Video } from 'expo';
 
 class ScreenPrize extends Component {
@@ -22,7 +23,7 @@ class ScreenPrize extends Component {
     return (
       <View style={styles.container}>
           <Video
-            source={require('./assets/floatingstars.mov')}
+            source={require('../assets/floatingstars.mov')}
             rate={1.0}
             volume={0.0}
             muted={true}
@@ -34,16 +35,11 @@ class ScreenPrize extends Component {
 
           <Image
             source={congratulationImage}
-            style={{flex: 1, width: 300, height: 100, position: 'absolute', top: 20}}
-          />
-
-          <Image
-            source={prizeImage}
             style={styles.congratsImage}
           />
 
           <Image resizeMode = 'cover'
-            source={require('./img/prize_beautybox.png')}
+            source={prizeImage}
             style={styles.prizeImage}
           />
 

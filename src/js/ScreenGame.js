@@ -3,7 +3,6 @@ import {Dimensions,Animated,Easing,TouchableHighlight,Button,Image,StyleSheet, T
 
 //Our stuff
 import Wheel from './components/Wheel';
-import * as circle from '../../img/macys.gif';
 import Modal from 'react-native-modal'
 
 class ScreenGame extends Component {
