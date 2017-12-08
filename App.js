@@ -1,13 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+// import { StyleSheet, Text, View } from 'react-native';
 import {StackNavigator,} from 'react-navigation';
 
-import ScreenHome from './ScreenHome';
-import ScreenSplash from './ScreenSplash';
-import ScreenGame from './ScreenGame';
-import ScreenPrize from './ScreenPrize';
-import ScreenWallet from './ScreenWallet';
-
+import ScreenHome from './src/js/ScreenHome';
+import ScreenSplash from './src/js/ScreenSplash';
+import ScreenGame from './src/js/ScreenGame';
+import ScreenPrize from './src/js/ScreenPrize';
+import ScreenWallet from './src/js/ScreenWallet';
+import ScreenDescription from './src/js/ScreenDescription';
 
 const App = StackNavigator({
   ScreenHome: {screen: ScreenHome},
@@ -15,6 +15,7 @@ const App = StackNavigator({
   ScreenGame: {screen: ScreenGame},
   ScreenPrize: {screen: ScreenPrize},
   ScreenWallet: {screen: ScreenWallet},
+  ScreenDescription: {screen: ScreenDescription},
 },
 {
   headerMode: 'none',
