@@ -4,32 +4,43 @@ import {
   View,
   Text,
   TouchableHighlight,
-  Image
+  Image,
+  Dimensions
 } from 'react-native';
+import { Video } from 'expo';
 
 class ScreenPrize extends Component {
-
   constructor(props) {
     super(props);
   }
 
   render() {
     const navigation = this.props.navigation;
+  
     return (
       <View style={styles.container}>
-
-          <Image
-            source={require('./img/congratulations.gif')}
-            style={{flex: 1, width: 300, height: 100, position: 'absolute', top: 20}}
+          <Video
+            source={require('./assets/floatingstars.mov')}
+            rate={1.0}
+            volume={0.0}
+            muted={true}
+            resizeMode={"cover"}
+            shouldPlay
+            isLooping
+            style={styles.video}
           />
 
           <Image
+            source={require('./img/congratulations.jpg')}
+            style={styles.congratsImage}
+          />
+
+          <Image resizeMode = 'cover'
             source={require('./img/prize_beautybox.png')}
-            style={{flex: 2, width: 300, height: 340, position: 'absolute'}}
+            style={styles.prizeImage}
           />
 
-          <Text style={{fontSize: 13, color: 'gray', position: 'absolute', marginLeft: 20, marginRight: 20, bottom: 90}}>A chic pouch of 5 deluxe beauty samples + 1 bonus and $5 off your next beauty purchase</Text>
-
+          <Text style={styles.prizeDesc}>A chic pouch of 5 deluxe beauty samples + 1 bonus and $5 off your next beauty purchase</Text>
 
         <View style={styles.buttonContainer}>
           <TouchableHighlight
@@ -50,6 +61,37 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#ffffff',
     height: 300
+  },
+  video: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+  },
+  congratsImage: {
+    flex: 1, 
+    width: 600, 
+    height: 100, 
+    position: 'absolute', 
+    top: 20
+  },
+  prizeImage: {
+    flex: 2, 
+    width: 450,
+    height: 300,
+    position: 'absolute',
+    margin: 'auto',
+    overflow: 'visible'
+  },
+  prizeDesc: {
+    fontSize: 13, 
+    color: 'gray', 
+    alignSelf: 'center',
+    position: 'absolute', 
+    marginLeft: 20, 
+    marginRight: 20, 
+    bottom: 150
   },
   titleText: {
     fontSize: 22
