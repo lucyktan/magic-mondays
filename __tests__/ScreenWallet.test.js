@@ -24,8 +24,8 @@ configure({ adapter: new Adapter() });
 describe('<ScreenWallet />', () => {
   it('Page rendered', () => {
     const rendered = shallow(
-     <View/>
+     <ScreenWaller/>
     );
-    expect(rendered).toMatchSnapshot();
+    expect(rendered).toBeTruthy();
   });
 });
