@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import {Animated,Easing,TouchableHighlight,Button,Image,StyleSheet, Text, View } from 'react-native';
+import {Dimensions,Animated,Easing,TouchableHighlight,Button,Image,StyleSheet, Text, View } from 'react-native';
+
+//Our stuff
 import Wheel from './components/Wheel';
 import * as circle from '../../img/macys.gif';
-
+import Modal from 'react-native-modal'
 
 class ScreenGame extends Component {
   constructor(props) {
@@ -10,16 +12,20 @@ class ScreenGame extends Component {
     this.state = {
       click: false,
       val: false,
-      navigate: this.props.navigation.navigate
+      navigate: this.props.navigation.navigate,
+      isModalVisable: false
     };
     this.done = this.done.bind(this); // Binding done for child to communicate to parent
-    this.handlePressSpin = this.handlePressSpin.bind(this);    
+    this.handlePressSpin = this.handlePressSpin.bind(this);  
   }
   static navigationOptions = ({ navigation }) => {
     return {
       title: `Welcome ${navigation.state.params.screen}`,
     }
   };
+  _showModal = () => this.setState({ isModalVisible: true });
+
+  _hideModal = () => this.setState({ isModalVisible: false });
 
   handlePressSpin() {
     this.setState({click: !this.state.click});
@@ -43,17 +49,23 @@ class ScreenGame extends Component {
     const { state, navigate } = this.props.navigation;
     return (
       
-      
-      <View style={styles.container}>    
-        <Text> Macy's Mondays </Text>
-        
-        <Wheel 
-          onDone = {this.done}
-          navigate = {navigate} buttonClick={this.state.click} />
-        
-        <Button style={styles.button} title={'SPIN'}  onPress={ this.handlePressSpin}/>
-        
+      <View style={{height: Dimensions.get('screen').height, width: Dimensions.get('screen').width}}>
+        <View style={styles.container}>    
+          <Text> Macy's Mondays </Text>
+          <Button title={'How to Play'} onPress={this._showModal} />
+          <Modal style={{ height: 100 , width: 344}} onBackdropPress = {this._hideModal} isVisible={this.state.isModalVisible}>
+            <View style={{ flex: 1, justifyContent:'center',alignItems:'center',backgroundColor:'white' }}>
+              <Text>Hello!</Text>
+            </View>
+          </Modal>
+          <Wheel 
+            onDone = {this.done}
+            navigate = {navigate} buttonClick={this.state.click} />
+          
+          <Button style={styles.button} title={'SPIN'}  onPress={ this.handlePressSpin}/>
+          
         </View>
+      </View>
     );
   }
 };

@@ -3,7 +3,7 @@ import React , {Component} from 'react';
 import {PanResponder, TouchableOpacity, Easing, Animated, Image, StyleSheet, Text, View} from 'react-native';
 import PropTypes from 'prop-types';
 
-import circleImage from '../../../img/macys.gif';
+import circleImage from '../../../img/Wheel.png';
 
 export default class Wheel extends Component {
   constructor(props){
@@ -55,7 +55,7 @@ export default class Wheel extends Component {
   render() {
     return (
         <View style={styles.circle} {...this._panResponder.panHandlers}>
-            <Animated.Image source={circleImage} style={{transform:[{rotate: this.state.spinValue.interpolate({inputRange: [0,180], outputRange: ["0deg","180deg"]})}]}} >
+            <Animated.Image source={circleImage} style={{height: 344, width: 344,transform:[{rotate: this.state.spinValue.interpolate({inputRange: [0,180], outputRange: ["0deg","180deg"]})}]}} >
             </Animated.Image>
         </View>
     );
