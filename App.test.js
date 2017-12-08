@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-import ScreenHome from './ScreenHome';
+import ScreenHome from './src/js/ScreenHome';
 import { mount, shallow, configure } from "enzyme";
 import ReactTestUtils from 'react-test-utils';
 import renderer from 'react-test-renderer';

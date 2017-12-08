@@ -1,15 +1,20 @@
+//Vendor stuff
 import React, { Component } from 'react';
 import { Button, Container, Header, Content, Icon, List, ListItem, Left, Body, Right, Separator, Switch, Thumbnail, Tab, Tabs } from 'native-base';
 import {
   Image,
   ListView,
   Platform,
-  StyleSheet,
   View,
   Text,
   TouchableHighlight,
-  TouchableOpacity
+  TouchableOpacity,
+  StyleSheet
 } from 'react-native';
+
+//Our Stuff
+import arrowImage from '../img/back_arrow_black.png';
+
 
 const dataSource = new ListView.DataSource({
     rowHasChanged: (r1, r2) => r1 !== r2,
@@ -29,23 +34,28 @@ class ScreenWallet extends Component {
     );
     const state = this.props.navigation.state;
     const navigation = this.props.navigation;
+
+
     return (
       <Container>
+
         <View >
-            {Platform.OS === 'ios' && <View style={styles.statusBar} />}
-            <View style={styles.toolbarContainer} >
+            {Platform.OS === 'ios' && <View style={screenWalletStyle.statusBar} />}
+            <View style={screenWalletStyle.toolbarContainer} >
                 <TouchableOpacity>
-                    <Image style={styles.backImg} source={require('./images/back_arrow_black.png')} />
+                    <Image style={screenWalletStyle.backImg} source={arrowImage} />
                 </TouchableOpacity>
-                <Text style={styles.titleText} >My Offers</Text>
+                <Text style={screenWalletStyle.titleText} >My Offers</Text>
             </View>
         </View>
+
+
         <Tabs initialPage={0} tabBarUnderlineStyle={{height: 2, backgroundColor: '#CC0000'}}>
           <Tab heading="RECENTLY ADDED" tabStyle={{backgroundColor:"#FFFFFF"}} 
                textStyle={{fontSize: 12, color: 'gray'}}
                activeTextStyle={{fontSize: 12, color: 'black'}}>
             <View style={{height: 200}}>
-            <List>
+              <List>
               <ListItem>
                 <Text style={{fontWeight: 'bold'}}>NEW! 
                   <Text style={{fontWeight: 'normal'}}> FRIENDS & FAMILY EVENT!{"\n"}
@@ -79,6 +89,8 @@ class ScreenWallet extends Component {
             </TouchableHighlight>
             </View>
           </Tab>
+
+
           <Tab heading="EXPIRING SOON"  tabStyle={{backgroundColor:"#FFFFFF"}}
                textStyle={{fontSize: 12, color: 'gray'}}
                activeTextStyle={{fontSize: 12, color: 'black'}}>
@@ -90,7 +102,7 @@ class ScreenWallet extends Component {
   }
 }
 
-const styles = StyleSheet.create({
+const screenWalletStyle = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -142,6 +154,6 @@ const styles = StyleSheet.create({
       color: 'black',
       fontSize: 20
   }
-})
+});
 
 export default ScreenWallet;
