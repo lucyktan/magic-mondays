@@ -4,10 +4,8 @@
   "private": true,
   "devDependencies": {
     "codecov": "^1.0.0",
-<<<<<<< HEAD
     "jest-expo": "^22.0.0",
     "react-native-mock": "^0.3.1",
-=======
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
     "enzyme-to-json": "^3.2.2",
@@ -18,7 +16,6 @@
     "react-native-animatable": "^1.2.4",
     "react-native-mock": "^0.3.1",
     "react-native-mock-render": "0.0.19",
->>>>>>> c8b05c385dbb16014bdb0f3da1ddcd1e3f579e0e
     "react-native-scripts": "1.7.0",
     "react-test-renderer": "16.0.0-beta.5"
   },
