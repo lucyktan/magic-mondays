@@ -1,6 +1,6 @@
 import 'react-native';
 import React from 'react';
-import ScreenPrize from '../ScreenPrize';
+import ScreenPrize from '../src/js/ScreenPrize';
 import App from '../App';
 
 import {configure, shallow, mount } from 'enzyme';
