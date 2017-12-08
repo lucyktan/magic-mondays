@@ -24,7 +24,7 @@ configure({ adapter: new Adapter() });
 describe('<ScreenWallet />', () => {
   it('Page rendered', () => {
     const rendered = shallow(
-     <ScreenWaller/>
+     <ScreenWallet/>
     );
     expect(rendered).toBeTruthy();
   });
