@@ -5,6 +5,7 @@ import {
   Text,
   TouchableHighlight,
   Image,
+  Dimensions
 } from 'react-native';
 import { Video } from 'expo';
 
@@ -18,7 +19,6 @@ class ScreenPrize extends Component {
   
     return (
       <View style={styles.container}>
-
           <Video
             source={require('./assets/floatingstars.mov')}
             rate={1.0}
@@ -31,17 +31,16 @@ class ScreenPrize extends Component {
           />
 
           <Image
-            source={require('./img/congratulations.gif')}
-            style={{flex: 1, width: 300, height: 100, position: 'absolute', top: 20}}
+            source={require('./img/congratulations.jpg')}
+            style={styles.congratsImage}
           />
 
-          <Image
+          <Image resizeMode = 'cover'
             source={require('./img/prize_beautybox.png')}
             style={styles.prizeImage}
           />
 
-          <Text style={{fontSize: 13, color: 'gray', position: 'absolute', marginLeft: 20, marginRight: 20, bottom: 90}}>A chic pouch of 5 deluxe beauty samples + 1 bonus and $5 off your next beauty purchase</Text>
-
+          <Text style={styles.prizeDesc}>A chic pouch of 5 deluxe beauty samples + 1 bonus and $5 off your next beauty purchase</Text>
 
         <View style={styles.buttonContainer}>
           <TouchableHighlight
@@ -70,12 +69,29 @@ const styles = StyleSheet.create({
     bottom: 0,
     right: 0,
   },
+  congratsImage: {
+    flex: 1, 
+    width: 600, 
+    height: 100, 
+    position: 'absolute', 
+    top: 20
+  },
   prizeImage: {
     flex: 2, 
-    width: 300, 
-    height: 340, 
+    width: 450,
+    height: 300,
     position: 'absolute',
-    margin: 'auto'
+    margin: 'auto',
+    overflow: 'visible'
+  },
+  prizeDesc: {
+    fontSize: 13, 
+    color: 'gray', 
+    alignSelf: 'center',
+    position: 'absolute', 
+    marginLeft: 20, 
+    marginRight: 20, 
+    bottom: 150
   },
   titleText: {
     fontSize: 22
