@@ -1,6 +1,6 @@
 import React from 'react';
 import {Animated,Easing,TouchableOpacity,Button,Image,StyleSheet, Text, View } from 'react-native';
-import ScreenGame from '../ScreenGame';
+import ScreenGame from '../src/js/ScreenGame';
 import renderer from 'react-test-renderer';
 import {configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
