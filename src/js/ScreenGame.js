@@ -4,7 +4,8 @@ import {Dimensions,Animated,Easing,TouchableHighlight,Button,Image,StyleSheet, T
 //Our stuff
 import Wheel from './components/Wheel';
 import Modal from 'react-native-modal'
-
+import TickerImage from '../img/Ticker.png';
+import Background from '../img/background-without-logo.png';
 class ScreenGame extends Component {
   constructor(props) {
     super(props);
@@ -48,19 +49,26 @@ class ScreenGame extends Component {
     const { state, navigate } = this.props.navigation;
     return (
       
-      <View style={{height: Dimensions.get('screen').height, width: Dimensions.get('screen').width}}>
-        <View style={styles.container}>    
-          <Text> Macy's Mondays </Text>
+      <View>
+        <View style={{position: 'absolute'}}>
+          <Image style={{flex: 1,resizeMode: 'contain',justifyContent:'center',alignItems:'center',height:Dimensions.get('screen').height,width:Dimensions.get('screen').width}} source={Background}/> 
+        </View>
+        <View style={styles.headerContainer}>
+          <Text style={styles.titleText}> Macy's Mondays </Text>
           <Button title={'How to Play'} onPress={this._showModal} />
-          <Modal style={{ height: 100 , width: 344}} onBackdropPress = {this._hideModal} isVisible={this.state.isModalVisible}>
-            <View style={{ flex: 1, justifyContent:'center',alignItems:'center',backgroundColor:'white' }}>
-              <Text>Hello!</Text>
-            </View>
-          </Modal>
+        </View>
+        <Modal style={{ height: 100 , width: 344}} onBackdropPress = {this._hideModal} isVisible={this.state.isModalVisible}>
+          <View style={{ flex: 1, justifyContent:'center',alignItems:'center',backgroundColor:'white' }}>
+            <Text>Hello!</Text>
+          </View>
+        </Modal>
+        <View style={styles.wheelContainer}>    
+
           <Wheel 
             onDone = {this.done}
             navigate = {navigate} buttonClick={this.state.click} />
-          
+          <Image source={TickerImage} resizeMode="contain" style={{top: -225,alignSelf:'center',position: 'absolute',height: 84, width: 127}}/>
+
           <Button style={styles.button} title={'SPIN'}  onPress={ this.handlePressSpin}/>
           
         </View>
@@ -72,11 +80,19 @@ class ScreenGame extends Component {
 
 
 const styles = StyleSheet.create({
-  container: {
+  wheelContainer: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    top: 400
+  },
+  headerContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: 100
   },
   titleText: {
     fontSize: 22
