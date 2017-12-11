@@ -97,7 +97,6 @@ class ScreenGame extends Component {
           <View style={styles.wheelContainer}>
             <Wheel 
               onDone = {this.done}
-              
               navigate = {navigate} buttonClick={this.state.click} />
             <Image source={tickerImage} resizeMode="contain" style={{top: -225,alignSelf:'center',position: 'absolute',height: 84, width: 127}}/>
 
