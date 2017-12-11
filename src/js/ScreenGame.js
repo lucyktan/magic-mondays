@@ -3,10 +3,10 @@ import {Dimensions,Animated,Easing,TouchableHighlight,Button,Image,StyleSheet, T
 
 //Our stuff
 import Wheel from './components/Wheel';
-import Modal from 'react-native-modal'
-import backgroundImage from '../img/background-without-logo.png'
-import macysLogo from '../img/magic-mondays-macys-mondays-logo.png'
-
+import Modal from 'react-native-modal';
+import backgroundImage from '../img/background-without-logo.png';
+import macysLogo from '../img/macys-logo-white.png';
+import tickerImage from '../img/Ticker.png';
 class ScreenGame extends Component {
   constructor(props) {
     super(props);
@@ -50,11 +50,14 @@ class ScreenGame extends Component {
     const { state, navigate } = this.props.navigation;
     return (
       
-      <View style={{height: Dimensions.get('screen').height, width: Dimensions.get('screen').width}}>
-        <View style={styles.container}>    
+      <View>
+        <View style={{position: 'absolute'}}>
+          <Image style={{flex: 1,resizeMode: 'cover',justifyContent:'center',alignItems:'center',height:Dimensions.get('screen').height,width:Dimensions.get('screen').width}} source={backgroundImage}/> 
+        </View>
+        <View style={styles.headerContainer}>    
           <Text> Macys Mondays! </Text>
           <Button title={'How to Play'} onPress={this._showModal} />
-
+        </View>
           <Modal style={styles.modalContainer2} onBackdropPress = {this._hideModal} isVisible={this.state.isModalVisible}>
             <Image style={styles.modalImage} source={backgroundImage} >
             <Image style={styles.logoModalImage} source={macysLogo}></Image>
@@ -70,14 +73,15 @@ class ScreenGame extends Component {
               </Text>
             </Image>
           </Modal>
-          <Wheel 
-            onDone = {this.done}
-            navigate = {navigate} buttonClick={this.state.click} />
-          
-          <Button style={styles.button} title={'SPIN'}  onPress={ this.handlePressSpin}/>
-          
+          <View style={styles.wheelContainer}>
+            <Wheel 
+              onDone = {this.done}
+              navigate = {navigate} buttonClick={this.state.click} />
+            <Image source={tickerImage} resizeMode="contain" style={{top: -225,alignSelf:'center',position: 'absolute',height: 84, width: 127}}/>
+
+            <Button style={styles.button} title={'SPIN'}  onPress={ this.handlePressSpin}/>
+          </View>
         </View>
-      </View>
     );
   }
 };
@@ -91,6 +95,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  headerContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: 100
+  },
   smallContainer: {
     flex: 0.5,
     flexDirection: 'column',
@@ -103,6 +114,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 20,
+  },
+  wheelContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: 400
   },
   modalImage: {
     resizeMode: 'stretch',
