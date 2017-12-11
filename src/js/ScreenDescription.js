@@ -37,7 +37,7 @@ class ScreenWallet extends Component {
             {Platform.OS === 'ios' && <View style={styles.statusBar} />}
             <View style={styles.toolbarContainer} >
                 <TouchableOpacity onPress={() => goBack()}>
-                    <Image style={styles.backImg} source={require('./images/back_arrow_black.png')} />
+                    <Image style={styles.backImg} source={require('../img/back_arrow_black.png')} />
                 </TouchableOpacity>
                 <Text style={styles.titleText} >Offer Details</Text>
             </View>
