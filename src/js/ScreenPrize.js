@@ -19,7 +19,7 @@ class ScreenPrize extends Component {
 
   render() {
     const navigation = this.props.navigation;
-  
+    console.log(this.props.navigation.state.params.prize);
     return (
       <View style={styles.container}>
           <Video
@@ -47,7 +47,7 @@ class ScreenPrize extends Component {
 
         <View style={styles.buttonContainer}>
           <TouchableHighlight
-            onPress={() => navigation.navigate("ScreenWallet", { screen: "Screen Wallet", user: "Prize"})}
+            onPress={() => navigation.navigate("ScreenWallet", { screen: "Screen Wallet", user: "Prize",prize: this.props.navigation.state.params.prize})}
             style={[styles.button, {backgroundColor: '#E22130'}]}>
             <Text style={styles.buttonText}>Save Prize to Wallet</Text>
           </TouchableHighlight>

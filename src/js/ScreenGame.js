@@ -14,7 +14,9 @@ class ScreenGame extends Component {
       click: false,
       val: false,
       navigate: this.props.navigation.navigate,
-      isModalVisable: false
+      isModalVisable: false,
+      spinVal: 0,
+      prize: 'shoe'
     };
     this.done = this.done.bind(this); // Binding done for child to communicate to parent
     this.handlePressSpin = this.handlePressSpin.bind(this);  
@@ -33,17 +35,36 @@ class ScreenGame extends Component {
     
   }
 
-  done = () =>{
-    this.setState({click: false, val: true });
+  done = (value) =>{
+    var zone = Math.floor((360-(value % 360)) / 72);
+    var reward = '';
+    switch(zone){
+      case 0:
+        reward = 'beautybox';
+        break;
+      case 1:
+        reward = 'towels'
+        break;
+      case 2:
+        reward = 'perfume'
+        break;
+      case 3:
+        reward = 'giftcard'
+        break;
+      case 4:
+        reward = 'shoes'
+        break;
+    }
+    this.setState({click: false, val: true,prize: reward});
   }
 
   componentDidUpdate() {
     setTimeout( () => {
       if(this.state.val){
         this.setState({val: false});
-        this.state.navigate("ScreenPrize", {screen: "Screen Prize"});
+        this.state.navigate("ScreenPrize", {screen: "Screen Prize",prize: this.state.prize});
       }
-    }, 900);
+    }, 6900);
   }
 
   render() {
@@ -76,6 +97,7 @@ class ScreenGame extends Component {
           <View style={styles.wheelContainer}>
             <Wheel 
               onDone = {this.done}
+              
               navigate = {navigate} buttonClick={this.state.click} />
             <Image source={tickerImage} resizeMode="contain" style={{top: -225,alignSelf:'center',position: 'absolute',height: 84, width: 127}}/>
 
