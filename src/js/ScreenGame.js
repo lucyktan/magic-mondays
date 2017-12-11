@@ -7,7 +7,6 @@ import Modal from 'react-native-modal';
 import backgroundImage from '../img/background-without-logo.png';
 import macysLogo from '../img/macys-logo-white.png';
 import tickerImage from '../img/Ticker.png';
-
 class ScreenGame extends Component {
   constructor(props) {
     super(props);
