@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Dimensions,Animated,Easing,TouchableHighlight,Button,Image,StyleSheet, Text, View } from 'react-native';
+import {Platform,Dimensions,Animated,Easing,TouchableHighlight,Button,Image,StyleSheet, Text, View } from 'react-native';
 
 //Our stuff
 import Wheel from './components/Wheel';
@@ -51,7 +51,7 @@ class ScreenGame extends Component {
       
       <View>
         <View style={{position: 'absolute'}}>
-          <Image style={{flex: 1,resizeMode: 'contain',justifyContent:'center',alignItems:'center',height:Dimensions.get('screen').height,width:Dimensions.get('screen').width}} source={Background}/> 
+          <Image style={{flex: 1,resizeMode: 'cover',justifyContent:'center',alignItems:'center',height:Dimensions.get('screen').height,width:Dimensions.get('screen').width}} source={Background}/> 
         </View>
         <View style={styles.headerContainer}>
           <Text style={styles.titleText}> Macy's Mondays </Text>
@@ -95,7 +95,9 @@ const styles = StyleSheet.create({
     top: 100
   },
   titleText: {
-    fontSize: 22
+    fontSize: 36,
+    fontFamily: (Platform.OS === 'ios')? 'Helvetica Neue' : 'Roboto',
+
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -105,15 +107,14 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 20,
+    borderColor: 'black',
     height: 50,
     flex: 2,
     margin: 10,
-    justifyContent: 'center'
-  },
-  buttonText: {
-    color: 'white',
-    alignSelf: 'center',
-    fontSize: 18
+    justifyContent: 'center',
+    backgroundColor: 'white',
+    fontFamily: (Platform.OS === 'ios')? 'Helvetica Neue' : 'Roboto',
+
   }
 });
 export default ScreenGame;
