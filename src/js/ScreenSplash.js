@@ -30,14 +30,7 @@ class ScreenSplash extends Component {
     const { state, navigate } = this.props.navigation;
     return (
       <Image
-        style={{
-          backgroundColor: '#ccc',
-          flex: 1,
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          justifyContent: 'center',
-        }}
+        style={styles.backgroundImage}
         source={Background}
       >
         <View style={styles.container}>
@@ -88,6 +81,14 @@ const styles = StyleSheet.create({
     //paddingTop: 65,
     paddingBottom: 20,
     textAlign: 'center'
+  },
+  backgroundImage: {
+    backgroundColor: '#ccc',
+    flex: 1,
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
   },
   checkTerms: {
     flexWrap: 'wrap',
