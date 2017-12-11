@@ -5,8 +5,10 @@ import {
   Text,
   Image,
   TouchableHighlight,
+  Platform
 } from 'react-native';
 import CheckBox from 'react-native-checkbox';
+import couponImage from '../img/coupon.png';
 
 class ScreenSplash extends Component {
 
@@ -28,7 +30,7 @@ class ScreenSplash extends Component {
       <View style={styles.container}>
         <Text style={styles.titleText}>Happy Macy's Monday!</Text>
         <Text style={styles.basicText}>Play now to unlock your prize!</Text>
-        <Image style={styles.image} source={require('./coupon.png')}/>
+        <Image style={styles.image} source={ couponImage }/>
         <CheckBox
           label='I agree to the Terms & Conditions'
           labelStyle={styles.checkTerms}
@@ -62,49 +64,47 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingTop: '15%'
   },
   titleText: {
     color: '#CC0000',
-    fontFamily: 'Helvetica Neue',
+    fontFamily: (Platform.OS === 'ios')? 'Helvetica Neue' : 'Roboto',
     fontSize: 30,
+    fontWeight: 'bold',
     paddingTop: 50,
     paddingBottom: 20,
     textAlign: 'center'
   },
   checkTerms: {
-    // flexDirection: 'column',
     flexWrap: 'wrap'
   },
   checkboxContainerStyle: {
-    padding: '5%',
-    //width:'80%'
+    padding: '15%'
   },
   basicText: {
-    paddingTop: 15,
-    paddingBottom: 15,
-    color: '#666666',
+    paddingTop: 20,
+    paddingBottom: 25,
+    color: 'black',
     fontSize: 20,
+    fontWeight: 'bold',
     textAlign: 'center'
   },
   image: {
     flex: 1,
-    resizeMode: 'contain',
-    paddingLeft: 20,
-    paddingRight: 20
+    resizeMode: 'contain'
   },
   buttonContainer: {
     flex: 1,
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 20,
-    height: 100,
-    width: 100
+    justifyContent: 'center',
+    paddingHorizontal: 75,
+    paddingVertical: 15
   },
   button: {
-    margin: 10,
-    justifyContent: 'center',
-    width: 100
+    alignItems: 'center',
+    paddingHorizontal: 65, 
+    paddingVertical: 15
+
   },
   buttonText: {
     color: 'white',
