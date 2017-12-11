@@ -103,14 +103,17 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-<<<<<<< HEAD
     top: 100
   },
   titleText: {
     fontSize: 36,
     fontFamily: (Platform.OS === 'ios')? 'Helvetica Neue' : 'Roboto',
-
-=======
+    fontWeight: 'bold',
+    flexWrap: 'wrap',
+    color: 'black',
+    marginLeft: 10,
+    marginTop: 15,
+    marginRight: 10
   },
   smallContainer: {
     flex: 0.5,
@@ -149,16 +152,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: 'white',
     borderRadius: 5,
-  },
-  titleText: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    flexWrap: 'wrap',
-    color: 'black',
-    marginLeft: 10,
-    marginTop: 15,
-    marginRight: 10
->>>>>>> dc1939aee132854518f6d64e3dbacb5654f8f711
   },
   buttonContainer: {
     flexDirection: 'row',
