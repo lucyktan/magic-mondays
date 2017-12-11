@@ -7,8 +7,9 @@ import {
   Image,
   Dimensions
 } from 'react-native';
-import congratulationImage from '../img/congratulations.gif';
+import congratulationImage from '../img/congratulations.jpg';
 import prizeImage from '../img/prize_beautybox.png';
+import streakImage from '../img/streak.png';
 import floatingStars from '../assets/floatingstars.mov';
 import { Video } from 'expo';
 
@@ -43,7 +44,9 @@ class ScreenPrize extends Component {
             style={styles.prizeImage}
           />
 
-          <Text style={styles.prizeDesc}>A chic pouch of 5 deluxe beauty samples + 1 bonus and $5 off your next beauty purchase</Text>
+          <Text style={styles.prizeDesc}>
+            A chic pouch of 5 deluxe beauty samples + 1 bonus and $5 off your next beauty purchase
+          </Text>
 
         <View style={styles.buttonContainer}>
           <TouchableHighlight
@@ -52,6 +55,12 @@ class ScreenPrize extends Component {
             <Text style={styles.buttonText}>Save Prize to Wallet</Text>
           </TouchableHighlight>
         </View>
+
+        <Image resizeMode = 'cover'
+          source = {streakImage}
+          style = {styles.streakImage}
+        />
+
       </View>
     );
   }
@@ -75,9 +84,9 @@ const styles = StyleSheet.create({
   congratsImage: {
     flex: 1, 
     width: 600, 
-    height: 100, 
+    height: 200, 
     position: 'absolute', 
-    top: 20
+    top: 5
   },
   prizeImage: {
     flex: 2, 
@@ -90,7 +99,7 @@ const styles = StyleSheet.create({
   prizeDesc: {
     fontSize: 13, 
     color: 'gray', 
-    alignSelf: 'center',
+    textAlign: 'center',
     position: 'absolute', 
     marginLeft: 20, 
     marginRight: 20, 
@@ -104,7 +113,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
     position: 'absolute',
-    bottom: 20
+    bottom: 80
   },
   button: {
     height: 50,
@@ -115,6 +124,13 @@ const styles = StyleSheet.create({
     color: 'white',
     alignSelf: 'center',
     fontSize: 18
+  },
+  streakImage: {
+    flex: 2,
+    width: 350,
+    height: 100,
+    position: 'absolute', 
+    bottom: -20
   }
 });
 export default ScreenPrize;
