@@ -4,6 +4,8 @@ import {Dimensions,Animated,Easing,TouchableHighlight,Button,Image,StyleSheet, T
 //Our stuff
 import Wheel from './components/Wheel';
 import Modal from 'react-native-modal'
+import backgroundImage from '../img/background-without-logo.png'
+import macysLogo from '../img/magic-mondays-macys-mondays-logo.png'
 
 class ScreenGame extends Component {
   constructor(props) {
@@ -50,12 +52,23 @@ class ScreenGame extends Component {
       
       <View style={{height: Dimensions.get('screen').height, width: Dimensions.get('screen').width}}>
         <View style={styles.container}>    
-          <Text> Macy's Mondays </Text>
+          <Text> Macys Mondays! </Text>
           <Button title={'How to Play'} onPress={this._showModal} />
-          <Modal style={{ height: 100 , width: 344}} onBackdropPress = {this._hideModal} isVisible={this.state.isModalVisible}>
-            <View style={{ flex: 1, justifyContent:'center',alignItems:'center',backgroundColor:'white' }}>
-              <Text>Hello!</Text>
-            </View>
+
+          <Modal style={styles.modalContainer2} onBackdropPress = {this._hideModal} isVisible={this.state.isModalVisible}>
+            <Image style={styles.modalImage} source={backgroundImage} >
+            <Image style={styles.logoModalImage} source={macysLogo}></Image>
+              <Text style={styles.titleText}>
+                          Lorem ipsum dolor sit amet, consectetur wer
+                          adipiscing elit. Morbi eu dignissim tellus. 
+                          Phasellus dui tortor, pulvinar eget felis id, 
+                          dictum dapibus ligula.Lorem ipsum dolor sit 
+                          amet, consectetur. Morbi eu dignissim tellus.
+                          Phasellus dui tortor, pulvinar eget felis id, 
+                          dictum dapibus ligula.Lorem ipsum dolor sit 
+                          amet, consectetur.
+              </Text>
+            </Image>
           </Modal>
           <Wheel 
             onDone = {this.done}
@@ -76,16 +89,66 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+  },
+  smallContainer: {
+    flex: 0.5,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContainer2: {
+    flex: 0.95,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  modalImage: {
+    resizeMode: 'stretch',
+    width: '85%',
+    height: '65%',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+
+  },
+  logoModalImage: {
+    flex: .25,
+    marginTop: 0,
+    resizeMode: 'contain',
+    marginBottom: 20
+  },
+  modalContainer: {
+    flex: 1,
+    flexWrap: 'wrap',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderColor: 'white',
+    borderRadius: 5,
   },
   titleText: {
-    fontSize: 22
+    fontSize: 14,
+    fontWeight: 'bold',
+    flexWrap: 'wrap',
+    color: 'black',
+    marginLeft: 10,
+    marginTop: 15,
+    marginRight: 10
   },
   buttonContainer: {
     flexDirection: 'row',
     marginLeft: 20,
     marginRight: 20,
     marginTop: 20
+  },
+  backgroundImage: {
+    flex: 0.5,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   button: {
     borderRadius: 20,
