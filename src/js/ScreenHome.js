@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: '15%'
+    padding: '0%'
   },
   backgroundImage: {
     flex: 1,
