@@ -3,12 +3,14 @@ import {
   StyleSheet,
   View,
   Text,
+  Dimensions,
   Image,
   TouchableHighlight,
   Platform
 } from 'react-native';
 import CheckBox from 'react-native-checkbox';
-import couponImage from '../img/coupon.png';
+import Background from '../img/background-without-logo.png';
+import mainImage from '../img/asset-box.png'; 
 
 class ScreenSplash extends Component {
 
@@ -27,35 +29,45 @@ class ScreenSplash extends Component {
   render() {
     const { state, navigate } = this.props.navigation;
     return (
-      <View style={styles.container}>
-        <Text style={styles.titleText}>Happy Macy's Monday!</Text>
-        <Text style={styles.basicText}>Play now to unlock your prize!</Text>
-        <Image style={styles.image} source={ couponImage }/>
-        <CheckBox
-          label='I agree to the Terms & Conditions'
-          labelStyle={styles.checkTerms}
-          containerStyle={styles.checkboxContainerStyle}
-          checked={this.state.isChecked}
-          onChange={(checked) => this.setState({ isChecked: !checked })}
-          {...console.log('Terms box checked', this.state.isChecked)}/>
-          
-        <View style={styles.buttonContainer}>
-
-        { (this.state.isChecked) ? 
-            <TouchableHighlight
-            onPress={() => navigate("ScreenGame", {screen: "Screen Game"})} 
-            style={[styles.button, {backgroundColor: '#CC0000'}]}>
-            <Text style={styles.buttonText}>Play Now!</Text>
-          </TouchableHighlight>
-          : 
-          <TouchableHighlight
-            style={[styles.button, {backgroundColor: '#EB9999'}]}>
-            <Text style={styles.buttonText}>Play Now!</Text>
-          </TouchableHighlight>
-        }
-
+      <Image
+        style={{
+          backgroundColor: '#ccc',
+          flex: 1,
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          justifyContent: 'center',
+        }}
+        source={Background}
+      >
+        <View style={styles.container}>
+          <Text style={styles.titleText}>Happy Macy's Monday!</Text>
+          <Text style={styles.basicText}>Play now to unlock your prize!</Text>
+          <Image style={styles.image} source={ mainImage }/>
+          <CheckBox
+            label='I agree to the Terms & Conditions'
+            labelStyle={styles.checkTerms}
+            containerStyle={styles.checkboxContainerStyle}
+            checked={this.state.isChecked}
+            onChange={(checked) => this.setState({ isChecked: !checked })}
+            {...console.log('Terms box checked', this.state.isChecked)}/>
+            
+          <View style={styles.buttonContainer}>
+            { (this.state.isChecked) ? 
+                <TouchableHighlight
+                onPress={() => navigate("ScreenGame", {screen: "Screen Game"})} 
+                style={[styles.button, {backgroundColor: 'blue'}]}>
+                <Text style={styles.buttonText}>Play Now!</Text>
+              </TouchableHighlight>
+              : 
+              <TouchableHighlight
+                style={[styles.button, {backgroundColor: 'lightblue'}]}>
+                <Text style={styles.buttonText}>Play Now!</Text>
+              </TouchableHighlight>
+            }
+          </View>
         </View>
-      </View>
+      </Image>
     );
   }
 };
@@ -63,28 +75,31 @@ class ScreenSplash extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: '15%'
+    top: 80
   },
   titleText: {
-    color: '#CC0000',
+    color: 'white',
     fontFamily: (Platform.OS === 'ios')? 'Helvetica Neue' : 'Roboto',
     fontSize: 30,
     fontWeight: 'bold',
-    paddingTop: 50,
+    //paddingTop: 65,
     paddingBottom: 20,
     textAlign: 'center'
   },
   checkTerms: {
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    color: 'black',
+    fontWeight: 'bold',
   },
   checkboxContainerStyle: {
-    padding: '15%'
+    paddingTop: 25
   },
   basicText: {
     paddingTop: 20,
-    paddingBottom: 25,
+    //paddingBottom: 25,
     color: 'black',
     fontSize: 20,
     fontWeight: 'bold',
@@ -92,13 +107,16 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    resizeMode: 'contain'
+    width: 300,
+    height: 300,
+    paddingBottom: 85
   },
   buttonContainer: {
     flex: 1,
     justifyContent: 'center',
     paddingHorizontal: 75,
-    paddingVertical: 15
+    paddingVertical: 15,
+    paddingBottom: 65
   },
   button: {
     alignItems: 'center',
