@@ -11,8 +11,6 @@ import {
 import CheckBox from 'react-native-checkbox';
 import Background from '../img/background-without-logo.png';
 import mainImage from '../img/asset-box.png'; 
-import couponImage from '../img/coupon.png';
-import couponPage from '../img/coupon-page.jpg'
 
 class ScreenSplash extends Component {
 
@@ -32,7 +30,14 @@ class ScreenSplash extends Component {
     const { state, navigate } = this.props.navigation;
     return (
       <Image
-        style={styles.backgroundImage}
+        style={{
+          backgroundColor: '#ccc',
+          flex: 1,
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          justifyContent: 'center',
+        }}
         source={Background}
       >
         <View style={styles.container}>
@@ -66,11 +71,8 @@ class ScreenSplash extends Component {
     );
   }
 };
-
 const styles = StyleSheet.create({
   container: {
-    height: null,
-    width: null,
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
@@ -85,14 +87,6 @@ const styles = StyleSheet.create({
     //paddingTop: 65,
     paddingBottom: 20,
     textAlign: 'center'
-  },
-  backgroundImage: {
-    backgroundColor: '#ccc',
-    flex: 1,
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    justifyContent: 'center',
   },
   checkTerms: {
     flexWrap: 'wrap',
@@ -117,8 +111,7 @@ const styles = StyleSheet.create({
     paddingBottom: 85
   },
   buttonContainer: {
-    height: 100,
-    paddingTop: 0,
+    flex: 1,
     justifyContent: 'center',
     paddingHorizontal: 75,
     paddingVertical: 15,
@@ -128,10 +121,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 65, 
     paddingVertical: 15
-
   },
   buttonText: {
-    color: '#cc0000',
+    color: 'white',
     alignSelf: 'center',
     fontSize: 18
   }
