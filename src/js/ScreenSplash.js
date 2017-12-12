@@ -11,6 +11,8 @@ import {
 import CheckBox from 'react-native-checkbox';
 import Background from '../img/background-without-logo.png';
 import mainImage from '../img/asset-box.png'; 
+import couponImage from '../img/coupon.png';
+import couponPage from '../img/coupon-page.jpg'
 
 class ScreenSplash extends Component {
 
@@ -67,6 +69,8 @@ class ScreenSplash extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    height: null,
+    width: null,
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
@@ -113,7 +117,8 @@ const styles = StyleSheet.create({
     paddingBottom: 85
   },
   buttonContainer: {
-    flex: 1,
+    height: 100,
+    paddingTop: 0,
     justifyContent: 'center',
     paddingHorizontal: 75,
     paddingVertical: 15,
@@ -126,7 +131,7 @@ const styles = StyleSheet.create({
 
   },
   buttonText: {
-    color: 'white',
+    color: '#cc0000',
     alignSelf: 'center',
     fontSize: 18
   }
