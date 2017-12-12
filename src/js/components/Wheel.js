@@ -18,7 +18,9 @@ export default class Wheel extends Component {
   componentWillReceiveProps(newProps){
 
     if(newProps.buttonClick){
-      spinAnimation(this.state.spinValue, 100* (Math.random() *50),this.props.onDone);      
+      var rngVal = 100* (Math.random() *50);
+      spinAnimation(this.state.spinValue, rngVal,this.props.onDone(rngVal));  
+    
     }
   }
 
@@ -44,7 +46,8 @@ export default class Wheel extends Component {
       ,
       // After swipe down, gets distance from initial location and animates the spin
       onPanResponderRelease: (evt,gestureState) => {
-        spinAnimation(this.state.spinValue, gestureState.dy* (Math.random() *50),this.props.onDone);
+        var rngVal = gestureState.dy* (Math.random() *50);
+        spinAnimation(this.state.spinValue, rngVal,this.props.onDone(rngVal));
       }
     });
   }
