@@ -18,7 +18,9 @@ class ScreenGame extends Component {
       click: false,
       val: false,
       navigate: this.props.navigation.navigate,
-      isModalVisable: false
+      isModalVisable: false,
+      spinVal: 0,
+      prize: 'shoe'
     };
     this.done = this.done.bind(this); // Binding done for child to communicate to parent
     this.handlePressSpin = this.handlePressSpin.bind(this);  
@@ -34,20 +36,38 @@ class ScreenGame extends Component {
 
   handlePressSpin() {
     this.setState({click: !this.state.click});
-    
   }
 
-  done = () =>{
-    this.setState({click: false, val: true });
+  done = (value) =>{
+    var zone = Math.floor((360-(value % 360)) / 72);
+    var reward = '';
+    switch(zone){
+      case 0:
+        reward = 'beautybox';
+        break;
+      case 1:
+        reward = 'towels'
+        break;
+      case 2:
+        reward = 'perfume'
+        break;
+      case 3:
+        reward = 'giftcard'
+        break;
+      case 4:
+        reward = 'shoes'
+        break;
+    }
+    this.setState({click: false, val: true,prize: reward});
   }
 
   componentDidUpdate() {
     setTimeout( () => {
       if(this.state.val){
         this.setState({val: false});
-        this.state.navigate("ScreenPrize", {screen: "Screen Prize"});
+        this.state.navigate("ScreenPrize", {screen: "Screen Prize",prize: this.state.prize});
       }
-    }, 900);
+    }, 6900);
   }
 
   render() {
@@ -61,9 +81,17 @@ class ScreenGame extends Component {
         <View style={styles.headerContainer}>    
           <Image style={styles.logoModalImage} source={macysLogo}></Image>
           <TouchableHighlight
+<<<<<<< HEAD
             style={styles.buttonLarge}
             onPress={() => {this._showModal()}}>
             <Text style={styles.buttonText}>I'm so Confused!?!?</Text>
+=======
+            
+            onPress={() => {this._showModal()}}>
+          <View style={styles.helpButton}>
+            <Text style={styles.buttonText}>Help! I'm so Confused!?!?</Text>
+          </View>
+>>>>>>> 3772093829d51f10657de4400fb2bed2018aa8ac
           </TouchableHighlight>
 
         </View>
@@ -87,6 +115,7 @@ class ScreenGame extends Component {
             <Wheel 
               onDone = {this.done}
               navigate = {navigate} buttonClick={this.state.click} />
+
             <Image source={tickerImage} resizeMode="contain" style={styles.ticker}/>
 
             <TouchableHighlight
@@ -94,6 +123,15 @@ class ScreenGame extends Component {
               onPress={() => {this.handlePressSpin()}}>
               <Image source={spinToWin2} style={styles.spinToWinStyle}/>
               
+
+
+            <Image source={tickerImage} resizeMode="contain" style={styles.ticker}/>
+
+            <TouchableHighlight onPress={() => {this.handlePressSpin()}}>
+              <View>
+              <Image source={spinToWin2} style={styles.spinToWinStyle}/>
+              </View>
+>>>>>>> 3772093829d51f10657de4400fb2bed2018aa8ac
             </TouchableHighlight>
           </View>
         </View>
@@ -104,12 +142,15 @@ class ScreenGame extends Component {
 
 
 const styles = StyleSheet.create({
+<<<<<<< HEAD
   container: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   },
+=======
+>>>>>>> 3772093829d51f10657de4400fb2bed2018aa8ac
 
   headerContainer: {
     flex: 1,
@@ -118,17 +159,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     top: 100,
 
+<<<<<<< HEAD
   },
   spinToWinStyle: {
     width: 300,
     resizeMode: 'contain',
+=======
+>>>>>>> 3772093829d51f10657de4400fb2bed2018aa8ac
   },
-  smallContainer: {
-    flex: 0.5,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
+  spinToWinStyle: {
+    width: 300,
+    resizeMode: 'contain',
+    top: -50
   },
+
   modalContainer2: {
     flex: 0.95,
     flexDirection: 'column',
@@ -141,10 +185,18 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+<<<<<<< HEAD
     top: 455,
   },
   ticker: {
     top: -218,
+=======
+    top: 450,
+    marginBottom: 0,
+  },
+  ticker: {
+    top: -210,
+>>>>>>> 3772093829d51f10657de4400fb2bed2018aa8ac
     alignSelf:'center',
     position: 'absolute',
     height: 84, 
@@ -166,15 +218,6 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     marginBottom: 20
   },
-  modalContainer: {
-    flex: 1,
-    flexWrap: 'wrap',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderColor: 'white',
-    borderRadius: 5,
-  },
   titleText: {
     fontSize: 14,
     fontWeight: 'bold',
@@ -184,6 +227,10 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginRight: 10
   },
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3772093829d51f10657de4400fb2bed2018aa8ac
   backgroundImage: {
     flex: 0.5,
     flexDirection: 'column',
@@ -204,15 +251,37 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     marginTop: 15,
   },
+<<<<<<< HEAD
+=======
+  helpButton: {
+    height: 30,
+    flex: 1,
+    borderRadius: 10,
+    borderColor: 'white',
+    justifyContent: 'center',
+    paddingHorizontal: 25, 
+    paddingVertical: 15,
+    marginTop: 80,
+    backgroundColor: 'white',
+
+  },
+>>>>>>> 3772093829d51f10657de4400fb2bed2018aa8ac
   buttonLarge: {
     height: 50,
     flex: 1,
     justifyContent: 'center',
     backgroundColor: 'white',
+<<<<<<< HEAD
     borderRadius: 10,
     paddingHorizontal: 35, 
     paddingVertical: 15,
     marginTop: 190,
+=======
+    borderRadius: 20,
+    paddingHorizontal: 35, 
+    paddingVertical: 15,
+    marginTop: 205,
+>>>>>>> 3772093829d51f10657de4400fb2bed2018aa8ac
   },
   buttonTextBlankBackground: {
     color: 'white',
@@ -223,7 +292,13 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#cc0000',
     alignSelf: 'center',
+<<<<<<< HEAD
     fontSize: 18
+=======
+    fontSize: 18,
+    borderColor: 'white',
+
+>>>>>>> 3772093829d51f10657de4400fb2bed2018aa8ac
   }
 });
 export default ScreenGame;
