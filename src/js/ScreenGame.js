@@ -36,7 +36,6 @@ class ScreenGame extends Component {
 
   handlePressSpin() {
     this.setState({click: !this.state.click});
-    
   }
 
   done = (value) =>{
@@ -82,9 +81,11 @@ class ScreenGame extends Component {
         <View style={styles.headerContainer}>    
           <Image style={styles.logoModalImage} source={macysLogo}></Image>
           <TouchableHighlight
-            style={styles.buttonLarge}
+            
             onPress={() => {this._showModal()}}>
-            <Text style={styles.buttonText}>I'm so Confused!?!?</Text>
+          <View style={styles.helpButton}>
+            <Text style={styles.buttonText}>Help! I'm so Confused!?!?</Text>
+          </View>
           </TouchableHighlight>
 
         </View>
@@ -108,13 +109,13 @@ class ScreenGame extends Component {
             <Wheel 
               onDone = {this.done}
               navigate = {navigate} buttonClick={this.state.click} />
+
             <Image source={tickerImage} resizeMode="contain" style={styles.ticker}/>
 
-            <TouchableHighlight
-              style={styles.buttonSmall}
-              onPress={() => {this.handlePressSpin()}}>
+            <TouchableHighlight onPress={() => {this.handlePressSpin()}}>
+              <View>
               <Image source={spinToWin2} style={styles.spinToWinStyle}/>
-              
+              </View>
             </TouchableHighlight>
           </View>
         </View>
@@ -125,12 +126,6 @@ class ScreenGame extends Component {
 
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
 
   headerContainer: {
     flex: 1,
@@ -143,13 +138,9 @@ const styles = StyleSheet.create({
   spinToWinStyle: {
     width: 300,
     resizeMode: 'contain',
+    top: -50
   },
-  smallContainer: {
-    flex: 0.5,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+
   modalContainer2: {
     flex: 0.95,
     flexDirection: 'column',
@@ -162,10 +153,11 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    top: 455,
+    top: 450,
+    marginBottom: 0,
   },
   ticker: {
-    top: -218,
+    top: -210,
     alignSelf:'center',
     position: 'absolute',
     height: 84, 
@@ -187,15 +179,6 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     marginBottom: 20
   },
-  modalContainer: {
-    flex: 1,
-    flexWrap: 'wrap',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderColor: 'white',
-    borderRadius: 5,
-  },
   titleText: {
     fontSize: 14,
     fontWeight: 'bold',
@@ -205,6 +188,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginRight: 10
   },
+
   backgroundImage: {
     flex: 0.5,
     flexDirection: 'column',
@@ -225,15 +209,27 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     marginTop: 15,
   },
+  helpButton: {
+    height: 30,
+    flex: 1,
+    borderRadius: 10,
+    borderColor: 'white',
+    justifyContent: 'center',
+    paddingHorizontal: 25, 
+    paddingVertical: 15,
+    marginTop: 80,
+    backgroundColor: 'white',
+
+  },
   buttonLarge: {
     height: 50,
     flex: 1,
     justifyContent: 'center',
     backgroundColor: 'white',
-    borderRadius: 10,
+    borderRadius: 20,
     paddingHorizontal: 35, 
     paddingVertical: 15,
-    marginTop: 190,
+    marginTop: 205,
   },
   buttonTextBlankBackground: {
     color: 'white',
@@ -244,7 +240,9 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#cc0000',
     alignSelf: 'center',
-    fontSize: 18
+    fontSize: 18,
+    borderColor: 'white',
+
   }
 });
 export default ScreenGame;
