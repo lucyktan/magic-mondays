@@ -8,14 +8,15 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({adapter: new Adapter()});
 
 it('renders without crashing', () => {
-  let state = {
+  let navigation = {state: {
 	  key: 'id-1512512594799-2',
 	  params: {
 	    screen: 'Screen Game',
+      user: 'Hello'
   	},
      routeName: 'ScreenGame',
-   };
-  // const rendered = renderer.create(<ScreenGame />).toJSON();
+   }};
+  const rendered = renderer.create(<ScreenGame navigation={navigation} />).toJSON();
   expect(true).toBeTruthy();
 });
 

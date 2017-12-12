@@ -4,9 +4,13 @@ import {Dimensions,Animated,Easing,TouchableHighlight,Button,Image,StyleSheet, T
 //Our stuff
 import Wheel from './components/Wheel';
 import Modal from 'react-native-modal';
+import backgroundLogoImage from '../img/background-with-logo.png';
 import backgroundImage from '../img/background-without-logo.png';
 import macysLogo from '../img/macys-logo-white.png';
 import tickerImage from '../img/Ticker.png';
+import spinToWin from '../img/Spin-To-Win-Skinny.png';
+import spinToWin2 from '../img/Spin-To-Win-Wide.png';
+
 class ScreenGame extends Component {
   constructor(props) {
     super(props);
@@ -32,7 +36,6 @@ class ScreenGame extends Component {
 
   handlePressSpin() {
     this.setState({click: !this.state.click});
-    
   }
 
   done = (value) =>{
@@ -73,11 +76,18 @@ class ScreenGame extends Component {
       
       <View>
         <View style={{position: 'absolute'}}>
-          <Image style={{flex: 1,resizeMode: 'cover',justifyContent:'center',alignItems:'center',height:Dimensions.get('screen').height,width:Dimensions.get('screen').width}} source={backgroundImage}/> 
+           <Image style={{flex: 1,resizeMode: 'cover',justifyContent:'center',alignItems:'center',height:Dimensions.get('screen').height,width:Dimensions.get('screen').width}} source={backgroundLogoImage}/> 
         </View>
         <View style={styles.headerContainer}>    
-          <Text> Macys Mondays! </Text>
-          <Button title={'How to Play'} onPress={this._showModal} />
+          <Image style={styles.logoModalImage} source={macysLogo}></Image>
+          <TouchableHighlight
+            
+            onPress={() => {this._showModal()}}>
+          <View style={styles.helpButton}>
+            <Text style={styles.buttonText}>Help! I'm so Confused!?!?</Text>
+          </View>
+          </TouchableHighlight>
+
         </View>
           <Modal style={styles.modalContainer2} onBackdropPress = {this._hideModal} isVisible={this.state.isModalVisible}>
             <Image style={styles.modalImage} source={backgroundImage} >
@@ -95,12 +105,18 @@ class ScreenGame extends Component {
             </Image>
           </Modal>
           <View style={styles.wheelContainer}>
+
             <Wheel 
               onDone = {this.done}
               navigate = {navigate} buttonClick={this.state.click} />
-            <Image source={tickerImage} resizeMode="contain" style={{top: -225,alignSelf:'center',position: 'absolute',height: 84, width: 127}}/>
 
-            <Button style={styles.button} title={'SPIN'}  onPress={ this.handlePressSpin}/>
+            <Image source={tickerImage} resizeMode="contain" style={styles.ticker}/>
+
+            <TouchableHighlight onPress={() => {this.handlePressSpin()}}>
+              <View>
+              <Image source={spinToWin2} style={styles.spinToWinStyle}/>
+              </View>
+            </TouchableHighlight>
           </View>
         </View>
     );
@@ -110,25 +126,21 @@ class ScreenGame extends Component {
 
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+
   headerContainer: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    top: 100
+    top: 100,
+
   },
-  smallContainer: {
-    flex: 0.5,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
+  spinToWinStyle: {
+    width: 300,
+    resizeMode: 'contain',
+    top: -50
   },
+
   modalContainer2: {
     flex: 0.95,
     flexDirection: 'column',
@@ -141,7 +153,15 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    top: 400
+    top: 450,
+    marginBottom: 0,
+  },
+  ticker: {
+    top: -210,
+    alignSelf:'center',
+    position: 'absolute',
+    height: 84, 
+    width: 127
   },
   modalImage: {
     resizeMode: 'stretch',
@@ -159,15 +179,6 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     marginBottom: 20
   },
-  modalContainer: {
-    flex: 1,
-    flexWrap: 'wrap',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderColor: 'white',
-    borderRadius: 5,
-  },
   titleText: {
     fontSize: 14,
     fontWeight: 'bold',
@@ -177,29 +188,61 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginRight: 10
   },
-  buttonContainer: {
-    flexDirection: 'row',
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 20
-  },
+
   backgroundImage: {
     flex: 0.5,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  button: {
-    borderRadius: 20,
+  buttonContainer: {
+    flexDirection: 'column',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 150,
+  },
+  buttonSmall: {
     height: 50,
     flex: 2,
-    margin: 10,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingHorizontal: 45, 
+    paddingVertical: 15,
+    marginTop: 15,
   },
-  buttonText: {
+  helpButton: {
+    height: 30,
+    flex: 1,
+    borderRadius: 10,
+    borderColor: 'white',
+    justifyContent: 'center',
+    paddingHorizontal: 25, 
+    paddingVertical: 15,
+    marginTop: 80,
+    backgroundColor: 'white',
+
+  },
+  buttonLarge: {
+    height: 50,
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: 'white',
+    borderRadius: 20,
+    paddingHorizontal: 35, 
+    paddingVertical: 15,
+    marginTop: 205,
+  },
+  buttonTextBlankBackground: {
     color: 'white',
     alignSelf: 'center',
-    fontSize: 18
+    fontSize: 48,
+    fontWeight: 'bold',
+  },
+  buttonText: {
+    color: '#cc0000',
+    alignSelf: 'center',
+    fontSize: 18,
+    borderColor: 'white',
+
   }
 });
 export default ScreenGame;

@@ -13,19 +13,29 @@ configure({ adapter: new Adapter() });
 // 	expect(tree).toMatchSnapshot();
 // });
 
+describe('<ScreenWallet />', () => {
+  it('Page rendered', () => {
+
+    let navigation = {state: {
+	  key: 'id-1512512594799-2',
+	  params: {
+	    screen: 'Screen Game',
+      user: 'hello'
+  	},
+     routeName: 'ScreenGame',
+   }
+  };
+    const rendered = shallow(
+    	<ScreenWallet navigation={navigation}/>
+    );
+    expect(rendered).toMatchSnapshot();
+  });
+});
 // describe('<ScreenWallet />', () => {
 //   it('Page rendered', () => {
 //     const rendered = shallow(
-//     	<ScreenWallet state="true"/>
+//      <ScreenWallet/>
 //     );
-//     expect(rendered).toMatchSnapshot();
+//     expect(rendered).toBeTruthy();
 //   });
 // });
-describe('<ScreenWallet />', () => {
-  it('Page rendered', () => {
-    const rendered = shallow(
-     <ScreenWallet/>
-    );
-    expect(rendered).toBeTruthy();
-  });
-});
