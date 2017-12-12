@@ -22,6 +22,49 @@ const dataBlob = {
 
 class ScreenWallet extends Component {
 
+  identifyPrize(){
+    switch (this.props.navigation.state.params.prize) {
+      case 'shoe':
+        return (
+          <Text style={{fontWeight: 'bold', fontSize: 18, marginTop: 20}}>NEW! 
+            <Text style={{fontWeight: 'normal', marginTop: 50, marginLeft: 50}}> FRIENDS & FAMILY EVENT!{"\n"}
+            <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}
+                <Text style={{fontWeight: 'bold', fontSize: 18, color: '#CC0000', marginTop: 50, marginLeft: 50}}>EXTRA 30%, 25%, 15% OR 10% OFF!{"\n"}
+                <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}
+                  <Text style={{fontWeight: 'normal', fontSize: 10, color: 'gray'}}>Applies to select merchandise. See details & exclusions below.{"\n"}</Text>
+                  <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}</Text>
+                  <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black', marginTop: 50, marginLeft: 50}}>valid 11/30/2017 - 12/12/2017</Text>
+                </Text>
+                </Text>
+            </Text>
+            </Text>
+          </Text>
+          );
+      case 'towel':
+        return (
+          <Text style={{fontWeight: 'bold'}}>BUY 1 GET 1 FREE ON TOWELS</Text>
+          );
+      case 'giftcard':
+        return (
+          <Text style={{fontWeight: 'bold'}}>FREE $10 Gift Card</Text>
+          );
+      case 'beauty':
+        return (
+          <Text style={{fontWeight: 'bold'}}>CHIC POUCH of 5 DELUXE BEAUTY SAMPLES{"\n"}
+            <Text style={{fontWeight: 'bold', color: '#CC0000'}}>+ 1 BONUS and $5 OFF YOUR NEXT BEAUTY{"\n"}
+                                             PURCHASE{"\n"}
+              <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black'}}>valid 1/21/2018 - 2/21/2018
+              </Text>
+            </Text>
+          </Text>
+          );
+      default:
+        return (
+          <Text style={{fontWeight: 'bold'}}>PRIZE</Text>
+          );
+      }
+  };
+
   render() {
     const listData = dataSource.cloneWithRowsAndSections(
         dataBlob,
@@ -43,19 +86,7 @@ class ScreenWallet extends Component {
             </View>
         </View>
         <View style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-          <Text style={{fontWeight: 'bold', fontSize: 18, marginTop: 20}}>NEW! 
-            <Text style={{fontWeight: 'normal', marginTop: 50, marginLeft: 50}}> FRIENDS & FAMILY EVENT!{"\n"}
-            <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}
-                <Text style={{fontWeight: 'bold', fontSize: 18, color: '#CC0000', marginTop: 50, marginLeft: 50}}>EXTRA 30%, 25%, 15% OR 10% OFF!{"\n"}
-                <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}
-                  <Text style={{fontWeight: 'normal', fontSize: 10, color: 'gray'}}>Applies to select merchandise. See details & exclusions below.{"\n"}</Text>
-                  <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}</Text>
-                  <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black', marginTop: 50, marginLeft: 50}}>valid 11/30/2017 - 12/12/2017</Text>
-                </Text>
-                </Text>
-            </Text>
-            </Text>
-          </Text>
+        { this.props.navigation.state.params.prize == 'shoe' ? this.identifyPrize() : null }
         </View>
         <View style={{borderColor: 'black', justifyContent: 'center', alignItems: 'center', borderWidth: 1, marginLeft: 13, marginRight: 13, marginTop: 20}}>
           <Text style={{fontWeight: '500', fontSize: 14, margin: 15}}>Promo code:

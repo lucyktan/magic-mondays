@@ -25,7 +25,39 @@ const dataBlob = {
   "List1": [{'id': '1'}, {'id': '2'}, {'id': '3'}]
 };
 
+
 class ScreenWallet extends Component {
+
+    identifyPrize(){
+      switch (this.props.navigation.state.params.prize) {
+        case 'beauty':
+          return (
+            <Text style={{fontWeight: 'bold'}}>50% OFF YOUR NEXT PURCHASE OF SHOES</Text>
+            );
+        case 'towel':
+          return (
+            <Text style={{fontWeight: 'bold'}}>BUY 1 GET 1 FREE ON TOWELS</Text>
+            );
+        case 'giftcard':
+          return (
+            <Text style={{fontWeight: 'bold'}}>FREE $10 Gift Card</Text>
+            );
+        case 'shoe':
+          return (
+            <Text style={{fontWeight: 'bold'}}>CHIC POUCH of 5 DELUXE BEAUTY SAMPLES{"\n"}
+              <Text style={{fontWeight: 'bold', color: '#CC0000'}}>+ 1 BONUS and $5 OFF YOUR NEXT BEAUTY{"\n"}
+                                               PURCHASE{"\n"}
+                <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black'}}>valid 1/21/2018 - 2/21/2018
+                </Text>
+              </Text>
+            </Text>
+            );
+        default:
+          return (
+            <Text style={{fontWeight: 'bold'}}>PRIZE</Text>
+            );
+        }
+    };
 
   render() {
     const listData = dataSource.cloneWithRowsAndSections(
@@ -65,9 +97,10 @@ class ScreenWallet extends Component {
                   </Text>
                 </Text>
               </ListItem>
-              <ListItem onPress={() => navigation.navigate("ScreenDescription", { screen: "Screen Description" })}>
-                <Text style={{fontWeight: 'bold'}}>{this.props.navigation.state.params.user}
-                </Text>
+              <ListItem onPress={() => navigation.navigate("ScreenDescription", { screen: "Screen Description", prize: this.props.navigation.state.params.prize })}>
+                <View>
+                  { this.props.navigation.state.params.prize == 'shoe' ? this.identifyPrize() : null }
+                </View>
               </ListItem>
             </List>
             <ListView  style={{height: 100}}
@@ -77,7 +110,7 @@ class ScreenWallet extends Component {
                         <View>
                           <ListItem onPress={() => navigation.navigate("ScreenDescription", { screen: "Screen Screen  Description" })}>
                             <View>
-                              <Text>{this.props.navigation.state.params.user}{record.id}</Text>
+                              <Text>{this.props.navigation.state.params.prize}{record.id}</Text>
                             </View>
                           </ListItem>
                         </View>

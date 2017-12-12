@@ -14,7 +14,8 @@ class ScreenGame extends Component {
       click: false,
       val: false,
       navigate: this.props.navigation.navigate,
-      isModalVisable: false
+      isModalVisable: false,
+      prize: 'shoe'
     };
     this.done = this.done.bind(this); // Binding done for child to communicate to parent
     this.handlePressSpin = this.handlePressSpin.bind(this);  
@@ -41,7 +42,7 @@ class ScreenGame extends Component {
     setTimeout( () => {
       if(this.state.val){
         this.setState({val: false});
-        this.state.navigate("ScreenPrize", {screen: "Screen Prize"});
+        this.state.navigate("ScreenPrize", {screen: "Screen Prize", prize: this.state.prize});
       }
     }, 900);
   }

@@ -47,7 +47,7 @@ class ScreenPrize extends Component {
 
         <View style={styles.buttonContainer}>
           <TouchableHighlight
-            onPress={() => navigation.navigate("ScreenWallet", { screen: "Screen Wallet", user: "Prize"})}
+            onPress={() => navigation.navigate("ScreenWallet", { screen: "Screen Wallet", prize: this.props.navigation.state.params.prize})}
             style={[styles.button, {backgroundColor: '#E22130'}]}>
             <Text style={styles.buttonText}>Save Prize to Wallet</Text>
           </TouchableHighlight>
