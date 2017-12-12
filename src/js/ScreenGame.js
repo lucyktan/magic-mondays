@@ -3,17 +3,14 @@ import {Dimensions,Animated,Easing,TouchableHighlight,Button,Image,StyleSheet, T
 
 //Our stuff
 import Wheel from './components/Wheel';
-<<<<<<< HEAD
-import Modal from 'react-native-modal'
-import backgroundImage from '../img/background-without-logo.png'
-import macysLogo from '../img/magic-mondays-macys-mondays-logo.png'
-
-=======
 import Modal from 'react-native-modal';
+import backgroundLogoImage from '../img/background-with-logo.png';
 import backgroundImage from '../img/background-without-logo.png';
 import macysLogo from '../img/macys-logo-white.png';
 import tickerImage from '../img/Ticker.png';
->>>>>>> 683fb2e130a0ba69dfc3cea994ed8669797a9313
+import spinToWin from '../img/Spin-To-Win-Skinny.png';
+import spinToWin2 from '../img/Spin-To-Win-Wide.png';
+
 class ScreenGame extends Component {
   constructor(props) {
     super(props);
@@ -57,17 +54,18 @@ class ScreenGame extends Component {
     const { state, navigate } = this.props.navigation;
     return (
       
-      <View style={{height: Dimensions.get('screen').height, width: Dimensions.get('screen').width}}>
-        <View style={styles.container}>    
-          <Text> Macys Mondays! </Text>
-          <Button title={'How to Play'} onPress={this._showModal} />
       <View>
         <View style={{position: 'absolute'}}>
-          <Image style={{flex: 1,resizeMode: 'cover',justifyContent:'center',alignItems:'center',height:Dimensions.get('screen').height,width:Dimensions.get('screen').width}} source={backgroundImage}/> 
+           <Image style={{flex: 1,resizeMode: 'cover',justifyContent:'center',alignItems:'center',height:Dimensions.get('screen').height,width:Dimensions.get('screen').width}} source={backgroundLogoImage}/> 
         </View>
         <View style={styles.headerContainer}>    
-          <Text> Macys Mondays! </Text>
-          <Button title={'How to Play'} onPress={this._showModal} />
+          <Image style={styles.logoModalImage} source={macysLogo}></Image>
+          <TouchableHighlight
+            style={styles.buttonLarge}
+            onPress={() => {this._showModal()}}>
+            <Text style={styles.buttonText}>I'm so Confused!?!?</Text>
+          </TouchableHighlight>
+
         </View>
           <Modal style={styles.modalContainer2} onBackdropPress = {this._hideModal} isVisible={this.state.isModalVisible}>
             <Image style={styles.modalImage} source={backgroundImage} >
@@ -85,12 +83,18 @@ class ScreenGame extends Component {
             </Image>
           </Modal>
           <View style={styles.wheelContainer}>
+
             <Wheel 
               onDone = {this.done}
               navigate = {navigate} buttonClick={this.state.click} />
-            <Image source={tickerImage} resizeMode="contain" style={{top: -225,alignSelf:'center',position: 'absolute',height: 84, width: 127}}/>
+            <Image source={tickerImage} resizeMode="contain" style={styles.ticker}/>
 
-            <Button style={styles.button} title={'SPIN'}  onPress={ this.handlePressSpin}/>
+            <TouchableHighlight
+              style={styles.buttonSmall}
+              onPress={() => {this.handlePressSpin()}}>
+              <Image source={spinToWin2} style={styles.spinToWinStyle}/>
+              
+            </TouchableHighlight>
           </View>
         </View>
     );
@@ -106,16 +110,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-<<<<<<< HEAD
-=======
+
   headerContainer: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    top: 100
+    top: 100,
+
   },
->>>>>>> 683fb2e130a0ba69dfc3cea994ed8669797a9313
+  spinToWinStyle: {
+    width: 300,
+    resizeMode: 'contain',
+  },
   smallContainer: {
     flex: 0.5,
     flexDirection: 'column',
@@ -129,16 +136,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 20,
   },
-<<<<<<< HEAD
-=======
   wheelContainer: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    top: 400
+    top: 455,
   },
->>>>>>> 683fb2e130a0ba69dfc3cea994ed8669797a9313
+  ticker: {
+    top: -218,
+    alignSelf:'center',
+    position: 'absolute',
+    height: 84, 
+    width: 127
+  },
   modalImage: {
     resizeMode: 'stretch',
     width: '85%',
@@ -173,27 +184,44 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginRight: 10
   },
-  buttonContainer: {
-    flexDirection: 'row',
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 20
-  },
   backgroundImage: {
     flex: 0.5,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  button: {
-    borderRadius: 20,
+  buttonContainer: {
+    flexDirection: 'column',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 150,
+  },
+  buttonSmall: {
     height: 50,
     flex: 2,
-    margin: 10,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingHorizontal: 45, 
+    paddingVertical: 15,
+    marginTop: 15,
+  },
+  buttonLarge: {
+    height: 50,
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: 'white',
+    borderRadius: 10,
+    paddingHorizontal: 35, 
+    paddingVertical: 15,
+    marginTop: 190,
+  },
+  buttonTextBlankBackground: {
+    color: 'white',
+    alignSelf: 'center',
+    fontSize: 48,
+    fontWeight: 'bold',
   },
   buttonText: {
-    color: 'white',
+    color: '#cc0000',
     alignSelf: 'center',
     fontSize: 18
   }
