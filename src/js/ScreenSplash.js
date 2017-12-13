@@ -11,6 +11,7 @@ import {
 import CheckBox from 'react-native-checkbox';
 import Background from '../img/background-without-logo.png';
 import mainImage from '../img/asset-box.png'; 
+import logo from '../img/logo.png';
 
 class ScreenSplash extends Component {
 
@@ -31,7 +32,6 @@ class ScreenSplash extends Component {
     return (
       <Image
         style={{
-          backgroundColor: '#ccc',
           flex: 1,
           position: 'absolute',
           width: '100%',
@@ -41,7 +41,7 @@ class ScreenSplash extends Component {
         source={Background}
       >
         <View style={styles.container}>
-          <Text style={styles.titleText}>Happy Macy's Monday!</Text>
+          <Image style={styles.logo} source={logo}/>
           <Text style={styles.basicText}>Play now to unlock your prize!</Text>
           <Image style={styles.image} source={ mainImage }/>
           <CheckBox
@@ -56,12 +56,12 @@ class ScreenSplash extends Component {
             { (this.state.isChecked) ? 
                 <TouchableHighlight
                 onPress={() => navigate("ScreenGame", {screen: "Screen Game"})} 
-                style={[styles.button, {backgroundColor: 'blue'}]}>
+                style={[styles.button, {backgroundColor: '#45A2C4'}]}>
                 <Text style={styles.buttonText}>Play Now!</Text>
               </TouchableHighlight>
               : 
               <TouchableHighlight
-                style={[styles.button, {backgroundColor: 'lightblue'}]}>
+                style={[styles.button, {backgroundColor: '#cbe5ef'}]}>
                 <Text style={styles.buttonText}>Play Now!</Text>
               </TouchableHighlight>
             }
@@ -77,38 +77,42 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    top: 80
-  },
-  titleText: {
-    color: 'white',
-    fontFamily: (Platform.OS === 'ios')? 'Helvetica Neue' : 'Roboto',
-    fontSize: 30,
-    fontWeight: 'bold',
-    //paddingTop: 65,
-    paddingBottom: 20,
-    textAlign: 'center'
+    top: 50
   },
   checkTerms: {
     flexWrap: 'wrap',
-    color: 'black',
+    color: 'white',
     fontWeight: 'bold',
+    textShadowColor: 'black',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 10,
   },
   checkboxContainerStyle: {
     paddingTop: 25
   },
   basicText: {
+    backgroundColor: 'transparent',
+    textShadowColor: 'black',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 10,
+    letterSpacing: 2,
     paddingTop: 20,
-    //paddingBottom: 25,
-    color: 'black',
+    //paddingBottom: 15,
+    color: 'white',
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center'
+  },
+  logo: {
+    flex: 1,
+    resizeMode: 'center',
+    paddingBottom: 35
   },
   image: {
     flex: 1,
     width: 300,
     height: 300,
-    paddingBottom: 85
+    paddingBottom: 190
   },
   buttonContainer: {
     flex: 1,
