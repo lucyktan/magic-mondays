@@ -1,37 +1,29 @@
 import {View} from 'react-native';
 import React from 'react';
 import { configure, shallow } from 'enzyme';
-import ScreenWallet from '../src/js/ScreenWallet';
+import ScreenSplash from '../src/js/ScreenSplash';
 import Adapter from 'enzyme-adapter-react-16';
 
 import renderer from 'react-test-renderer';
 
 configure({ adapter: new Adapter() });
 
-describe('<ScreenWallet />', () => {
+describe('Screen Splash', () => {
   it('Page rendered', () => {
 
     let navigation = {
     state: {
         key: 'id-1512512594799-2',
         params: {
-	      screen: 'Screen Game',
+	      screen: 'Screen Splash',
         user: 'prize'
   	  },
-        routeName: 'ScreenGame',
+        routeName: 'ScreenSplash',
       }
     };
     const rendered = shallow(
-    	<ScreenWallet navigation={navigation}/>
+    	<ScreenSplash navigation={navigation}/>
     );
     expect(rendered).toMatchSnapshot();
   });
 });
-// describe('<ScreenWallet />', () => {
-//   it('Page rendered', () => {
-//     const rendered = shallow(
-//      <ScreenWallet/>
-//     );
-//     expect(rendered).toBeTruthy();
-//   });
-// });
