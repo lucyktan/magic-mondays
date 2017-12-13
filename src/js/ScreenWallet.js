@@ -93,7 +93,7 @@ class ScreenWallet extends Component {
 
 
         <Tabs initialPage={0} tabBarUnderlineStyle={{height: 2, backgroundColor: '#CC0000'}}>
-          <Tab heading="RECENTLY ADDED" activeTabStyle={screenWalletStyle.tabBackground} tabStyle={screenWalletStyle.tabBackground}
+          <Tab heading="RECENTLY ADDED" activeTabStyle={screenWalletStyle.tabBackground} tabStyle={screenWalletStyle.tabBackground} 
                textStyle={{fontSize: 12, color: 'gray'}}
                activeTextStyle={{fontSize: 12, color: 'black'}}>
             <View style={{height: 200}}>
