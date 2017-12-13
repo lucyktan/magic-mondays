@@ -93,7 +93,7 @@ class ScreenWallet extends Component {
 
 
         <Tabs initialPage={0} tabBarUnderlineStyle={{height: 2, backgroundColor: '#CC0000'}}>
-          <Tab heading="RECENTLY ADDED" activeTabStyle={screenWalletStyle.tabBackground} tabStyle={screenWalletStyle.tabBackground} 
+          <Tab heading="RECENTLY ADDED" activeTabStyle={screenWalletStyle.tabBackground} tabStyle={screenWalletStyle.tabBackground}
                textStyle={{fontSize: 12, color: 'gray'}}
                activeTextStyle={{fontSize: 12, color: 'black'}}>
             <View style={{height: 200}}>
@@ -132,7 +132,7 @@ class ScreenWallet extends Component {
           </Tab>
 
 
-          <Tab heading="EXPIRING SOON"  tabStyle={{backgroundColor:"#FFFFFF"}}
+          <Tab heading="EXPIRING SOON"  activeTabStyle={screenWalletStyle.tabBackground} tabStyle={screenWalletStyle.tabBackground}
                textStyle={{fontSize: 12, color: 'gray'}}
                activeTextStyle={{fontSize: 12, color: 'black'}}>
             <View style={{height: 200}}>
@@ -183,7 +183,7 @@ const screenWalletStyle = StyleSheet.create({
   titleText: {
     fontSize: 18,
     fontWeight: '500',
-    marginLeft: 20
+    marginLeft: 20,
   },
   button: {
     alignSelf: 'stretch',
@@ -208,6 +208,9 @@ const screenWalletStyle = StyleSheet.create({
       height: 24,
       backgroundColor: 0x00000044
   },
+  tabBackground: {
+   backgroundColor: (Platform.OS === 'ios')? '#FFFFFF' : '#FFFFFF'
+ },
   toolbarContainer: {
       height: 56,
       backgroundColor: 'white',
