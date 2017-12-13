@@ -65,7 +65,7 @@ class ScreenGame extends Component {
     setTimeout( () => {
       if(this.state.val){
         this.setState({val: false});
-        this.state.navigate("ScreenPrize", {screen: "Screen Prize",prize: this.state.prize});
+        this.state.navigate("ScreenPrize", {screen: "Screen Prize", prize: this.state.prize});
       }
     }, 6900);
   }
