@@ -8,24 +8,30 @@ import renderer from 'react-test-renderer';
 
 configure({ adapter: new Adapter() });
 
-// it('renders correctly', () => {
-// 	const tree = renderer.create(<ScreenWallet/>).toJSON();
-// 	expect(tree).toMatchSnapshot();
-// });
+describe('<ScreenWallet />', () => {
+  it('Page rendered', () => {
 
+    let navigation = {
+    state: {
+        key: 'id-1512512594799-2',
+        params: {
+	      screen: 'Screen Game',
+        user: 'test'
+  	  },
+        routeName: 'ScreenGame',
+      }
+    };
+    const rendered = shallow(
+    	<ScreenWallet navigation={navigation}/>
+    );
+    expect(rendered).toMatchSnapshot();
+  });
+});
 // describe('<ScreenWallet />', () => {
 //   it('Page rendered', () => {
 //     const rendered = shallow(
-//     	<ScreenWallet state="true"/>
+//      <ScreenWallet/>
 //     );
-//     expect(rendered).toMatchSnapshot();
+//     expect(rendered).toBeTruthy();
 //   });
 // });
-describe('<ScreenWallet />', () => {
-  it('Page rendered', () => {
-    const rendered = shallow(
-     <ScreenWallet/>
-    );
-    expect(rendered).toBeTruthy();
-  });
-});
