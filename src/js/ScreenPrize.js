@@ -8,11 +8,11 @@ import {
   Dimensions
 } from 'react-native';
 import congratulationImage from '../img/congratulations.jpg';
-import beautyBoxImage from '../img/prize_beautybox.png';
+import beautyBoxImage from '../img/prize_BB.png';
 import shoesImage from '../img/prize_shoes.png';
-import perfumeImage from '../img/prize_perfume.png';
-import towelImage from '../img/prize_towel.jpeg';
-import giftcardImage from '../img/prize_giftcard.jpeg';
+import perfumeImage from '../img/prize_clinique.png';
+import towelImage from '../img/prize_towelstack.png';
+import giftcardImage from '../img/prize_giftcard.png';
 import streakImage from '../img/streak.png';
 import floatingStars from '../assets/floatingstars.mov';
 import { Video } from 'expo';
@@ -94,8 +94,8 @@ const styles = StyleSheet.create({
     top: 5
   },
   prizeImage: {
-    flex: 2, 
-    width: 450,
+    flex: 1, 
+    width: 350,
     height: 300,
     position: 'absolute',
     margin: 'auto',

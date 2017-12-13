@@ -40,6 +40,7 @@ class ScreenGame extends Component {
 
   done = (value) =>{
     var zone = Math.floor((360-(value % 360)) / 72);
+
     var reward = '';
     switch(zone){
       case 0:
@@ -87,7 +88,6 @@ class ScreenGame extends Component {
             <Text style={styles.buttonText}>Help! I'm so Confused!?!?</Text>
           </View>
           </TouchableHighlight>
-
         </View>
           <Modal style={styles.modalContainer2} onBackdropPress = {this._hideModal} isVisible={this.state.isModalVisible}>
             <Image style={styles.modalImage} source={backgroundImage} >
@@ -105,13 +105,10 @@ class ScreenGame extends Component {
             </Image>
           </Modal>
           <View style={styles.wheelContainer}>
-
             <Wheel 
               onDone = {this.done}
               navigate = {navigate} buttonClick={this.state.click} />
-
             <Image source={tickerImage} resizeMode="contain" style={styles.ticker}/>
-
             <TouchableHighlight onPress={() => {this.handlePressSpin()}}>
               <View>
               <Image source={spinToWin2} style={styles.spinToWinStyle}/>
@@ -122,25 +119,19 @@ class ScreenGame extends Component {
     );
   }
 };
-
-
-
 const styles = StyleSheet.create({
-
   headerContainer: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     top: 100,
-
   },
   spinToWinStyle: {
     width: 300,
     resizeMode: 'contain',
     top: -50
   },
-
   modalContainer2: {
     flex: 0.95,
     flexDirection: 'column',
@@ -171,7 +162,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
-
   },
   logoModalImage: {
     flex: .25,
@@ -188,7 +178,6 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginRight: 10
   },
-
   backgroundImage: {
     flex: 0.5,
     flexDirection: 'column',
@@ -219,7 +208,6 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     marginTop: 80,
     backgroundColor: 'white',
-
   },
   buttonLarge: {
     height: 50,
@@ -242,7 +230,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     fontSize: 18,
     borderColor: 'white',
-
   }
 });
 export default ScreenGame;
