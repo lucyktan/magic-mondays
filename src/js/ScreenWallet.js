@@ -25,7 +25,49 @@ const dataBlob = {
   "List1": [{'id': '1'}, {'id': '2'}, {'id': '3'}]
 };
 
+
 class ScreenWallet extends Component {
+
+  identifyPrize(){
+    switch (this.props.navigation.state.params.prize) {
+      case 'shoes':
+        return (
+          <Text style={{fontWeight: 'bold'}}>50% OFF YOUR NEXT PURCHASE OF SHOES</Text>
+          );
+      case 'towels':
+        return (
+          <Text style={{fontWeight: 'bold'}}>BUY 1 GET 1 FREE ON TOWELS</Text>
+          );
+      case 'giftcard':
+        return (
+          <Text style={{fontWeight: 'bold'}}>FREE $10 Gift Card</Text>
+          );
+      case 'beautybox':
+        return (
+          <Text style={{fontWeight: 'bold'}}>CHIC POUCH of 5 DELUXE BEAUTY SAMPLES{"\n"}
+            <Text style={{fontWeight: 'bold', color: '#CC0000'}}>+ 1 BONUS and $5 OFF YOUR NEXT BEAUTY{"\n"}
+                                             PURCHASE{"\n"}
+              <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black'}}>valid 1/21/2018 - 2/21/2018
+              </Text>
+            </Text>
+          </Text>
+          );
+      case 'perfume':
+        return (
+          <Text style={{fontWeight: 'bold'}}>CLINIQUE PERFUME{"\n"}
+            <Text style={{fontWeight: 'bold', color: '#CC0000'}}>+ 1 BONUS and $5 OFF{"\n"}
+                                             PURCHASE{"\n"}
+              <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black'}}>valid 1/21/2018 - 2/21/2018
+              </Text>
+            </Text>
+          </Text>
+          );
+      default:
+        return (
+          <Text style={{fontWeight: 'bold'}}>PRIZE</Text>
+          );
+      }
+  };
 
   render() {
     const listData = dataSource.cloneWithRowsAndSections(
@@ -56,7 +98,7 @@ class ScreenWallet extends Component {
                activeTextStyle={{fontSize: 12, color: 'black'}}>
             <View style={{height: 200}}>
             <List>
-              <ListItem onPress={() => navigation.navigate("ScreenDescription", { screen: "Screen Description" })}>
+              <ListItem onPress={() => navigation.navigate("ScreenDescription", { screen: "Screen Description", prize: "shoes" })}>
                 <Text style={{fontWeight: 'bold'}}>NEW! 
                   <Text style={{fontWeight: 'normal'}}> FRIENDS & FAMILY EVENT!{"\n"}
                       <Text style={{fontWeight: 'bold', color: '#CC0000'}}>EXTRA 30%, 25%, 15% OR 10% OFF!{"\n"}
@@ -65,29 +107,24 @@ class ScreenWallet extends Component {
                   </Text>
                 </Text>
               </ListItem>
-              <ListItem onPress={() => navigation.navigate("ScreenDescription", { screen: "Screen Description" })}>
-                <Text style={{fontWeight: 'bold'}}>{this.props.navigation.state.params.user}
+              <ListItem onPress={() => navigation.navigate("ScreenDescription", { screen: "Screen Description", prize: "beautybox" })}>
+                <Text style={{fontWeight: 'bold'}}>CHIC POUCH of 5 DELUXE BEAUTY SAMPLES{"\n"}
+                  <Text style={{fontWeight: 'bold', color: '#CC0000'}}>+ 1 BONUS and $5 OFF YOUR NEXT BEAUTY{"\n"}
+                                                   PURCHASE{"\n"}
+                    <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black'}}>valid 1/21/2018 - 2/21/2018
+                    </Text>
+                  </Text>
                 </Text>
               </ListItem>
+              <ListItem onPress={() => navigation.navigate("ScreenDescription", { screen: "Screen Description", prize: this.props.navigation.state.params.prize })}>
+                <View>
+                  { this.props.navigation.state.params.prize ? this.identifyPrize() : null }
+                </View>
+              </ListItem>
             </List>
-            <ListView  style={{height: 100}}
-              dataSource={listData}
-
-                renderRow={(record) => 
-                        <View>
-                          <ListItem onPress={() => navigation.navigate("ScreenDescription", { screen: "Screen Screen  Description" })}>
-                            <View>
-                              <Text>{this.props.navigation.state.params.user}{record.id}</Text>
-                            </View>
-                          </ListItem>
-                        </View>
-                }
-                renderLeftHiddenRow={item => null}
-                renderRightHiddenRow={(item) => null}
-            />
             </View>
             <View>
-            <TouchableHighlight style={{height: 30, width: 125, marginLeft: 125, marginTop: 15, backgroundColor: 'gray', justifyContent: 'center', alignItems: 'center'}}
+            <TouchableHighlight style={{height: 30, width: 125, marginLeft: 125, marginTop: 65, backgroundColor: 'gray', justifyContent: 'center', alignItems: 'center'}}
               onPress={() => navigation.navigate("ScreenPrize", { screen: "Screen Prize" })}>
               <Text style={{fontWeight: 'normal', fontSize: 12, color: 'white'}}>ADD AN OFFER</Text>
             </TouchableHighlight>
@@ -118,11 +155,30 @@ class ScreenWallet extends Component {
   }
 }
 
+            // <ListView  style={{height: 100}}
+            //   dataSource={listData}
+
+            //     renderRow={(record) => 
+            //             <View>
+            //               <ListItem onPress={() => navigation.navigate("ScreenDescription", { screen: "Screen Screen  Description" })}>
+            //                 <View>
+            //                   <Text>{this.props.navigation.state.params.prize}{record.id}</Text>
+            //                 </View>
+            //               </ListItem>
+            //             </View>
+            //     }
+            //     renderLeftHiddenRow={item => null}
+            //     renderRightHiddenRow={(item) => null}
+            // />
+
 const screenWalletStyle = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  tabBackground: {
+    backgroundColor: (Platform.OS === 'ios')? '#FFFFFF' : '#FFFFFF'
   },
   titleText: {
     fontSize: 18,

@@ -8,7 +8,11 @@ import {
   Dimensions
 } from 'react-native';
 import congratulationImage from '../img/congratulations.jpg';
-import prizeImage from '../img/prize_beautybox.png';
+import beautyBoxImage from '../img/prize_beautybox.png';
+import shoesImage from '../img/prize_shoes.png';
+import perfumeImage from '../img/prize_perfume.png';
+import towelImage from '../img/prize_towel.jpeg';
+import giftcardImage from '../img/prize_giftcard.jpeg';
 import streakImage from '../img/streak.png';
 import floatingStars from '../assets/floatingstars.mov';
 import { Video } from 'expo';
@@ -20,7 +24,8 @@ class ScreenPrize extends Component {
 
   render() {
     const navigation = this.props.navigation;
-    console.log(this.props.navigation.state.params.prize);
+    var imageMap = {beautybox: beautyBoxImage,shoes: shoesImage,perfume: perfumeImage,giftcard: giftcardImage,towels: towelImage}
+    var prizeImage = imageMap[this.props.navigation.state.params.prize];
     return (
       <View style={styles.container}>
           <Video
@@ -50,7 +55,7 @@ class ScreenPrize extends Component {
 
         <View style={styles.buttonContainer}>
           <TouchableHighlight
-            onPress={() => navigation.navigate("ScreenWallet", { screen: "Screen Wallet", user: "Prize",prize: this.props.navigation.state.params.prize})}
+            onPress={() => navigation.navigate("ScreenWallet", { screen: "Screen Wallet", prize: this.props.navigation.state.params.prize})}
             style={[styles.button, {backgroundColor: '#E22130'}]}>
             <Text style={styles.buttonText}>Save Prize to Wallet</Text>
           </TouchableHighlight>
