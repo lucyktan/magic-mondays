@@ -28,23 +28,23 @@ class ScreenWallet extends Component {
         return (
           <View>
           <View style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-            <Text style={{fontWeight: 'bold', fontSize: 16, marginTop: 20}}>NEW! 
-              <Text style={{fontWeight: 'normal', marginTop: 50, marginLeft: 50}}> FRIENDS & FAMILY EVENT!{"\n"}
-              <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}
-                  <Text style={{fontWeight: 'bold', fontSize: 18, color: '#CC0000', marginTop: 50, marginLeft: 50}}>EXTRA 30%, 25%, 15% OR 10% OFF!{"\n"}
-                  <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}
-                    <Text style={{fontWeight: 'normal', fontSize: 10, color: 'gray'}}>Applies to select merchandise. See details & exclusions below.{"\n"}</Text>
-                    <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}</Text>
-                    <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black', marginTop: 50, marginLeft: 50}}>valid 11/30/2017 - 12/12/2017</Text>
-                  </Text>
-                  </Text>
-              </Text>
-              </Text>
+          <Text style={{fontWeight: 'bold', fontSize: 16, marginTop: 20}}>NEW! 
+            <Text style={{fontWeight: 'normal', marginTop: 50, marginLeft: 50}}> MACY'S MONDAYS OFFER!{"\n"}
+            <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}
+                <Text style={{fontWeight: 'bold', fontSize: 18, color: '#CC0000', marginTop: 50, marginLeft: 50}}>10% OFF MEN'S & WOMEN'S SHOES{"\n"}
+                <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}
+                  <Text style={{fontWeight: 'normal', fontSize: 10, color: 'gray'}}>Applies to select merchandise. See details & exclusions below.{"\n"}</Text>
+                  <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}</Text>
+                  <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black', marginTop: 50, marginLeft: 50}}>valid 1/22/2018 - 1/28/2018</Text>
+                </Text>
+                </Text>
             </Text>
+            </Text>
+          </Text>
           </View>
           <View style={{borderColor: 'black', justifyContent: 'center', alignItems: 'center', borderWidth: 1, marginLeft: 13, marginRight: 13, marginTop: 20}}>
             <Text style={{fontWeight: '500', fontSize: 14, margin: 15}}>Promo code:
-              <Text style={{color: '#CC0000', fontWeight: '500', fontSize: 14, margin: 15}}> SHOES
+              <Text style={{color: '#CC0000', fontWeight: '500', fontSize: 14, margin: 15}}> SHOES5OWN3
               </Text>
             </Text>
           </View>
@@ -52,24 +52,16 @@ class ScreenWallet extends Component {
           );
       case 'towels':
         return (
-          <Text style={{fontWeight: 'bold'}}>BUY 1 GET 1 FREE ON TOWELS</Text>
-          );
-      case 'giftcard':
-        return (
-          <Text style={{fontWeight: 'bold'}}>FREE $10 Gift Card</Text>
-          );
-      case 'beautybox':
-        return (
           <View>
           <View style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
           <Text style={{fontWeight: 'bold', fontSize: 16, marginTop: 20}}>NEW! 
-            <Text style={{fontWeight: 'normal', marginTop: 50, marginLeft: 50}}> CHIC POUCH of 5 DELUXE BEAUTY SAMPLES{"\n"}
+            <Text style={{fontWeight: 'normal', marginTop: 50, marginLeft: 50}}> MACY'S MONDAYS OFFER!{"\n"}
             <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}
-                <Text style={{fontWeight: 'bold', fontSize: 18, color: '#CC0000', marginTop: 50, marginLeft: 50}}>+ 1 BONUS and $5 OFF YOUR NEXT BEAUTY PURCHASE{"\n"}
+                <Text style={{fontWeight: 'bold', fontSize: 18, color: '#CC0000', marginTop: 50, marginLeft: 50}}>15% OFF ANY BED & BATH PURCHASE{"\n"}
                 <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}
                   <Text style={{fontWeight: 'normal', fontSize: 10, color: 'gray'}}>Applies to select merchandise. See details & exclusions below.{"\n"}</Text>
                   <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}</Text>
-                  <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black', marginTop: 50, marginLeft: 50}}>valid 1/21/2018 - 2/21/2018</Text>
+                  <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black', marginTop: 50, marginLeft: 50}}>valid 1/22/2018 - 1/28/2018</Text>
                 </Text>
                 </Text>
             </Text>
@@ -78,7 +70,59 @@ class ScreenWallet extends Component {
           </View>
           <View style={{borderColor: 'black', justifyContent: 'center', alignItems: 'center', borderWidth: 1, marginLeft: 13, marginRight: 13, marginTop: 20}}>
             <Text style={{fontWeight: '500', fontSize: 14, margin: 15}}>Promo code:
-              <Text style={{color: '#CC0000', fontWeight: '500', fontSize: 14, margin: 15}}> BEAUTY
+              <Text style={{color: '#CC0000', fontWeight: '500', fontSize: 14, margin: 15}}> BEDBATH5IVJ9
+              </Text>
+            </Text>
+          </View>
+          </View>
+          );
+      case 'giftcard':
+        return (
+          <View>
+          <View style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+          <Text style={{fontWeight: 'bold', fontSize: 16, marginTop: 20}}>NEW! 
+            <Text style={{fontWeight: 'normal', marginTop: 50, marginLeft: 50}}> MACY'S MONDAYS OFFER!{"\n"}
+            <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}
+                <Text style={{fontWeight: 'bold', fontSize: 18, color: '#CC0000', marginTop: 50, marginLeft: 50}}>$10 GIFTCARD TOWARD YOUR NEXT PURCHASE OF $50 OR MORE{"\n"}
+                <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}
+                  <Text style={{fontWeight: 'normal', fontSize: 10, color: 'gray'}}>Applies to select merchandise. See details & exclusions below.{"\n"}</Text>
+                  <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}</Text>
+                  <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black', marginTop: 50, marginLeft: 50}}>valid 1/22/2018 - 1/28/2018</Text>
+                </Text>
+                </Text>
+            </Text>
+            </Text>
+          </Text>
+          </View>
+          <View style={{borderColor: 'black', justifyContent: 'center', alignItems: 'center', borderWidth: 1, marginLeft: 13, marginRight: 13, marginTop: 20}}>
+            <Text style={{fontWeight: '500', fontSize: 14, margin: 15}}>Promo code:
+              <Text style={{color: '#CC0000', fontWeight: '500', fontSize: 14, margin: 15}}> GIFTCARD3BDN8
+              </Text>
+            </Text>
+          </View>
+          </View>
+          );
+      case 'beautybox':
+        return (
+          <View>
+          <View style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+          <Text style={{fontWeight: 'bold', fontSize: 16, marginTop: 20}}>NEW! 
+            <Text style={{fontWeight: 'normal', marginTop: 50, marginLeft: 50}}> MACY'S MONDAYS OFFER!{"\n"}
+            <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}
+                <Text style={{fontWeight: 'bold', fontSize: 18, color: '#CC0000', marginTop: 50, marginLeft: 50}}>ONE FREE MONTH OF BEAUTY BOX SUBSCRIPTION{"\n"}
+                <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}
+                  <Text style={{fontWeight: 'normal', fontSize: 10, color: 'gray'}}>Applies to select merchandise. See details & exclusions below.{"\n"}</Text>
+                  <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}</Text>
+                  <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black', marginTop: 50, marginLeft: 50}}>valid 1/22/2018 - 1/28/2018</Text>
+                </Text>
+                </Text>
+            </Text>
+            </Text>
+          </Text>
+          </View>
+          <View style={{borderColor: 'black', justifyContent: 'center', alignItems: 'center', borderWidth: 1, marginLeft: 13, marginRight: 13, marginTop: 20}}>
+            <Text style={{fontWeight: '500', fontSize: 14, margin: 15}}>Promo code:
+              <Text style={{color: '#CC0000', fontWeight: '500', fontSize: 14, margin: 15}}> BEAUTY8UFG2
               </Text>
             </Text>
           </View>
@@ -86,19 +130,29 @@ class ScreenWallet extends Component {
           );
       case 'perfume':
         return (
-          <Text style={{fontWeight: 'bold', fontSize: 18, marginTop: 20}}>NEW! 
-            <Text style={{fontWeight: 'normal', marginTop: 50, marginLeft: 50}}> FREE PERFUME!{"\n"}
+          <View>
+          <View style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+          <Text style={{fontWeight: 'bold', fontSize: 16, marginTop: 20}}>NEW! 
+            <Text style={{fontWeight: 'normal', marginTop: 50, marginLeft: 50}}> MACY'S MONDAYS OFFER!{"\n"}
             <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}
-                <Text style={{fontWeight: 'bold', fontSize: 18, color: '#CC0000', marginTop: 50, marginLeft: 50}}>EXTRA 30%, 25%, 15% OR 10% OFF!{"\n"}
+                <Text style={{fontWeight: 'bold', fontSize: 18, color: '#CC0000', marginTop: 50, marginLeft: 50}}>10% OFF ANY CLINIQUE PRODUCT PURCHASE{"\n"}
                 <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}
                   <Text style={{fontWeight: 'normal', fontSize: 10, color: 'gray'}}>Applies to select merchandise. See details & exclusions below.{"\n"}</Text>
                   <Text style={{fontWeight: 'normal', fontSize: 8}}>{"\n"}</Text>
-                  <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black', marginTop: 50, marginLeft: 50}}>valid 11/30/2017 - 12/12/2017</Text>
+                  <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black', marginTop: 50, marginLeft: 50}}>valid 1/22/2018 - 1/28/2018</Text>
                 </Text>
                 </Text>
             </Text>
             </Text>
           </Text>
+          </View>
+          <View style={{borderColor: 'black', justifyContent: 'center', alignItems: 'center', borderWidth: 1, marginLeft: 13, marginRight: 13, marginTop: 20}}>
+            <Text style={{fontWeight: '500', fontSize: 14, margin: 15}}>Promo code:
+              <Text style={{color: '#CC0000', fontWeight: '500', fontSize: 14, margin: 15}}> PERFUME7VGC6
+              </Text>
+            </Text>
+          </View>
+          </View>
           );
       default:
         return (
