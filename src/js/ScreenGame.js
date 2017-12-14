@@ -45,28 +45,33 @@ class ScreenGame extends Component {
     switch(zone){
       case 0:
         reward = 'beautybox';
+        description = 'beautybox';
         break;
       case 1:
-        reward = 'towels'
+        reward = 'towels';
+        description = 'towels';
         break;
       case 2:
-        reward = 'perfume'
+        reward = 'perfume';
+        description = 'perfume';
         break;
       case 3:
-        reward = 'giftcard'
+        reward = 'giftcard';
+        description = 'gifttext';
         break;
       case 4:
-        reward = 'shoes'
+        reward = 'shoes';
+        description = 'shoes';
         break;
     }
-    this.setState({click: false, val: true,prize: reward});
+    this.setState({click: false, val: true,prize: reward, text: description});
   }
 
   componentDidUpdate() {
     setTimeout( () => {
       if(this.state.val){
         this.setState({val: false});
-        this.state.navigate("ScreenPrize", {screen: "Screen Prize", prize: this.state.prize});
+        this.state.navigate("ScreenPrize", {screen: "Screen Prize", prize: this.state.prize, text: this.state.text});
       }
     }, 6900);
   }
@@ -82,7 +87,6 @@ class ScreenGame extends Component {
         <View style={styles.headerContainer}>    
           <Image style={styles.logoModalImage} source={macysLogo}></Image>
           <TouchableHighlight
-            
             onPress={() => {this._showModal()}}>
           <View style={styles.helpButton}>
             <Text style={styles.buttonText}>Help! I'm so Confused!?!?</Text>
@@ -104,6 +108,7 @@ class ScreenGame extends Component {
               </Text>
             </Image>
           </Modal>
+
           <View style={styles.wheelContainer}>
             <Wheel 
               onDone = {this.done}

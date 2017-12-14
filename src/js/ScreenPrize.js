@@ -7,6 +7,7 @@ import {
   Image,
   Dimensions
 } from 'react-native';
+import Modal from 'react-native-modal';
 import congratulationImage from '../img/congratulations.jpg';
 import beautyBoxImage from '../img/prize_BB.png';
 import shoesImage from '../img/prize_shoes.png';
@@ -15,17 +16,43 @@ import towelImage from '../img/prize_towelstack.png';
 import giftcardImage from '../img/prize_giftcard.png';
 import streakImage from '../img/streak.png';
 import floatingStars from '../assets/floatingstars.mov';
+import ribbon from '../img/ribbon.png';
+import backgroundImage from '../img/background-without-logo.png';
+import macysLogo from '../img/macys-logo-white.png';
 import { Video } from 'expo';
+
 
 class ScreenPrize extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isModalVisable: false,
+      click: false,
+      val: false,
+      navigate: this.props.navigation.navigate,
+    };
   }
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: `Welcome ${navigation.state.params.screen}`,
+    }
+  };
+  _showModal = () => this.setState({ isModalVisible: true });
+
+  _hideModal = () => this.setState({ isModalVisible: false });
 
   render() {
     const navigation = this.props.navigation;
     var imageMap = {beautybox: beautyBoxImage,shoes: shoesImage,perfume: perfumeImage,giftcard: giftcardImage,towels: towelImage}
-    var prizeImage = imageMap[this.props.navigation.state.params.prize];
+    var prizeImage = imageMap[this.props.navigation.state.params.prize]; 
+    var textMap = {
+      beautybox: 'BeautyBox Lorem ipsum dolor sit amet, consectetur weradipiscing elit. Morbi eu dignissim tellus.',
+      shoes: 'Shoes Lorem ipsum dolor sit amet, consectetur weradipiscing elit. Morbi eu dignissim tellus',
+      perfume: 'Clinique Lorem ipsum dolor sit amet, consectetur weradipiscing elit. Morbi eu dignissim tellus.',
+      giftcard: 'Giftcard Lorem ipsum dolor sit amet, consectetur weradipiscing elit. Morbi eu dignissim tellus.',
+      towels: 'Towels Lorem ipsum dolor sit amet, consectetur weradipiscing elit. Morbi eu dignissim tellus.'};
+    var prizeText = textMap[this.props.navigation.state.params.prize]
+
     return (
       <View style={styles.container}>
           <Video
@@ -43,28 +70,52 @@ class ScreenPrize extends Component {
             source={congratulationImage}
             style={styles.congratsImage}
           />
+          <View style={styles.headerContainer}>
+          
+            <TouchableHighlight style={styles.touchHi} onPress={() => {this._showModal()}}>
+              <View >
+                <Image
+                  source={ribbon}
+                  style={styles.ribbonImage}/>
+              </View>  
+            </TouchableHighlight>
+
+          </View>
+
+          <Modal style={styles.modalContainer2} onBackdropPress = {this._hideModal} isVisible={this.state.isModalVisible}>
+            <Image style={styles.modalImage} source={backgroundImage} >
+            <Image style={styles.logoModalImage} source={macysLogo}></Image>
+              <Text style={styles.titleText}>
+                          Lorem ipsum dolor sit amet, consectetur wer
+                          adipiscing elit. Morbi eu dignissim tellus. 
+                          Phasellus dui tortor, pulvinar eget felis id, 
+                          dictum dapibus ligula.Lorem ipsum dolor sit 
+                          amet, consectetur. Morbi eu dignissim tellus.
+                          Phasellus dui tortor, pulvinar eget felis id, 
+                          dictum dapibus ligula.Lorem ipsum dolor sit 
+                          amet, consectetur.
+              </Text>
+            </Image>
+          </Modal>
 
           <Image resizeMode = 'cover'
             source={prizeImage}
             style={styles.prizeImage}
           />
 
+
           <Text style={styles.prizeDesc}>
-            A chic pouch of 5 deluxe beauty samples + 1 bonus and $5 off your next beauty purchase
+            {prizeText}
           </Text>
 
         <View style={styles.buttonContainer}>
           <TouchableHighlight
             onPress={() => navigation.navigate("ScreenWallet", { screen: "Screen Wallet", prize: this.props.navigation.state.params.prize})}
-            style={[styles.button, {backgroundColor: '#E22130'}]}>
+            style={[styles.button, {backgroundColor: '#CC0000'}]}>
             <Text style={styles.buttonText}>Save Prize to Wallet</Text>
           </TouchableHighlight>
         </View>
 
-        <Image resizeMode = 'cover'
-          source = {streakImage}
-          style = {styles.streakImage}
-        />
 
       </View>
     );
@@ -79,6 +130,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     height: 300
   },
+  headerContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+  },
   video: {
     position: 'absolute',
     top: 0,
@@ -91,7 +147,26 @@ const styles = StyleSheet.create({
     width: 600, 
     height: 200, 
     position: 'absolute', 
-    top: 5
+    top: 10,
+  },
+  touchHi: {
+    flex: 1, 
+    width: 125, 
+    height: 30, 
+    position: 'absolute',
+    top: 35,
+    right: -206,
+    backgroundColor: 'transparent'
+  },
+  ribbonImage: {
+    flex: 1, 
+    width: 150, 
+    height: 40, 
+    position: 'absolute',
+    right: 0,
+    top: -5,
+    overflow: 'visible'
+
   },
   prizeImage: {
     flex: 1, 
@@ -102,23 +177,30 @@ const styles = StyleSheet.create({
     overflow: 'visible'
   },
   prizeDesc: {
-    fontSize: 13, 
-    color: 'gray', 
+    fontSize: 14, 
+    color: 'black', 
     textAlign: 'center',
     position: 'absolute', 
-    marginLeft: 20, 
-    marginRight: 20, 
-    bottom: 150
+    marginLeft: 15, 
+    marginRight: 15, 
+    bottom: 105,
+    backgroundColor: 'transparent'
   },
   titleText: {
-    fontSize: 22
+    fontSize: 14,
+    fontWeight: 'bold',
+    flexWrap: 'wrap',
+    color: 'black',
+    marginLeft: 10,
+    marginTop: 15,
+    marginRight: 10
   },
   buttonContainer: {
     flexDirection: 'row',
     marginLeft: 20,
     marginRight: 20,
     position: 'absolute',
-    bottom: 80
+    bottom: 20
   },
   button: {
     height: 50,
@@ -136,6 +218,28 @@ const styles = StyleSheet.create({
     height: 100,
     position: 'absolute', 
     bottom: -20
-  }
+  },
+  modalImage: {
+    resizeMode: 'stretch',
+    width: '85%',
+    height: '65%',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+  },
+  modalContainer2: {
+    flex: 0.95,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 5,
+  },
+  logoModalImage: {
+    flex: .25,
+    marginTop: 0,
+    resizeMode: 'contain',
+    marginBottom: 20
+  },
 });
 export default ScreenPrize;
