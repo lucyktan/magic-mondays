@@ -22,15 +22,3 @@ it('renders correctly', () => {
   const tree = renderer.create(<ScreenPrize navigation={navigation} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
-
-// it('mimics a touch', () => {
-//   // const navigation = { navigate: jest.fn() };
-
-//   // expect(renderer.create(<Loading store={store} navigation={navigation} />)).toMatchSnapshot();
-
-//    let rendered = shallow(<App />);
-//    rendered.find('TouchableHighlight').forEach(child=> {
-//        child.simulate('press');
-//        expect(onPress.called).toEqual(true);
-//    });
-// });

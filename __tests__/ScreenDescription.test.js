@@ -1,24 +1,24 @@
 import {View} from 'react-native';
 import React from 'react';
 import { configure, shallow } from 'enzyme';
-import ScreenWallet from '../src/js/ScreenWallet';
+import ScreenDescription from '../src/js/ScreenDescription';
 import renderer from 'react-test-renderer';
 
-describe('<ScreenWallet />', () => {
+describe('<ScreenDescription />', () => {
   it('Page rendered', () => {
 
     let navigation = {
     state: {
         key: 'id-1512512594799-2',
         params: {
-	      screen: 'Screen Game',
+	      screen: 'Screen Description',
         user: 'prize'
   	  },
-        routeName: 'ScreenGame',
+        routeName: 'ScreenDescription',
       }
     };
     const rendered = shallow(
-    	<ScreenWallet navigation={navigation}/>
+    	<ScreenDescription navigation={navigation}/>
     );
     expect(rendered).toMatchSnapshot();
   });

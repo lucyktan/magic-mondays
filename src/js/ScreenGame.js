@@ -25,11 +25,7 @@ class ScreenGame extends Component {
     this.done = this.done.bind(this); // Binding done for child to communicate to parent
     this.handlePressSpin = this.handlePressSpin.bind(this);  
   }
-  static navigationOptions = ({ navigation }) => {
-    return {
-      title: `Welcome ${navigation.state.params.screen}`,
-    }
-  };
+  
   _showModal = () => this.setState({ isModalVisible: true });
 
   _hideModal = () => this.setState({ isModalVisible: false });

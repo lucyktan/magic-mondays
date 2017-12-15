@@ -18,24 +18,13 @@ it('renders without crashing', () => {
     };
 
   // const rendered = renderer.create(<ScreenGame navigation={navigation}/>).toJSON();
-  const wrapper = mount(<ScreenGame navigation={navigation}/>);
-  console.log(wrapper.find('TouchableHighlight').first().simulate('click'));
-  expect(wrapper).toBeTruthy();
-});
+  const wrapper = shallow(<ScreenGame navigation={navigation}/>);
+  wrapper.instance().done(729);
+  wrapper.instance().done(73);
+  wrapper.instance().done(145);
+  wrapper.instance().done(217);
+  wrapper.instance().done(289);
 
-// it('should click the button',() => {
-//   // const onClick = jest.fn();
-//   let state = {
-// 	  key: 'id-1512512594799-2',
-// 	  params: {
-// 	    screen: 'Screen Game',
-//   	},
-//      routeName: 'ScreenGame',
-//    };
-//   let rendered = shallow(<ScreenGame navigation={state} />);
-//   rendered.find('Button').forEach(child=> {
-//     child.simulate('press');
-//     expect(child.onPress).toBeCalled();
-//   });
-//   // expect(rendered).toMatchSnapshot();
-// })
+  // wrapper.find('TouchableHighlight').first().simulate('click');
+  expect(wrapper).toMatchScreenshot();
+});

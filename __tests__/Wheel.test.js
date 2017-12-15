@@ -12,5 +12,5 @@ it('animates', () => {
   Math.random = jest.fn(() => 1);
   let wheelComponent = shallow(<Wheel />);
   wheelComponent.setState({ buttonClicked: true});
-  expect(wheelComponent).toBeTruthy();
+  expect(wheelComponent).toMatchSnapshot();
 })
