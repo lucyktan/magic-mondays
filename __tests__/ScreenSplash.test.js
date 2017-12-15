@@ -24,8 +24,7 @@ describe('Screen Splash', () => {
     const tree = renderer.create(<ScreenSplash navigation={navigation} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
-
-  it('Page rendered', () => {
+  it('returns the state properly', () => {
 
     let navigation = {
     state: {
@@ -42,8 +41,56 @@ describe('Screen Splash', () => {
     );
     expect(rendered.state('isChecked')).toEqual(false);
     rendered.instance().checkbox();
-    expect(rendered.state('isClicked')).toBe(true);
+    expect(rendered.state('isChecked')).toBe(true);
+    rendered.instance().checkbox();
+    expect(rendered.state('isChecked')).toBe(false);
     
+
+  });
+  it('Clicks the checkbox', () => {
+
+    let navigation = {
+    state: {
+        key: 'id-1512512594799-2',
+        params: {
+	      screen: 'Screen Splash',
+        user: 'prize'
+  	  },
+        routeName: 'ScreenSplash',
+      }
+    };
+    const rendered = mount(
+    	<ScreenSplash navigation={navigation}/>
+    );
+    expect(rendered.state('isChecked')).toEqual(false);
+    rendered.find('CheckBox').first().props().onChange();
+    expect(rendered.state('isChecked')).toBe(true);
+    
+
+  });
+  it('Presses to the next page', () => {
+
+    let navigation = {
+    state: {
+        key: 'id-1512512594799-2',
+        params: {
+	      screen: 'Screen Splash',
+        user: 'prize'
+  	  },
+        routeName: 'ScreenSplash',
+      }
+    };
+    const rendered = mount(
+    	<ScreenSplash navigation={navigation}/>
+    );
+    expect(rendered.state('isChecked')).toEqual(false);
+    rendered.find('CheckBox').first().props().onChange();
+    // rendered.find('TouchableHighlight').forEach((child)=>{
+    //   console.log('ellO');
+    //   console.log(child);
+    // })
+  
+    rendered.find('TouchableHighlight').first().props().onPress();    
 
   });
 });

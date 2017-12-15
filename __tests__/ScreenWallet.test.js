@@ -20,6 +20,8 @@ describe('<ScreenWallet />', () => {
     const rendered = shallow(
     	<ScreenWallet navigation={navigation}/>
     );
+    rendered.setState({params: {prize: 'shoes'}});
+    rendered.instance().identifyPrize();
     expect(rendered).toMatchSnapshot();
   });
 });

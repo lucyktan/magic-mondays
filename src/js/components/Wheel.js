@@ -13,13 +13,14 @@ export default class Wheel extends Component {
       spinValue: new Animated.Value(0),
       buttonClicked: false
     }
+    this.spinAnimation = this.spinAnimation.bind(this);
   }
   
   componentWillReceiveProps(newProps){
 
     if(newProps.buttonClick){
       var rngVal = 100* (Math.random() *50);
-      spinAnimation(this.state.spinValue, rngVal,this.props.onDone(rngVal));  
+      this.spinAnimation(this.state.spinValue, rngVal,this.props.onDone(rngVal));  
     
     }
   }
@@ -47,12 +48,23 @@ export default class Wheel extends Component {
       // After swipe down, gets distance from initial location and animates the spin
       onPanResponderRelease: (evt,gestureState) => {
         var rngVal = gestureState.dy* (Math.random() *50);
-        spinAnimation(this.state.spinValue, rngVal,this.props.onDone(rngVal));
+        this.spinAnimation(this.state.spinValue, rngVal,this.props.onDone(rngVal));
       }
     });
   }
   componentWillUnmout(){
     this.state.spinValue.removeEventListener()
+  }
+
+  spinAnimation(initial, final,callback){
+    Animated.timing(
+      initial,
+      {
+        toValue: final,
+        duration: 6000,
+        easing: Easing.bezier(.12,.91,.18,.93),
+        useNativeDriver: false
+      }).start(callback);    
   }
 
   render() {
@@ -63,17 +75,6 @@ export default class Wheel extends Component {
         </View>
     );
   };
-}
-
-function spinAnimation(initial, final,callback){
-  Animated.timing(
-    initial,
-    {
-      toValue: final,
-      duration: 6000,
-      easing: Easing.bezier(.12,.91,.18,.93),
-      useNativeDriver: false
-    }).start(callback);    
 }
 
 const styles = StyleSheet.create({

@@ -1,5 +1,6 @@
 import 'react-native';
 import React from 'react';
+import {Video} from 'expo';
 import ScreenPrize from '../src/js/ScreenPrize';
 import App from '../App';
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Animated,Easing,TouchableOpacity,Button,Image,StyleSheet, Text, View } from 'react-native';
 jest.mock("Dimensions");
+
 import ScreenGame from '../src/js/ScreenGame';
 import renderer from 'react-test-renderer';
 import {mount,configure, shallow } from 'enzyme';
@@ -17,7 +18,6 @@ it('renders without crashing', () => {
       }
     };
 
-  // const rendered = renderer.create(<ScreenGame navigation={navigation}/>).toJSON();
   const wrapper = shallow(<ScreenGame navigation={navigation}/>);
   wrapper.instance().done(729);
   wrapper.instance().done(73);
@@ -27,6 +27,7 @@ it('renders without crashing', () => {
   wrapper.instance()._hideModal();
   wrapper.instance()._showModal();
   wrapper.instance().handlePressSpin();
+  wrapper.setState({val: true});
   wrapper.instance().componentDidUpdate();
 
 
