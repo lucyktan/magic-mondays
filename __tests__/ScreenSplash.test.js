@@ -1,13 +1,20 @@
 import {View} from 'react-native';
 import React from 'react';
-import { configure, shallow } from 'enzyme';
+import { mount,configure, shallow } from 'enzyme';
+import { shallowToJson } from 'enzyme-to-json';
 import ScreenSplash from '../src/js/ScreenSplash';
-import Adapter from 'enzyme-adapter-react-16';
-
 import renderer from 'react-test-renderer';
+import sinon from 'sinon';
+import { NativeModules } from 'react-native';
 
-configure({ adapter: new Adapter() });
 
+jest.mock('ScreenSplash', ()=> {
+  return {
+    actions: {
+      checkbox: jest.fn(),
+    },
+  }
+})
 describe('Screen Splash', () => {
   it('Page rendered', () => {
 
@@ -21,9 +28,14 @@ describe('Screen Splash', () => {
         routeName: 'ScreenSplash',
       }
     };
-    const rendered = shallow(
+    const rendered = mount(
     	<ScreenSplash navigation={navigation}/>
     );
-    expect(rendered).toMatchSnapshot();
+    const checkboxSpy = sinon.spy(ScreenSplash.actions, 'checkbox');
+    expect(rendered.state('isChecked')).toEqual(false);
+    rendered.find('CheckBox').first().simulate('valueChange');
+    expect(checkboxSpy.calledOnce).toBe(true);
+    
+
   });
 });

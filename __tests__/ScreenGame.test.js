@@ -3,11 +3,8 @@ import {Animated,Easing,TouchableOpacity,Button,Image,StyleSheet, Text, View } f
 jest.mock("Dimensions");
 import ScreenGame from '../src/js/ScreenGame';
 import renderer from 'react-test-renderer';
-import {configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import {mount,configure, shallow } from 'enzyme';
 
-
-configure({adapter: new Adapter()});
 
 it('renders without crashing', () => {
   let navigation = {
@@ -20,8 +17,10 @@ it('renders without crashing', () => {
       }
     };
 
-  const rendered = renderer.create(<ScreenGame navigation={navigation}/>).toJSON();
-  expect(rendered).toBeTruthy();
+  // const rendered = renderer.create(<ScreenGame navigation={navigation}/>).toJSON();
+  const wrapper = mount(<ScreenGame navigation={navigation}/>);
+  console.log(wrapper.find('TouchableHighlight').first().simulate('click'));
+  expect(wrapper).toBeTruthy();
 });
 
 // it('should click the button',() => {
