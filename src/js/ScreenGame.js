@@ -4,7 +4,7 @@ import {Dimensions,Animated,Easing,TouchableHighlight,Button,Image,StyleSheet, T
 //Our stuff
 import Wheel from './components/Wheel';
 import Modal from 'react-native-modal';
-import backgroundLogoImage from '../img/background-with-logo.png';
+import backgroundLogoImage from '../img/minimal-stripe-background.png';
 import backgroundImage from '../img/background-without-logo.png';
 import macysLogo from '../img/macys-logo-white.png';
 import tickerImage from '../img/Ticker.png';
@@ -89,7 +89,7 @@ class ScreenGame extends Component {
           <TouchableHighlight
             onPress={() => {this._showModal()}}>
           <View style={styles.helpButton}>
-            <Text style={styles.buttonText}>Help! I'm so Confused!?!?</Text>
+            <Text style={styles.buttonText}>How Does It Work?</Text>
           </View>
           </TouchableHighlight>
         </View>
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     top: 100,
   },
   spinToWinStyle: {
-    width: 300,
+    width: 250,
     resizeMode: 'contain',
     top: -50
   },
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   wheelContainer: {
-    flex: 1,
+    flex: 1.5,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     marginBottom: 0,
   },
   ticker: {
-    top: -210,
+    top: -205,
     alignSelf:'center',
     position: 'absolute',
     height: 84, 
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 25, 
     paddingVertical: 15,
-    marginTop: 80,
+    marginTop: 65,
     backgroundColor: 'white',
   },
   buttonLarge: {
