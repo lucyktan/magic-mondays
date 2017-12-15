@@ -15,16 +15,15 @@ import logo from '../img/logo.png';
 
 class ScreenSplash extends Component {
 
-  static navigationOptions = ({ navigation }) => {
-    return {
-      title: `Welcome ${navigation.state.params.screen}`,
-    }
-  };
   constructor (prop, context) {
     super(prop, context);
     this.state = {
       isChecked: false
     };
+  }
+
+  checkbox = () => {
+    this.setState({ isChecked: !this.state.isChecked });
   }
 
   render() {
@@ -49,7 +48,7 @@ class ScreenSplash extends Component {
             labelStyle={styles.checkTerms}
             containerStyle={styles.checkboxContainerStyle}
             checked={this.state.isChecked}
-            onChange={(checked) => this.setState({ isChecked: !checked })}
+            onChange={this.checkbox}
             {...console.log('Terms box checked', this.state.isChecked)}/>
             
           <View style={styles.buttonContainer}>
