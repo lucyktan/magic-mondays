@@ -32,33 +32,51 @@ class ScreenWallet extends Component {
     switch (this.props.navigation.state.params.prize) {
       case 'shoes':
         return (
-          <Text style={{fontWeight: 'bold'}}>50% OFF YOUR NEXT PURCHASE OF SHOES</Text>
+          <Text style={{fontWeight: 'bold'}}>NEW! 
+            <Text style={{fontWeight: 'normal'}}> MACY'S MONDAYS OFFER!{"\n"}
+                <Text style={{fontWeight: 'bold', color: '#CC0000'}}>10% OFF MEN'S & WOMEN'S SHOES{"\n"}
+                  <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black'}}>valid 1/22/2018 - 1/28/2018</Text>
+                </Text>
+            </Text>
+          </Text>
           );
       case 'towels':
         return (
-          <Text style={{fontWeight: 'bold'}}>BUY 1 GET 1 FREE ON TOWELS</Text>
+          <Text style={{fontWeight: 'bold'}}>NEW! 
+            <Text style={{fontWeight: 'normal'}}> MACY'S MONDAYS OFFER!{"\n"}
+                <Text style={{fontWeight: 'bold', color: '#CC0000'}}>15% OFF ANY BED & BATH PURCHASE{"\n"}
+                  <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black'}}>valid 1/22/2018 - 1/28/2018</Text>
+                </Text>
+            </Text>
+          </Text>          
           );
       case 'giftcard':
         return (
-          <Text style={{fontWeight: 'bold'}}>FREE $10 Gift Card</Text>
+          <Text style={{fontWeight: 'bold'}}>NEW! 
+            <Text style={{fontWeight: 'normal'}}> MACY'S MONDAYS OFFER!{"\n"}
+                <Text style={{fontWeight: 'bold', color: '#CC0000'}}>$10 GIFTCARD TOWARD YOUR NEXT PURCHASE OF $50 OR MORE{"\n"}
+                  <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black'}}>valid 1/22/2018 - 1/28/2018</Text>
+                </Text>
+            </Text>
+          </Text>          
           );
       case 'beautybox':
         return (
-          <Text style={{fontWeight: 'bold'}}>CHIC POUCH of 5 DELUXE BEAUTY SAMPLES{"\n"}
-            <Text style={{fontWeight: 'bold', color: '#CC0000'}}>+ 1 BONUS and $5 OFF YOUR NEXT BEAUTY{"\n"}
-                                             PURCHASE{"\n"}
-              <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black'}}>valid 1/21/2018 - 2/21/2018
-              </Text>
+          <Text style={{fontWeight: 'bold'}}>NEW! 
+            <Text style={{fontWeight: 'normal'}}> MACY'S MONDAYS OFFER!{"\n"}
+                <Text style={{fontWeight: 'bold', color: '#CC0000'}}>ONE FREE MONTH OF BEAUTY BOX SUBSCRIPTION{"\n"}
+                  <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black'}}>valid 1/22/2018 - 1/28/2018</Text>
+                </Text>
             </Text>
           </Text>
           );
       case 'perfume':
         return (
-          <Text style={{fontWeight: 'bold'}}>CLINIQUE PERFUME{"\n"}
-            <Text style={{fontWeight: 'bold', color: '#CC0000'}}>+ 1 BONUS and $5 OFF{"\n"}
-                                             PURCHASE{"\n"}
-              <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black'}}>valid 1/21/2018 - 2/21/2018
-              </Text>
+          <Text style={{fontWeight: 'bold'}}>NEW! 
+            <Text style={{fontWeight: 'normal'}}> MACY'S MONDAYS OFFER!{"\n"}
+                <Text style={{fontWeight: 'bold', color: '#CC0000'}}>10% OFF ANY CLINIQUE PRODUCT PURCHASE{"\n"}
+                  <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black'}}>valid 1/22/2018 - 1/28/2018</Text>
+                </Text>
             </Text>
           </Text>
           );
@@ -93,7 +111,7 @@ class ScreenWallet extends Component {
 
 
         <Tabs initialPage={0} tabBarUnderlineStyle={{height: 2, backgroundColor: '#CC0000'}}>
-          <Tab heading="RECENTLY ADDED" activeTabStyle={screenWalletStyle.tabBackground} tabStyle={screenWalletStyle.tabBackground}
+          <Tab heading="RECENTLY ADDED" activeTabStyle={screenWalletStyle.tabBackground} tabStyle={screenWalletStyle.tabBackground} 
                textStyle={{fontSize: 12, color: 'gray'}}
                activeTextStyle={{fontSize: 12, color: 'black'}}>
             <View style={{height: 200}}>
@@ -104,15 +122,6 @@ class ScreenWallet extends Component {
                       <Text style={{fontWeight: 'bold', color: '#CC0000'}}>EXTRA 30%, 25%, 15% OR 10% OFF!{"\n"}
                         <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black'}}>valid 11/30/2017 - 12/12/2017</Text>
                       </Text>
-                  </Text>
-                </Text>
-              </ListItem>
-              <ListItem onPress={() => navigation.navigate("ScreenDescription", { screen: "Screen Description", prize: "beautybox" })}>
-                <Text style={{fontWeight: 'bold'}}>CHIC POUCH of 5 DELUXE BEAUTY SAMPLES{"\n"}
-                  <Text style={{fontWeight: 'bold', color: '#CC0000'}}>+ 1 BONUS and $5 OFF YOUR NEXT BEAUTY{"\n"}
-                                                   PURCHASE{"\n"}
-                    <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black'}}>valid 1/21/2018 - 2/21/2018
-                    </Text>
                   </Text>
                 </Text>
               </ListItem>
