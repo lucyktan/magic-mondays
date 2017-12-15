@@ -7,14 +7,7 @@ import renderer from 'react-test-renderer';
 import sinon from 'sinon';
 import { NativeModules } from 'react-native';
 
-// jest.unmock('ScreenSplash');
-// jest.mock('ScreenSplash', ()=> {
-//   return {
-//     actions: {
-//       checkbox: jest.fn(),
-//     },
-//   }
-// })
+
 describe('Screen Splash', () => {
   it('renders correctly', () => {
 
@@ -49,9 +42,6 @@ describe('Screen Splash', () => {
     );
     expect(rendered.state('isChecked')).toEqual(false);
     rendered.instance().checkbox();
-    // rendered.find('CheckBox').first().simulate('click');
-
-    // rendered.find('TouchableHighlight').first().simulate('click');
     expect(rendered.state('isClicked')).toBe(true);
     
 

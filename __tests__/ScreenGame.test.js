@@ -24,7 +24,12 @@ it('renders without crashing', () => {
   wrapper.instance().done(145);
   wrapper.instance().done(217);
   wrapper.instance().done(289);
+  wrapper.instance()._hideModal();
+  wrapper.instance()._showModal();
+  wrapper.instance().handlePressSpin();
+  wrapper.instance().componentDidUpdate();
+
 
   // wrapper.find('TouchableHighlight').first().simulate('click');
-  expect(wrapper).toMatchScreenshot();
+  expect(wrapper).toMatchSnapshot();
 });
