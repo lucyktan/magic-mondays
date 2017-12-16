@@ -29,7 +29,7 @@ class ScreenPrize extends Component {
     return (
       <View style={styles.container}>
           <Video
-            source={require('../assets/floatingstars.mov')}
+            source={floatingStars}
             rate={1.0}
             volume={0.0}
             muted={true}

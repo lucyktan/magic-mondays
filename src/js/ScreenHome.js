@@ -14,8 +14,6 @@ class ScreenHome extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
-
-    console.log(this.props.navigation.state.routeName, "props is here");
     return (
       <Container style={styles.container}>
         <TouchableHighlight
