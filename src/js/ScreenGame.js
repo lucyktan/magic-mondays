@@ -89,7 +89,7 @@ class ScreenGame extends Component {
           <TouchableHighlight
             onPress={() => {this._showModal()}}>
           <View style={styles.helpButton}>
-            <Text style={styles.buttonText}>How Does It Work?</Text>
+            <Text style={styles.buttonText}>How To Play</Text>
           </View>
           </TouchableHighlight>
         </View>
@@ -97,14 +97,13 @@ class ScreenGame extends Component {
             <Image style={styles.modalImage} source={backgroundImage} >
             <Image style={styles.logoModalImage} source={macysLogo}></Image>
               <Text style={styles.titleText}>
-                          Lorem ipsum dolor sit amet, consectetur wer
-                          adipiscing elit. Morbi eu dignissim tellus. 
-                          Phasellus dui tortor, pulvinar eget felis id, 
-                          dictum dapibus ligula.Lorem ipsum dolor sit 
-                          amet, consectetur. Morbi eu dignissim tellus.
-                          Phasellus dui tortor, pulvinar eget felis id, 
-                          dictum dapibus ligula.Lorem ipsum dolor sit 
-                          amet, consectetur.
+                          Spin the wheel with your finger or press 
+                          Spin to see your prize. Everyone’s a winner. 
+                          No purchase necessary. One free spin per Monday, 
+                          starting 12am EST - 11:59pm EST. Find your prize 
+                          in the Offers section of the app where you will 
+                          find instructions for redeeming. Prize expires the 
+                          following Sunday 11:59pm EST.
               </Text>
             </Image>
           </Modal>
