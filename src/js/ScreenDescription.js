@@ -21,9 +21,15 @@ const dataBlob = {
 };
 
 class ScreenWallet extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      prize: this.props.navigation.state.params.prize
+    }
 
+  }
   identifyPrize(){
-    switch (this.props.navigation.state.params.prize) {
+    switch (this.state.prize) {
       case 'shoes':
         return (
           <View>
@@ -113,22 +119,22 @@ class ScreenWallet extends Component {
         Object.keys(dataBlob)
     );
     //const state = this.props.navigation.state;
-    //const navigation = this.props.navigation;
+    const navigation = this.props.navigation;
     //const goBack = this.props.navigation;
-    const { state, navigate, goBack } = this.props.navigation;
+    const { state, navigate } = this.props.navigation;
     return (
       <Container style={{backgroundColor: 'white'}}>
         <View >
             {Platform.OS === 'ios' && <View style={styles.statusBar} />}
             <View style={styles.toolbarContainer} >
-                <TouchableOpacity onPress={() => goBack()}>
+                <TouchableOpacity onPress={() => console.log('???')}>
                     <Image style={styles.backImg} source={require('../img/back_arrow_black.png')} />
                 </TouchableOpacity>
                 <Text style={styles.titleText} >Offer Details</Text>
             </View>
         </View>
         <View>
-        { this.props.navigation.state.params.prize ? this.identifyPrize() : null }
+        { this.state.prize ? this.identifyPrize() : null }
         </View>
         <View style={{justifyContent: 'center', alignItems: 'center', borderBottomWidth: 1, borderBottomColor: '#D3D3D3', padding: 20}}>
           <TouchableHighlight style={{height: 30, width: 350, marginTop: 15, backgroundColor: '#CC0000', justifyContent: 'center', alignItems: 'center'}}

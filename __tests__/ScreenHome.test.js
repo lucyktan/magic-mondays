@@ -41,6 +41,6 @@ describe('ScreenHome', () => {
     	<ScreenHome navigation={navigation}/>
     );
     rendered.find('TouchableHighlight').first().props().onPress();    
-
+    
   });
 });
