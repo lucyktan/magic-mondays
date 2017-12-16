@@ -1,6 +1,6 @@
 import {View} from 'react-native';
 import React from 'react';
-import { configure, shallow } from 'enzyme';
+import { configure, shallow, mount } from 'enzyme';
 import ScreenWallet from '../src/js/ScreenWallet';
 import renderer from 'react-test-renderer';
 
@@ -25,3 +25,24 @@ describe('<ScreenWallet />', () => {
     expect(rendered).toMatchSnapshot();
   });
 });
+
+it('Presses to the next page', () => {
+
+  let navigation = {
+  state: {
+      key: 'id-1512512594799-2',
+      params: {
+      screen: 'Screen Wallet',
+      prize: 'shoe'
+    },
+      routeName: 'ScreenWallet',
+    },
+  navigate: jest.fn()
+  };
+  const rendered = mount(
+    <ScreenWallet navigation={navigation}/>
+  );
+  rendered.find('TouchableHighlight').first().props().onPress();    
+
+});
+
