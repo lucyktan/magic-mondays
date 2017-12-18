@@ -137,7 +137,7 @@ class ScreenWallet extends Component {
                activeTextStyle={{fontSize: 12, color: 'black'}}>
             <View style={{height: 200}}>
             <List>
-              <ListItem onPress={() => navigation.navigate("ScreenPrize", { screen: "Screen Prize" })}>
+              <ListItem onPress={() => navigation.navigate("ScreenPrize", { screen: "Screen Prize", prize: "beautybox" })}>
                 <Text style={{fontWeight: 'bold'}}>NEW! 
                   <Text style={{fontWeight: 'normal'}}> FRIENDS & FAMILY EVENT!{"\n"}
                       <Text style={{fontWeight: 'bold', color: '#CC0000'}}>EXTRA 30%, 25%, 15% OR 10% OFF!{"\n"}
