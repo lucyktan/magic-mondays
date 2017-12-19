@@ -27,9 +27,12 @@ const dataBlob = {
 
 
 class ScreenWallet extends Component {
-
+  constructor(props){
+    super(props);
+    this.state = {prize: this.props.navigation.state.params.prize};
+  }
   identifyPrize(){
-    switch (this.props.navigation.state.params.prize) {
+    switch (this.state.prize) {
       case 'shoes':
         return (
           <Text style={{fontWeight: 'bold'}}>50% OFF YOUR NEXT PURCHASE OF SHOES</Text>
@@ -116,9 +119,9 @@ class ScreenWallet extends Component {
                   </Text>
                 </Text>
               </ListItem>
-              <ListItem onPress={() => navigation.navigate("ScreenDescription", { screen: "Screen Description", prize: this.props.navigation.state.params.prize })}>
+              <ListItem onPress={() => navigation.navigate("ScreenDescription", { screen: "Screen Description", prize: this.state.prize })}>
                 <View>
-                  { this.props.navigation.state.params.prize ? this.identifyPrize() : null }
+                  { this.state.prize ? this.identifyPrize() : null }
                 </View>
               </ListItem>
             </List>
