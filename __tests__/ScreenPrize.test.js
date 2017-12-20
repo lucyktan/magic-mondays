@@ -12,7 +12,7 @@ jest.mock('NativeModules', () => {
 // import {Video} from 'expo';
 import ScreenPrize from '../src/js/ScreenPrize';
 
-import {configure, shallow, mount } from 'enzyme';
+import {shallow, mount } from 'enzyme';
 
 import renderer from 'react-test-renderer';
 
@@ -28,7 +28,7 @@ it('renders correctly', () => {
         routeName: 'ScreenPrize',
       }
     };
-  const tree = renderer.create(<ScreenPrize navigation={navigation} />).toJSON();
+  const tree = mount(<ScreenPrize navigation={navigation} />);
   expect(tree).toMatchSnapshot();
 });
 
@@ -53,5 +53,5 @@ it('renders correctly', () => {
     	<ScreenPrize navigation={navigation}/>
     );
     rendered.find('TouchableHighlight').first().props().onPress();    
-    
+    expect(navigation.navigate).toBeCalled();
   });

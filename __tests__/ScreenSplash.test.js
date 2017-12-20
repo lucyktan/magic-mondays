@@ -19,7 +19,8 @@ describe('Screen Splash', () => {
         user: 'prize'
   	  },
         routeName: 'ScreenSplash',
-      }
+      },
+    navigate: jest.fn()
     };
     const tree = renderer.create(<ScreenSplash navigation={navigation} />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -34,7 +35,8 @@ describe('Screen Splash', () => {
         user: 'prize'
   	  },
         routeName: 'ScreenSplash',
-      }
+      },
+    navigate: jest.fn()
     };
     const rendered = mount(
     	<ScreenSplash navigation={navigation}/>
@@ -57,7 +59,8 @@ describe('Screen Splash', () => {
         user: 'prize'
   	  },
         routeName: 'ScreenSplash',
-      }
+      },
+    navigate: jest.fn()
     };
     const rendered = mount(
     	<ScreenSplash navigation={navigation}/>
@@ -78,19 +81,37 @@ describe('Screen Splash', () => {
         user: 'prize'
   	  },
         routeName: 'ScreenSplash',
-      }
+      },
+      navigate: jest.fn()
+
     };
     const rendered = mount(
     	<ScreenSplash navigation={navigation}/>
     );
     expect(rendered.state('isChecked')).toEqual(false);
-    rendered.find('CheckBox').first().props().onChange();
-    // rendered.find('TouchableHighlight').forEach((child)=>{
-    //   console.log('ellO');
-    //   console.log(child);
-    // })
-  
-    rendered.find('TouchableHighlight').first().props().onPress();    
+    expect(rendered.setState({isChecked: true}));
+    rendered.find('TouchableHighlight').last().props().onPress();
+    expect(navigation.navigate).toBeCalled();
+  });
+  it('Doesnt press to the next page', () => {
 
+    let navigation = {
+    state: {
+        key: 'id-1512512594799-2',
+        params: {
+	      screen: 'Screen Splash',
+        user: 'prize'
+  	  },
+        routeName: 'ScreenSplash',
+      },
+      navigate: jest.fn()
+
+    };
+    const rendered = mount(
+    	<ScreenSplash navigation={navigation}/>
+    );
+    expect(rendered.state('isChecked')).toEqual(false);
+    rendered.find('TouchableHighlight').first().props().onPress();
+    expect(navigation.navigate).not.toBeCalled();
   });
 });
