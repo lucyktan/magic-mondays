@@ -145,12 +145,12 @@ const styles = StyleSheet.create({
   basicText: {
     backgroundColor: 'transparent',
     textShadowColor: 'black',
-    textShadowOffset: {width: -1, height: 1},
-    textShadowRadius: 4,
+    textShadowOffset: {width: -.5, height: .5},
+    textShadowRadius: 3,
     letterSpacing: 2,
     paddingTop: 5,
     color: 'white',
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center'
   },
