@@ -18,7 +18,7 @@ class ScreenGame extends Component {
       click: false,
       val: false,
       navigate: this.props.navigation.navigate,
-      isModalVisable: false,
+      isModalVisible: false,
       spinVal: 0,
       prize: 'shoe'
     };

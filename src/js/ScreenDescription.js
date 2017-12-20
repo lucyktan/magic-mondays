@@ -11,11 +11,6 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-const dataSource = new ListView.DataSource({
-    rowHasChanged: (r1, r2) => r1 !== r2,
-    sectionHeaderHasChanged : (s1, s2) => s1 !== s2
-});
-
 const dataBlob = {
   "List1": [{'id': '1'}, {'id': '2'}, {'id': '3'}]
 };
@@ -114,10 +109,6 @@ class ScreenWallet extends Component {
   };
 
   render() {
-    const listData = dataSource.cloneWithRowsAndSections(
-        dataBlob,
-        Object.keys(dataBlob)
-    );
     //const state = this.props.navigation.state;
     const navigation = this.props.navigation;
     //const goBack = this.props.navigation;
@@ -127,7 +118,7 @@ class ScreenWallet extends Component {
         <View >
             {Platform.OS === 'ios' && <View style={styles.statusBar} />}
             <View style={styles.toolbarContainer} >
-                <TouchableOpacity onPress={() => console.log('???')}>
+                <TouchableOpacity onPress={() => {}}>
                     <Image style={styles.backImg} source={require('../img/back_arrow_black.png')} />
                 </TouchableOpacity>
                 <Text style={styles.titleText} >Offer Details</Text>
@@ -138,11 +129,11 @@ class ScreenWallet extends Component {
         </View>
         <View style={{justifyContent: 'center', alignItems: 'center', borderBottomWidth: 1, borderBottomColor: '#D3D3D3', padding: 20}}>
           <TouchableHighlight style={{height: 30, width: 350, marginTop: 15, backgroundColor: '#CC0000', justifyContent: 'center', alignItems: 'center'}}
-            onPress={() => navigation.navigate("ScreenPrize", { screen: "Screen Prize" })}>
+            onPress={() => {}}>
             <Text style={{fontWeight: '600', fontSize: 12, color: 'white'}}>SHOP NOW</Text>
           </TouchableHighlight>
           <TouchableHighlight style={{height: 30, width: 350, marginTop: 10, backgroundColor: 'gray', justifyContent: 'center', alignItems: 'center'}}
-            onPress={() => navigation.navigate("ScreenPrize", { screen: "Screen Prize" })}>
+            onPress={() => {}}>
             <Text style={{fontWeight: '600', fontSize: 12, color: 'white'}}>REMOVE FROM WALLET</Text>
           </TouchableHighlight>
         </View>

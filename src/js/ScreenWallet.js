@@ -15,12 +15,6 @@ import {
 //Our Stuff
 import arrowImage from '../img/back_arrow_black.png';
 
-
-const dataSource = new ListView.DataSource({
-    rowHasChanged: (r1, r2) => r1 !== r2,
-    sectionHeaderHasChanged : (s1, s2) => s1 !== s2
-});
-
 const dataBlob = {
   "List1": [{'id': '1'}, {'id': '2'}, {'id': '3'}]
 };
@@ -73,10 +67,7 @@ class ScreenWallet extends Component {
   };
 
   render() {
-    const listData = dataSource.cloneWithRowsAndSections(
-        dataBlob,
-        Object.keys(dataBlob)
-    );
+    
     const state = this.props.navigation.state;
     const navigation = this.props.navigation;
 
@@ -140,7 +131,7 @@ class ScreenWallet extends Component {
                activeTextStyle={{fontSize: 12, color: 'black'}}>
             <View style={{height: 200}}>
             <List>
-              <ListItem onPress={() => navigation.navigate("ScreenPrize", { screen: "Screen Prize", prize: "beautybox" })}>
+              <ListItem>
                 <Text style={{fontWeight: 'bold'}}>NEW! 
                   <Text style={{fontWeight: 'normal'}}> FRIENDS & FAMILY EVENT!{"\n"}
                       <Text style={{fontWeight: 'bold', color: '#CC0000'}}>EXTRA 30%, 25%, 15% OR 10% OFF!{"\n"}
@@ -157,22 +148,6 @@ class ScreenWallet extends Component {
     );
   }
 }
-
-            // <ListView  style={{height: 100}}
-            //   dataSource={listData}
-
-            //     renderRow={(record) => 
-            //             <View>
-            //               <ListItem onPress={() => navigation.navigate("ScreenDescription", { screen: "Screen Screen  Description" })}>
-            //                 <View>
-            //                   <Text>{this.props.navigation.state.params.prize}{record.id}</Text>
-            //                 </View>
-            //               </ListItem>
-            //             </View>
-            //     }
-            //     renderLeftHiddenRow={item => null}
-            //     renderRightHiddenRow={(item) => null}
-            // />
 
 const screenWalletStyle = StyleSheet.create({
   container: {
@@ -211,9 +186,6 @@ const screenWalletStyle = StyleSheet.create({
       height: 24,
       backgroundColor: 0x00000044
   },
-  tabBackground: {
-   backgroundColor: (Platform.OS === 'ios')? '#FFFFFF' : '#FFFFFF'
- },
   toolbarContainer: {
       height: 56,
       backgroundColor: 'white',

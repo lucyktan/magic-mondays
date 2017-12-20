@@ -49,7 +49,7 @@ class ScreenSplash extends Component {
             containerStyle={styles.checkboxContainerStyle}
             checked={this.state.isChecked}
             onChange={this.checkbox}
-            {...console.log('Terms box checked', this.state.isChecked)}/>
+           />
             
           <View style={styles.buttonContainer}>
             { (this.state.isChecked) ? 
