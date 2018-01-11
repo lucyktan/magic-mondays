@@ -4,7 +4,7 @@ import {Dimensions,Animated,Easing,TouchableHighlight,Button,Image,StyleSheet, T
 //Our stuff
 import Wheel from './components/Wheel';
 import Modal from 'react-native-modal';
-import backgroundLogoImage from '../img/background-with-logo.png';
+import backgroundLogoImage from '../img/minimal-stripe-background.png';
 import backgroundImage from '../img/background-without-logo.png';
 import macysLogo from '../img/macys-logo-white.png';
 import tickerImage from '../img/Ticker.png';
@@ -40,32 +40,38 @@ class ScreenGame extends Component {
 
   done = (value) =>{
     var zone = Math.floor((360-(value % 360)) / 72);
+
     var reward = '';
     switch(zone){
       case 0:
         reward = 'beautybox';
+        description = 'beautybox';
         break;
       case 1:
-        reward = 'towels'
+        reward = 'towels';
+        description = 'towels';
         break;
       case 2:
-        reward = 'perfume'
+        reward = 'perfume';
+        description = 'perfume';
         break;
       case 3:
-        reward = 'giftcard'
+        reward = 'giftcard';
+        description = 'gifttext';
         break;
       case 4:
-        reward = 'shoes'
+        reward = 'shoes';
+        description = 'shoes';
         break;
     }
-    this.setState({click: false, val: true,prize: reward});
+    this.setState({click: false, val: true,prize: reward, text: description});
   }
 
   componentDidUpdate() {
     setTimeout( () => {
       if(this.state.val){
         this.setState({val: false});
-        this.state.navigate("ScreenPrize", {screen: "Screen Prize", prize: this.state.prize});
+        this.state.navigate("ScreenPrize", {screen: "Screen Prize", prize: this.state.prize, text: this.state.text});
       }
     }, 6900);
   }
@@ -81,37 +87,32 @@ class ScreenGame extends Component {
         <View style={styles.headerContainer}>    
           <Image style={styles.logoModalImage} source={macysLogo}></Image>
           <TouchableHighlight
-            
             onPress={() => {this._showModal()}}>
           <View style={styles.helpButton}>
-            <Text style={styles.buttonText}>Help! I'm so Confused!?!?</Text>
+            <Text style={styles.buttonText}>How To Play</Text>
           </View>
           </TouchableHighlight>
-
         </View>
           <Modal style={styles.modalContainer2} onBackdropPress = {this._hideModal} isVisible={this.state.isModalVisible}>
             <Image style={styles.modalImage} source={backgroundImage} >
             <Image style={styles.logoModalImage} source={macysLogo}></Image>
               <Text style={styles.titleText}>
-                          Lorem ipsum dolor sit amet, consectetur wer
-                          adipiscing elit. Morbi eu dignissim tellus. 
-                          Phasellus dui tortor, pulvinar eget felis id, 
-                          dictum dapibus ligula.Lorem ipsum dolor sit 
-                          amet, consectetur. Morbi eu dignissim tellus.
-                          Phasellus dui tortor, pulvinar eget felis id, 
-                          dictum dapibus ligula.Lorem ipsum dolor sit 
-                          amet, consectetur.
+                          Spin the wheel with your finger or press 
+                          Spin to see your prize. Everyone’s a winner. 
+                          No purchase necessary. One free spin per Monday, 
+                          starting 12am EST - 11:59pm EST. Find your prize 
+                          in the Offers section of the app where you will 
+                          find instructions for redeeming. Prize expires the 
+                          following Sunday 11:59pm EST.
               </Text>
             </Image>
           </Modal>
-          <View style={styles.wheelContainer}>
 
+          <View style={styles.wheelContainer}>
             <Wheel 
               onDone = {this.done}
               navigate = {navigate} buttonClick={this.state.click} />
-
             <Image source={tickerImage} resizeMode="contain" style={styles.ticker}/>
-
             <TouchableHighlight onPress={() => {this.handlePressSpin()}}>
               <View>
               <Image source={spinToWin2} style={styles.spinToWinStyle}/>
@@ -122,25 +123,19 @@ class ScreenGame extends Component {
     );
   }
 };
-
-
-
 const styles = StyleSheet.create({
-
   headerContainer: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     top: 100,
-
   },
   spinToWinStyle: {
-    width: 300,
+    width: 250,
     resizeMode: 'contain',
     top: -50
   },
-
   modalContainer2: {
     flex: 0.95,
     flexDirection: 'column',
@@ -149,7 +144,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   wheelContainer: {
-    flex: 1,
+    flex: 1.5,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
@@ -157,7 +152,7 @@ const styles = StyleSheet.create({
     marginBottom: 0,
   },
   ticker: {
-    top: -210,
+    top: -205,
     alignSelf:'center',
     position: 'absolute',
     height: 84, 
@@ -171,7 +166,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
-
   },
   logoModalImage: {
     flex: .25,
@@ -188,7 +182,6 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginRight: 10
   },
-
   backgroundImage: {
     flex: 0.5,
     flexDirection: 'column',
@@ -217,9 +210,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 25, 
     paddingVertical: 15,
-    marginTop: 80,
+    marginTop: 65,
     backgroundColor: 'white',
-
   },
   buttonLarge: {
     height: 50,
@@ -242,7 +234,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     fontSize: 18,
     borderColor: 'white',
-
   }
 });
 export default ScreenGame;
