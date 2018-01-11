@@ -46,11 +46,11 @@ class ScreenPrize extends Component {
     var imageMap = {beautybox: beautyBoxImage,shoes: shoesImage,perfume: perfumeImage,giftcard: giftcardImage,towels: towelImage}
     var prizeImage = imageMap[this.props.navigation.state.params.prize]; 
     var textMap = {
-      beautybox: 'BeautyBox Lorem ipsum dolor sit amet, consectetur weradipiscing elit. Morbi eu dignissim tellus.',
-      shoes: 'Shoes Lorem ipsum dolor sit amet, consectetur weradipiscing elit. Morbi eu dignissim tellus',
-      perfume: 'Clinique Lorem ipsum dolor sit amet, consectetur weradipiscing elit. Morbi eu dignissim tellus.',
-      giftcard: 'Giftcard Lorem ipsum dolor sit amet, consectetur weradipiscing elit. Morbi eu dignissim tellus.',
-      towels: 'Towels Lorem ipsum dolor sit amet, consectetur weradipiscing elit. Morbi eu dignissim tellus.'};
+      beautybox: 'You won a free one month subscription to Macy\'s Beauty Box service! Check back next week for more awesome prizes!',
+      shoes: 'You won an extra 10% off your next Shoes Deparment purchase! Check back next week for more awesome prizes!',
+      perfume: 'You won 10% off your next Clinique product purchase! Check back next week for more awesome prizes!',
+      giftcard: 'You won a $10 gift card to apply to your next purchase of $50 or more! Check back next week for more awesome prizes!',
+      towels: 'Buy any Michael Kors product and receive 15% off you purchase! Check back next week for more awesome prizes!'};
     var prizeText = textMap[this.props.navigation.state.params.prize]
 
     return (
