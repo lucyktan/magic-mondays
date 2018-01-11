@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    top: 40
+    top: 50
   },
   tc: {
     flex:1,

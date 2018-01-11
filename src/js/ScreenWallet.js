@@ -44,7 +44,7 @@ class ScreenWallet extends Component {
         return (
           <Text style={{fontWeight: 'bold'}}>NEW! 
             <Text style={{fontWeight: 'normal'}}> MACY'S MONDAYS OFFER!{"\n"}
-                <Text style={{fontWeight: 'bold', color: '#CC0000'}}>15% OFF ANY BED & BATH PURCHASE{"\n"}
+                <Text style={{fontWeight: 'bold', color: '#CC0000'}}>15% OFF ANY MICHAEL KORS PURCHASE{"\n"}
                   <Text style={{fontWeight: 'normal', fontSize: 10, color: 'black'}}>valid 1/22/2018 - 1/28/2018</Text>
                 </Text>
             </Text>
@@ -111,7 +111,7 @@ class ScreenWallet extends Component {
 
 
         <Tabs initialPage={0} tabBarUnderlineStyle={{height: 2, backgroundColor: '#CC0000'}}>
-          <Tab heading="RECENTLY ADDED" activeTabStyle={screenWalletStyle.tabBackground} tabStyle={screenWalletStyle.tabBackground} 
+          <Tab heading="RECENTLY ADDED" activeTabStyle={screenWalletStyle.tabBackground} tabStyle={screenWalletStyle.tabBackground}
                textStyle={{fontSize: 12, color: 'gray'}}
                activeTextStyle={{fontSize: 12, color: 'black'}}>
             <View style={{height: 200}}>
