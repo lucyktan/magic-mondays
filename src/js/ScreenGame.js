@@ -5,7 +5,7 @@ import {Dimensions,Animated,Easing,TouchableHighlight,Button,Image,StyleSheet, T
 import Wheel from './components/Wheel';
 import Modal from 'react-native-modal';
 import backgroundLogoImage from '../img/minimal-stripe-background.png';
-import backgroundImage from '../img/background-without-logo.png';
+import backgroundImage from '../img/background-without-logo-darker-modal.png';
 import macysLogo from '../img/macys-logo-white.png';
 import tickerImage from '../img/Ticker.png';
 import spinToWin from '../img/Spin-To-Win-Skinny.png';
@@ -40,6 +40,7 @@ class ScreenGame extends Component {
 
   done = (value) =>{
     var zone = Math.floor((360-(value % 360)) / 72);
+    // var zone = Math.floor((360 - (3210 % 360 )) / 72);
 
     var reward = '';
     switch(zone){
@@ -98,8 +99,8 @@ class ScreenGame extends Component {
             <Image style={styles.logoModalImage} source={macysLogo}></Image>
               <Text style={styles.titleText}>
                           Spin the wheel with your finger or press 
-                          Spin to see your prize. Everyone’s a winner. 
-                          No purchase necessary. One free spin per Monday, 
+                          Spin to Win to see your prize. Everyone wins. 
+                          No purchase necessary. One free spin per week, 
                           starting 12am EST - 11:59pm EST. Find your prize 
                           in the Offers section of the app where you will 
                           find instructions for redeeming. Prize expires the 
@@ -141,7 +142,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 0,
   },
   wheelContainer: {
     flex: 1.5,
@@ -168,19 +169,20 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   logoModalImage: {
-    flex: .25,
+    flex: .5,
     marginTop: 0,
     resizeMode: 'contain',
-    marginBottom: 20
+    marginBottom: 0,
   },
   titleText: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: 'bold',
     flexWrap: 'wrap',
-    color: 'black',
-    marginLeft: 10,
+    color: 'white',
+    marginLeft: 15,
     marginTop: 15,
-    marginRight: 10
+    marginRight: 15,
+    lineHeight: 25,
   },
   backgroundImage: {
     flex: 0.5,
