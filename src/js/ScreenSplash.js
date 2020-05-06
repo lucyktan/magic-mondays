@@ -54,6 +54,13 @@ class ScreenSplash extends Component {
           <Image style={styles.logo} source={logo}/>
           <Text style={styles.basicText}>Play now to unlock your prize!</Text>
           <Image style={styles.image} source={ mainImage }/>
+          
+            <TouchableHighlight style={{flex: 1, justifyContent: 'center', paddingBottom: 0}} onPress={() => navigate("ScreenGame", {screen: "Screen Game"})}>
+              <View>
+              <Image source={tc} style={styles.tc}/>
+              </View>  
+            </TouchableHighlight>
+        
 
          <View style={styles.checkboxterms}> 
           <CheckBox
